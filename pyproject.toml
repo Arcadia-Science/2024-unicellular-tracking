@@ -1,11 +1,26 @@
-[project]
-name = "TODO: Tool name"
-description = "TODO: Tool description"
-version = "0.0.0"
-readme = "README.md"
-requires-python = ">=3.9"
-license = { file = "LICENSE" }
+[build-system]
+requires = ["setuptools", "setuptools-scm[toml]"]
+build-backend = "setuptools.build_meta"
 
+[project]
+name = "chlamytracker"
+version = "0.1"
+dynamic = ["version"]
+description = "Image analysis workflows for tracking unicellular organisms"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Ryan Lane", email = "ryan.lane@arcadiascience.com" },
+]
+dependencies = [
+  "nd2==0.8.1",
+  "numpy==1.26.0",
+  "scikit-image==0.22.0",
+]
+
+[project.scripts]
+extract-pools = "chlamytracker.scripts.extract_pools:main"
 
 [tool.ruff]
 # The directories to consider when resolving first- vs. third-party imports

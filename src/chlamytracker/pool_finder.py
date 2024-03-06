@@ -1,8 +1,8 @@
+import nd2
 import numpy as np
 import skimage as ski
-import nd2
 
-from .pool_processor import Pool
+from .pool_processor import MicrochamberPoolProcessor
 from .utils import timeit
 
 
@@ -217,10 +217,10 @@ class PoolFinder:
         self.preprocessed = True
         self.proj = image_rescaled
         self.mask = mask
-    
+
     def detect_pools(self):
         """Run Hough transform on preprocessed timelapse to detect pools.
-        
+
         This is a first pass at detecting pools using a Hough transform [1]
         to detect circles of a given range of radii.
 
@@ -282,7 +282,7 @@ class PoolFinder:
         # define a function for validating the model returned by RANSAC
         def validate_model(model, src, dst):
             """Validate RANSAC model.
-            
+
             The Similarity transformation for inferring the coordinates of
             the non-detected pools should have a scale approximately equal
             to the distance (in pixels) between each pool. Therefore reject
@@ -330,7 +330,7 @@ class PoolFinder:
 
         self.model = model
         return model, inliers
-    
+
     @timeit
     def find_pools(self):
         """Detect and extrapoolate pool locations."""
@@ -340,7 +340,7 @@ class PoolFinder:
         model, inliers = self.extrapoolate(centers)
         # NOTE: unfortunately cannot trust inliers here since
         #   mapping of pools to grid locations is not well defined -- same
-        #   caveat as mentioned in `extrapoolate` (pools do not have a 
+        #   caveat as mentioned in `extrapoolate` (pools do not have a
         #   predictable/consistent layout from image to image)
 
         # loop through detected pool locations to update the poolmap
@@ -371,7 +371,7 @@ class PoolFinder:
 
         # extract pools
         pools = {}
-        for (ix, iy), ((cx, cy), status) in self.poolmap.items():
+        for (ix, iy), ((cx, cy), _status) in self.poolmap.items():
 
             # crop to pool (+1 pixel margin)
             try:
@@ -385,7 +385,7 @@ class PoolFinder:
                 continue
 
             # create pool and optionally process it for cell tracking
-            pool = Pool(pool_stack)
+            pool = MicrochamberPoolProcessor(pool_stack)
             if preprocess:
                 pool.preprocess(remove_stationary_objects=True)
             if segment:
@@ -435,7 +435,7 @@ class PoolFinder:
 
         # convert to 8bit rgb image
         sketch = ski.color.gray2rgb((0.7*255*self.mask).astype(np.ubyte))
-        for (ix, iy), ((cx, cy), status) in self.poolmap.items():
+        for (_ix, _iy), ((cx, cy), status) in self.poolmap.items():
             # annotate circle outline
             rr, cc = ski.draw.circle_perimeter(
                 r=cy,

@@ -1,4 +1,4 @@
-from multiprocessing import Pool as MultiprocessingPool
+from multiprocessing import Pool
 
 import numpy as np
 import skimage as ski
@@ -6,7 +6,7 @@ import skimage as ski
 from .utils import timeit
 
 
-class Pool:
+class MicrochamberPoolProcessor:
     """A 3D image stack representation of an agar microchamber pool.
 
     Parameters
@@ -39,7 +39,6 @@ class Pool:
         blur=4,
         r_median=4,
     ):
-        # initialize Pool attributes
         self.stack_raw = stack
         self.blur = blur
         self.r_median = r_median
@@ -154,7 +153,7 @@ def median_filter_3d_parellel(
     footprint = ski.morphology.disk(r_disk)
     footprints = [footprint]*stack.shape[0]
     # run median filter in parallel
-    with MultiprocessingPool(n_workers) as ws:
+    with Pool(n_workers) as ws:
         out = ws.starmap(ski.filters.median, zip(stack, footprints, strict=False))
 
     return np.array(out)

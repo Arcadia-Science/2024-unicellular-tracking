@@ -19,8 +19,8 @@ class MicrochamberPoolProcessor:
 
     Attributes
     ----------
-    preprocessed : bool
-    segmented : bool
+    is_preprocessed : bool
+    is_segmented : bool
     stack_raw : (Z, Y, X) array
         Raw (unprocessed) image stack.
     stack_prp : (Z, Y, X) array
@@ -39,12 +39,13 @@ class MicrochamberPoolProcessor:
         blur=4,
         r_median=4,
     ):
+
         self.stack_raw = stack
         self.blur = blur
         self.r_median = r_median
 
-        self.preprocessed = False
-        self.segmented = False
+        self.is_preprocessed = False
+        self.is_segmented = False
 
     @timeit
     def preprocess(
@@ -120,16 +121,16 @@ class MicrochamberPoolProcessor:
                 pool_rescaled, 0, pool_rescaled.max()
             )
 
-        self.preprocessed = True
+        self.is_preprocessed = True
         self.stack_prp = pool_rescaled
 
     def segment(self):
         """Segment cells in preprocessed pool for tracking."""
 
-        # if not self.preprocessed:
+        # if not self.is_preprocessed:
         #     self.preprocess(remove_stationary_objects=True)
 
-        # self.segmented = True
+        # self.is_segmented = True
         # self.stack_seg = ...
 
         msg = "Robust segmentation is still in the works..."

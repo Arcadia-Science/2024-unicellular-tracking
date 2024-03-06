@@ -1,14 +1,14 @@
-from multiprocessing import Pool as Workers
+from multiprocessing import Pool as MultiprocessingPool
+
 import numpy as np
 import skimage as ski
-import scipy.ndimage as ndi
 
 from .utils import timeit
 
 
 class Pool:
     """A 3D image stack representation of an agar microchamber pool.
-    
+
     Parameters
     ----------
     stack : (Z, Y, X) array
@@ -142,7 +142,7 @@ def median_filter_3d_parellel(
     r_disk=4,
     n_workers=6
 ):
-    """Apply median filter to every image in a stack along the first axis 
+    """Apply median filter to every image in a stack along the first axis
     (in parallel).
 
     Notes
@@ -154,7 +154,7 @@ def median_filter_3d_parellel(
     footprint = ski.morphology.disk(r_disk)
     footprints = [footprint]*stack.shape[0]
     # run median filter in parallel
-    with Workers(n_workers) as ws:
-        out = ws.starmap(ski.filters.median, zip(stack, footprints))
+    with MultiprocessingPool(n_workers) as ws:
+        out = ws.starmap(ski.filters.median, zip(stack, footprints, strict=False))
 
     return np.array(out)

@@ -67,7 +67,8 @@ def plot_extracted_pools(finder):
         image = pool.stack_raw.std(axis=0)
         ax = fig.add_subplot(gs[i//4 + 2, i % 4])
         ax.imshow(image, cmap="Greys_r")
-        ax.set_title(f"Pool ({ix}, {iy})")
+        title = f"Pool ({ix}, {iy})\nHas cells: {pool.has_cells()}"
+        ax.set_title(title)
 
         # annotate projection image
         center = finder.poolmap[(ix, iy)][0]

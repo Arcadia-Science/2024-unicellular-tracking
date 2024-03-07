@@ -56,6 +56,28 @@ class MicrochamberPoolProcessor:
         self.is_preprocessed = False
         self.is_segmented = False
 
+    def has_cells(self, contrast_threshold=0.05):
+        """Determine whether pool contains cells.
+
+        Determination is based on the amount of contrast in the standard
+        deviation projection, using the variance of intensity values as a proxy
+        for contrast.
+
+        TODO: more robust testing as this has only been tested on a small
+              number of test images
+        """
+        # get dtype limits for normalization
+        # (0, 65535) is expected but safer to check
+        dtype_limit_max = max(ski.util.dtype_limits(self.stack_raw))
+
+        # compute the standard deviation projection
+        std_intensity_projection = self.stack_raw.std(axis=0)
+
+        # use variance of intensity as measure of contrast
+        normalized_contrast = std_intensity_projection.var() / dtype_limit_max
+
+        return normalized_contrast > contrast_threshold
+
     @timeit
     def preprocess(self, remove_stationary_objects=True):
         """Preprocess pool for cell tracking.

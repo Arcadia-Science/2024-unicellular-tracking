@@ -62,7 +62,7 @@ def plot_extracted_pools(finder):
     # plot first 8 pools
     for i, ((ix, iy), pool) in enumerate(finder.pools.items()):
 
-        # compute mean projection of pool and plot
+        # compute std projection of pool and plot
         nz, *_ = pool.stack_raw.shape
         image = pool.stack_raw.std(axis=0)
         ax = fig.add_subplot(gs[i//4 + 2, i % 4])

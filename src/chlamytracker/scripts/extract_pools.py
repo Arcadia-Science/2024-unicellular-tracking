@@ -1,16 +1,17 @@
-from pathlib import Path
+import click
+from chlamytracker import cli_options
+from chlamytracker.pool_finder import PoolFinder
 from natsort import natsorted
 from tqdm import tqdm
-import skimage as ski
-
-from chlamytracker.pool_finder import PoolFinder
 
 
+@cli_options.data_dir_option
+@click.command()
 def main(dir_data):
-    """Wrapper for PoolFinder.extract_pools()"""
+    """Wrapper for PoolFinder.extract_pools() and PoolFinder.export_pools()"""
 
     # glob all the nd2 files in directory
-    fps_nd2 = natsorted(dir_data.glob("*/*.nd2"))
+    fps_nd2 = natsorted(dir_data.glob("*.nd2"))
     if not fps_nd2:
         raise ValueError(f"No .nd2 files found in {dir_data}")
 
@@ -19,27 +20,25 @@ def main(dir_data):
 
         # find and extract pools
         try:
-            finder = PoolFinder(fp)
-            finder.extract_pools()
-        # skip over failures caused by 
+            finder = PoolFinder(
+                filepath=fp,
+                pool_radius_um=50,
+                pool_spacing_um=200
+            )
+        # skip over failures caused by
         # > corrupt nd2 files
-        # > when extrapoolation fails due to < 3 detected pools
+        # > when extrapolation fails due to < 3 detected pools
         except ValueError as err:
             msg = f"Processing for {finder.filepath} failed:"
             print(msg, err)
             continue
 
-        # save output
+        # extract pools and save output
+        finder.extract_pools()
         finder.make_debug_sketch()
+        finder.preprocess_pools()
         finder.export_pools()
 
 
 if __name__ == "__main__":
-
-    dirs_data = {
-        "2024-01-26": Path("/Users/ryanlane/Projects/chlamy_motility/data/2024-01-26/"),
-        "2024-02-21": Path("/Volumes/Microscopy/Babu_frik/RyanL/2024-02-21/"),
-        "2024-02-23": Path("/Users/ryanlane/Projects/chlamy_motility/data/2024-02-23/")
-    }
-
-    main(dirs_data["2024-01-26"])
+    main()

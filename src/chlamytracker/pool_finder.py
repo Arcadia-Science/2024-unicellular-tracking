@@ -408,20 +408,23 @@ class PoolFinder:
             dir_out = self.filepath.parent / "processed"
 
         # loop through (already processed) pools and save as tiffs
+        # TODO: check that pools have been preprocessed
         for (ix, iy), pool in self.pools.items():
 
-            # TODO: determine way to choose which stack from the pool to save
-            # convert to 8bit
-            pool_8bit = ski.exposure.rescale_intensity(
-                pool.stack_preprocessed,
-                in_range=(0, 1),
-                out_range=(0, 255)
-            ).astype(np.ubyte)
+            # only export pools with cells
+            if pool.has_cells():
 
-            # include pool x, y indices in filename
-            tgt = dir_out / self.filepath.stem / f"pool_{ix:02d}_{iy:02d}.tiff"
-            tgt.parent.mkdir(exist_ok=True, parents=True)
-            ski.io.imsave(tgt, pool_8bit)
+                # convert to 8bit
+                pool_8bit = ski.exposure.rescale_intensity(
+                    pool.stack_preprocessed,
+                    in_range=(0, 1),
+                    out_range=(0, 255)
+                ).astype(np.ubyte)
+
+                # include pool x, y indices in filename
+                tgt = dir_out / self.filepath.stem / f"pool_{ix:02d}_{iy:02d}.tiff"
+                tgt.parent.mkdir(exist_ok=True, parents=True)
+                ski.io.imsave(tgt, pool_8bit)
 
     def make_debug_sketch(self, save=True, dir_out=None):
         """Annotates the detected pools for debugging purposes."""

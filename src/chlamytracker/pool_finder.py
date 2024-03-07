@@ -54,16 +54,15 @@ class PoolFinder:
     """
 
     def __init__(
-            self,
-            filepath,
-            pool_radius_um,
-            pool_spacing_um,
-            hough_threshold=0.2,
-            median_filter_radius=2,
-            tophat_filter_radius=5,
-            min_object_size=500,
-        ):
-
+        self,
+        filepath,
+        pool_radius_um,
+        pool_spacing_um,
+        hough_threshold=0.2,
+        median_filter_radius=2,
+        tophat_filter_radius=5,
+        min_object_size=500,
+    ):
         # check that nd2 file is valid
         self.filepath = filepath
         self._validate()
@@ -95,7 +94,7 @@ class PoolFinder:
         #   raising an IndexError for pools that are found to be out of bounds.
         nx = int(np.ceil(self.Nx / self.pool_spacing_px))
         ny = int(np.ceil(self.Ny / self.pool_spacing_px))
-        self.grid = np.mgrid[-1:nx+1, -1:ny+1].reshape(2, -1).T
+        self.grid = np.mgrid[-1 : nx + 1, -1 : ny + 1].reshape(2, -1).T
         self.poolmap = dict.fromkeys([(ix, iy) for (ix, iy) in self.grid])
 
         # load data from nd2 file
@@ -168,10 +167,7 @@ class PoolFinder:
         tproj = self.stack.mean(axis=0)
 
         # apply edge-preserving smoothing filter
-        tproj_smooth = ski.filters.median(
-            tproj,
-            footprint=footprint_median_filter
-        )
+        tproj_smooth = ski.filters.median(tproj, footprint=footprint_median_filter)
 
         # clip intensity range (auto- brightness/contrast)
         # NOTE: normally would set intensity range for auto- brightness/contrast
@@ -182,21 +178,16 @@ class PoolFinder:
         #       answers here...
         med = np.median(tproj_smooth)
         std = tproj_smooth.std()
-        vmin, vmax = (med - 2*std, med + 2*std)
-        tproj_rescaled = ski.exposure.rescale_intensity(
-            tproj_smooth,
-            in_range=(vmin, vmax)
-        )
+        vmin, vmax = (med - 2 * std, med + 2 * std)
+        tproj_rescaled = ski.exposure.rescale_intensity(tproj_smooth, in_range=(vmin, vmax))
         # tophat filter
         tproj_pool_edges = ski.morphology.white_tophat(
-            image=tproj_rescaled,
-            footprint=footprint_tophat_filter
+            image=tproj_rescaled, footprint=footprint_tophat_filter
         )
         # create rough mask on edges of the pools
         thresh = ski.filters.threshold_otsu(tproj_pool_edges)
         pool_edges = ski.morphology.remove_small_objects(
-            tproj_pool_edges > thresh,
-            min_size=self.min_object_size
+            tproj_pool_edges > thresh, min_size=self.min_object_size
         )
 
         self.is_preprocessed = True
@@ -221,34 +212,29 @@ class PoolFinder:
         #   a 10px range around the expected radius was found to work empirically
         #   defining the range of radii in this way ensures a +/-5 window around
         #   the expected radius
-        r_hough = range(
-            round(self.pool_radius_px) - 5,
-            round(self.pool_radius_px) + 6,
-            2
-        )
+        r_hough = range(round(self.pool_radius_px) - 5, round(self.pool_radius_px) + 6, 2)
 
         # set minimum search distance between adjacent circles
         d_min = int(0.9 * self.pool_spacing_px)
 
         # apply circular Hough transform
-        hspaces = ski.transform.hough_circle(
-            self.pool_edges,
-            r_hough
-        )
+        hspaces = ski.transform.hough_circle(self.pool_edges, r_hough)
         hough_peaks = ski.transform.hough_circle_peaks(
             hspaces=hspaces,
             radii=r_hough,
             min_xdistance=d_min,
             min_ydistance=d_min,
             total_num_peaks=self.max_num_pools,
-            threshold=self.hough_threshold
+            threshold=self.hough_threshold,
         )
 
         # unpack Hough peaks
-        centers = np.stack([
-            hough_peaks[1],  # x coordinates
-            hough_peaks[2]   # y coordinates
-        ]).T
+        centers = np.stack(
+            [
+                hough_peaks[1],  # x coordinates
+                hough_peaks[2],  # y coordinates
+            ]
+        ).T
 
         return centers
 
@@ -294,8 +280,10 @@ class PoolFinder:
         # minimum number of points required to fit a Similarity tranformation
         min_samples = 3
         if len(centers) < min_samples:
-            err = (f"Unable to extrapolate pool locations from only "
-                   f"{len(centers)} detected pools ({min_samples} needed).")
+            err = (
+                f"Unable to extrapolate pool locations from only "
+                f"{len(centers)} detected pools ({min_samples} needed)."
+            )
             raise ValueError(err)
 
         # bin the coordinates of the detected pools into cells of a grid
@@ -311,11 +299,7 @@ class PoolFinder:
         pct_diff = 0.05
         min_scale = (1 - pct_diff) * self.pool_spacing_px
         max_scale = (1 + pct_diff) * self.pool_spacing_px
-        is_model_valid = partial(
-            validate_model,
-            min_scale=min_scale,
-            max_scale=max_scale
-        )
+        is_model_valid = partial(validate_model, min_scale=min_scale, max_scale=max_scale)
 
         # use RANSAC to find the linear transformation (w/o shear) that
         # maps the grid indices to the coordinates of the detected pools
@@ -325,7 +309,7 @@ class PoolFinder:
             min_samples=min_samples,
             residual_threshold=10,
             max_trials=500,
-            is_model_valid=is_model_valid
+            is_model_valid=is_model_valid,
         )
         self.model = model
 
@@ -342,20 +326,19 @@ class PoolFinder:
         self.extrapolate_pool_locations(centers)
 
         # map grid indices to extrapolated coordinates with `extrapolated` status
-        for (ix, iy) in self.grid:
+        for ix, iy in self.grid:
             cx, cy = self.model((ix, iy)).ravel().round().astype(int)
             self.poolmap[(ix, iy)] = [(cx, cy), "extrapolated"]
 
         # loop through detected pool locations to update the poolmap
         detected_grid_coords = self.model.inverse(centers).round()
         for i, (ix, iy) in enumerate(detected_grid_coords):
-
             # measure the distance between the detected location and the
             # estimated location for outlier detection
             cx, cy = self.poolmap[(ix, iy)][0]
             measured_residuals = self.model.residuals(
                 (ix, iy),  # detected
-                (cx, cy)   # extrapolated
+                (cx, cy),  # extrapolated
             ).item()
 
             # overwrite extrapolated locations with detected locations if
@@ -373,13 +356,10 @@ class PoolFinder:
         # extract pools
         pools = {}
         for (ix, iy), ((cx, cy), _status) in self.poolmap.items():
-
             # crop to pool (+1 pixel margin)
             try:
                 pool_stack = crop_out_prism(
-                    stack=self.stack,
-                    center=(cx, cy),
-                    radius=self.pool_radius_px + 1
+                    stack=self.stack, center=(cx, cy), radius=self.pool_radius_px + 1
                 )
             # pool extends beyond image border --> skip
             except IndexError:
@@ -410,15 +390,11 @@ class PoolFinder:
         # loop through (already processed) pools and save as tiffs
         # TODO: check that pools have been preprocessed
         for (ix, iy), pool in self.pools.items():
-
             # only export pools with cells
             if pool.has_cells():
-
                 # convert to 8bit
                 pool_8bit = ski.exposure.rescale_intensity(
-                    pool.stack_preprocessed,
-                    in_range=(0, 1),
-                    out_range=(0, 255)
+                    pool.stack_preprocessed, in_range=(0, 1), out_range=(0, 255)
                 ).astype(np.ubyte)
 
                 # include pool x, y indices in filename
@@ -431,27 +407,20 @@ class PoolFinder:
 
         colormap = {
             "inlier": (20, 255, 255),  # cyan
-            "outlier": (255, 150, 20), # orange
-            "extrapolated": (20, 255, 20)  # green
+            "outlier": (255, 150, 20),  # orange
+            "extrapolated": (20, 255, 20),  # green
         }
 
         # convert to 8bit rgb image
-        sketch = ski.color.gray2rgb((0.7*255*self.pool_edges).astype(np.ubyte))
+        sketch = ski.color.gray2rgb((0.7 * 255 * self.pool_edges).astype(np.ubyte))
         for (_ix, _iy), ((cx, cy), status) in self.poolmap.items():
             # annotate circle outline
             rr, cc = ski.draw.circle_perimeter(
-                r=cy,
-                c=cx,
-                radius=int(self.pool_radius_px),
-                shape=sketch.shape
+                r=cy, c=cx, radius=int(self.pool_radius_px), shape=sketch.shape
             )
             sketch[rr, cc] = colormap[status]
             # annotate circle center
-            rr, cc = ski.draw.disk(
-                center=(cy, cx),
-                radius=6,
-                shape=sketch.shape
-            )
+            rr, cc = ski.draw.disk(center=(cy, cx), radius=6, shape=sketch.shape)
             sketch[rr, cc] = colormap[status]
 
         # save debug image to disk

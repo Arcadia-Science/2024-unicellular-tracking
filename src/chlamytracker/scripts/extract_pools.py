@@ -17,14 +17,10 @@ def main(dir_data):
 
     # loop through nd2 files for processing
     for fp in tqdm(fps_nd2[:7]):
-
         # find and extract pools
         try:
-            finder = PoolFinder(
-                filepath=fp,
-                pool_radius_um=50,
-                pool_spacing_um=200
-            )
+            finder = PoolFinder(filepath=fp, pool_radius_um=50, pool_spacing_um=200)
+
         # skip over failures caused by
         # > corrupt nd2 files
         # > when extrapolation fails due to < 3 detected pools

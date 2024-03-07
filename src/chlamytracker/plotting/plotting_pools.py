@@ -5,17 +5,9 @@ from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.patches import Rectangle
 
 
-def plot_stack_as_cartoon(
-    stack,
-    skip=20,
-    figsize=(8, 8)
-):
+def plot_stack_as_cartoon(stack, skip=20, figsize=(8, 8)):
     """Plot every `skip` frames of `stack` like cartoon panels."""
-    cartoon = ski.util.montage(
-        stack[::skip],
-        padding_width=4,
-        fill=0
-    )
+    cartoon = ski.util.montage(stack[::skip], padding_width=4, fill=0)
     fig, ax = plt.subplots(figsize=figsize)
     ax.imshow(cartoon, cmap="Greys_r")
     ax.set_axis_off()
@@ -41,10 +33,7 @@ def plot_extracted_pools(finder):
     # create figure with `matplotlib.GridSpec`
     ncols = 4
     nrows = 4
-    fig = plt.figure(
-        constrained_layout=True,
-        figsize=(2*ncols, 2*nrows)
-    )
+    fig = plt.figure(constrained_layout=True, figsize=(2 * ncols, 2 * nrows))
     fig.suptitle(finder.filepath.stem)
     gs = fig.add_gridspec(
         nrows=nrows,
@@ -61,11 +50,10 @@ def plot_extracted_pools(finder):
 
     # plot first 8 pools
     for i, ((ix, iy), pool) in enumerate(finder.pools.items()):
-
         # compute std projection of pool and plot
         nz, *_ = pool.stack_raw.shape
         image = pool.stack_raw.std(axis=0)
-        ax = fig.add_subplot(gs[i//4 + 2, i % 4])
+        ax = fig.add_subplot(gs[i // 4 + 2, i % 4])
         ax.imshow(image, cmap="Greys_r")
         title = f"Pool ({ix}, {iy})\nHas cells: {pool.has_cells()}"
         ax.set_title(title)
@@ -73,14 +61,11 @@ def plot_extracted_pools(finder):
         # annotate projection image
         center = finder.poolmap[(ix, iy)][0]
         rect = Rectangle(
-            xy=(
-                center[0] - finder.pool_radius_px,
-                center[1] - finder.pool_radius_px
-            ),
-            width=2*finder.pool_radius_px,
-            height=2*finder.pool_radius_px,
+            xy=(center[0] - finder.pool_radius_px, center[1] - finder.pool_radius_px),
+            width=2 * finder.pool_radius_px,
+            height=2 * finder.pool_radius_px,
             facecolor="none",
-            edgecolor="#22ffff"
+            edgecolor="#22ffff",
         )
 
         # annotate pools in mean intensity projection image
@@ -91,7 +76,7 @@ def plot_extracted_pools(finder):
             s=f"({ix}, {iy})",
             color="#22ffff",
             ha="center",
-            va="bottom"
+            va="bottom",
         )
 
         # increment and stop condition
@@ -104,15 +89,15 @@ def get_neon_cmap():
     """Create a colormap with super bright colors above a black background."""
     # bright colors
     base_colors = [
-        '#000000',  # black
-        '#ff99aa',  # pink
-        '#ffcc00',  # orange
-        '#ffff00',  # yellow
-        '#00ff00',  # green
-        '#00ddff',  # cyan
+        "#000000",  # black
+        "#ff99aa",  # pink
+        "#ffcc00",  # orange
+        "#ffff00",  # yellow
+        "#00ff00",  # green
+        "#00ddff",  # cyan
     ]
     # create matplotlib colormap from colors
-    weights = [0] + np.linspace(0, 1, len(base_colors)-1).tolist()
+    weights = [0] + np.linspace(0, 1, len(base_colors) - 1).tolist()
     weighted_colors = list(zip(weights, base_colors, strict=False))
     cmap = LinearSegmentedColormap.from_list("neon", weighted_colors)
     return cmap

@@ -52,7 +52,7 @@ def plot_extracted_pools(finder):
     )
 
     ax_proj = fig.add_subplot(gs[:2, :2])
-    ax_proj.imshow(finder.proj, cmap="Greys_r")
+    ax_proj.imshow(finder.mean_intensity_projection, cmap="Greys_r")
 
     # plot debug image
     dbug = finder.make_debug_sketch()
@@ -72,23 +72,28 @@ def plot_extracted_pools(finder):
         # annotate projection image
         center = finder.poolmap[(ix, iy)][0]
         rect = Rectangle(
-            xy=(center[0] - finder.r_pool, center[1] - finder.r_pool),
-            width=2*finder.r_pool,
-            height=2*finder.r_pool,
+            xy=(
+                center[0] - finder.pool_radius_px,
+                center[1] - finder.pool_radius_px
+            ),
+            width=2*finder.pool_radius_px,
+            height=2*finder.pool_radius_px,
             facecolor="none",
             edgecolor="#22ffff"
         )
+
+        # annotate pools in mean intensity projection image
         ax_proj.add_patch(rect)
         ax_proj.text(
             x=center[0],
-            y=center[1] - finder.r_pool - 2,
+            y=center[1] - finder.pool_radius_px - 2,
             s=f"({ix}, {iy})",
             color="#22ffff",
             ha="center",
             va="bottom"
         )
 
-        # increment
+        # increment and stop condition
         i += 1
         if i > 7:
             break

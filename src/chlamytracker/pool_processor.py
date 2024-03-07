@@ -32,7 +32,6 @@ class MicrochamberPoolProcessor:
     Methods
     -------
     preprocess()
-    segment()
 
     Notes
     -----

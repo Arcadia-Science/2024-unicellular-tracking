@@ -18,7 +18,7 @@ def main(data_dir, pool_radius_um, pool_spacing_um):
         raise ValueError(f"No .nd2 files found in {data_dir}")
 
     # loop through nd2 files for processing
-    for fp in tqdm(fps_nd2[:7]):
+    for fp in tqdm(fps_nd2):
         # find and extract pools
         try:
             finder = PoolFinder(

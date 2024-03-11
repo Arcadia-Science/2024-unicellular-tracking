@@ -3,10 +3,10 @@ from pathlib import Path
 import click
 
 data_dir_option = click.option(
-    "--data-dir", "data_dir", type=Path, help="Path to the data directory"
+    "--data-dir", "data_dir", type=Path, help="Path to the data directory."
 )
 data_file_option = click.option(
-    "--filename", "filepath", type=Path, help="Path to the file location"
+    "--filename", "filepath", type=Path, help="Path to the file location."
 )
 
 pool_radius_um_option = click.option(

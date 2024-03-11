@@ -5,9 +5,9 @@ from natsort import natsorted
 from tqdm import tqdm
 
 
-@cli_options.data_dir_option
-@cli_options.pool_radius_um_option
 @cli_options.pool_spacing_um_option
+@cli_options.pool_radius_um_option
+@cli_options.data_dir_option
 @click.command()
 def main(data_dir, pool_radius_um, pool_spacing_um):
     """Wrapper for PoolFinder.extract_pools() and PoolFinder.export_pools()"""

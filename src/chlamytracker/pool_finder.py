@@ -386,7 +386,7 @@ class PoolFinder:
         """Apply MicrochamberPoolProcessor.segment() to each pool."""
         # segment each pool and update collection
         for (ix, iy), pool in self.pools.items():
-            pool.segment()
+            pool.segment(min_object_size=self.min_object_size)
             self.pools[(ix, iy)] = pool
 
     @timeit

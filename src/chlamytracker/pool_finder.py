@@ -382,6 +382,13 @@ class PoolFinder:
             pool.preprocess()
             self.pools[(ix, iy)] = pool
 
+    def segment_pools(self):
+        """Apply MicrochamberPoolProcessor.segment() to each pool."""
+        # segment each pool and update collection
+        for (ix, iy), pool in self.pools.items():
+            pool.segment()
+            self.pools[(ix, iy)] = pool
+
     @timeit
     def export_pools(self, dir_out=None):
         """Export processed pools to disk as 8bit tiff stacks."""
@@ -390,14 +397,14 @@ class PoolFinder:
         if dir_out is None:
             dir_out = self.filepath.parent / "processed"
 
-        # loop through (already processed) pools and save as tiffs
-        # TODO: check that pools have been preprocessed
+        # loop through pools and save as uint8 tiffs
+        # TODO: how to select which stack to export without hardcoding?
         for (ix, iy), pool in self.pools.items():
             # only export pools with cells
             if pool.has_cells():
                 # convert to 8bit
                 pool_8bit = ski.exposure.rescale_intensity(
-                    pool.stack_preprocessed, in_range=(0, 1), out_range=(0, 255)
+                    pool.stack_segmented, in_range=(0, 1), out_range=(0, 255)
                 ).astype(np.ubyte)
 
                 # include pool x, y indices in filename

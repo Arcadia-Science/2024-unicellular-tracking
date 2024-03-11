@@ -34,6 +34,7 @@ class MicrochamberPoolProcessor:
     Methods
     -------
     preprocess()
+    segment()
 
     Notes
     -----
@@ -146,14 +147,22 @@ class MicrochamberPoolProcessor:
         self.is_preprocessed = True
         self.stack_preprocessed = pool_rescaled
 
-    def segment(self):
+    @timeit
+    def segment(self, min_object_size=500):
         """Segment cells in preprocessed pool for tracking."""
 
-        # if not self.is_preprocessed:
-        #     self.preprocess()
+        if not self.is_preprocessed:
+            self.preprocess()
 
-        msg = "Robust segmentation is still in the works..."
-        raise NotImplementedError(msg)
+        # TODO: justify Li thresholding and initial guess
+        threshold = ski.filters.threshold_li(self.stack_preprocessed, initial_guess=0.1)
+        stack_segmented = self.stack_preprocessed > threshold
+
+        # filter on object size
+        stack_segmented = ski.morphology.remove_small_objects(stack_segmented, min_object_size)
+
+        self.is_segmented = True
+        self.stack_segmented = stack_segmented > threshold
 
 
 def median_filter_3d_parellel(stack, r_disk=4, n_workers=6):

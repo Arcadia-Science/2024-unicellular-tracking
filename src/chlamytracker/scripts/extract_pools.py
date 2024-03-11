@@ -6,20 +6,26 @@ from tqdm import tqdm
 
 
 @cli_options.data_dir_option
+@cli_options.pool_radius_um_option
+@cli_options.pool_spacing_um_option
 @click.command()
-def main(dir_data):
+def main(data_dir, pool_radius_um, pool_spacing_um):
     """Wrapper for PoolFinder.extract_pools() and PoolFinder.export_pools()"""
 
     # glob all the nd2 files in directory
-    fps_nd2 = natsorted(dir_data.glob("*.nd2"))
+    fps_nd2 = natsorted(data_dir.glob("*.nd2"))
     if not fps_nd2:
-        raise ValueError(f"No .nd2 files found in {dir_data}")
+        raise ValueError(f"No .nd2 files found in {data_dir}")
 
     # loop through nd2 files for processing
     for fp in tqdm(fps_nd2[:7]):
         # find and extract pools
         try:
-            finder = PoolFinder(filepath=fp, pool_radius_um=50, pool_spacing_um=200)
+            finder = PoolFinder(
+                filepath=fp,
+                pool_radius_um=pool_radius_um,
+                pool_spacing_um=pool_spacing_um
+            )
 
         # skip over failures caused by
         # > corrupt nd2 files

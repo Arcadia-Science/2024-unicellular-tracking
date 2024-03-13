@@ -386,8 +386,19 @@ class PoolFinder:
         """Apply MicrochamberPoolProcessor.segment() to each pool."""
         # segment each pool and update collection
         for (ix, iy), pool in self.pools.items():
-            pool.segment(min_object_size=self.min_object_size)
-            self.pools[(ix, iy)] = pool
+
+            # only bother segmenting if the pool contains cells
+            if pool.has_cells():
+
+                try:
+                    pool.segment(min_object_size=self.min_object_size)
+
+                except ValueError as err:
+                    msg = f"Processing for pool ({ix}, {iy}) in {self.filepath.name} failed."
+                    print(msg, err)
+                    continue
+
+                self.pools[(ix, iy)] = pool
 
     @timeit
     def export_pools(self, dir_out=None):
@@ -401,7 +412,7 @@ class PoolFinder:
         # TODO: how to select which stack to export without hardcoding?
         for (ix, iy), pool in self.pools.items():
             # only export pools with cells
-            if pool.has_cells():
+            if pool.has_cells() and pool.is_segmented:
                 # convert to 8bit
                 pool_8bit = ski.exposure.rescale_intensity(
                     pool.stack_segmented, in_range=(0, 1), out_range=(0, 255)
@@ -410,7 +421,7 @@ class PoolFinder:
                 # include pool x, y indices in filename
                 tgt = dir_out / self.filepath.stem / f"pool_{ix:02d}_{iy:02d}.tiff"
                 tgt.parent.mkdir(exist_ok=True, parents=True)
-                ski.io.imsave(tgt, pool_8bit)
+                ski.io.imsave(tgt, pool_8bit, check_contrast=False)
 
     def make_debug_sketch(self, save=True, dir_out=None):
         """Annotates the detected pools for debugging purposes."""

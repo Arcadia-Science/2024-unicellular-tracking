@@ -25,3 +25,12 @@ pool_spacing_um_option = click.option(
     show_default=True,
     help="Distance [um] between adjacent microchamber pools (measured from center to center).",
 )
+
+btrack_config_file_option = click.option(
+    "--config-file",
+    "btrack_config_file",
+    type=Path,
+    default="../../../btrack_config/cell_config.json",
+    show_default=False,
+    help="Path to btrack configuration file.",
+)

@@ -148,18 +148,39 @@ class MicrochamberPoolProcessor:
         self.stack_preprocessed = pool_rescaled
 
     @timeit
-    def segment(self, min_object_size=500):
+    def segment(self, li_threshold_guess=0.1, min_object_size=500, filled_volume_threshold=0.1):
         """Segment cells in preprocessed pool for tracking."""
 
         if not self.is_preprocessed:
             self.preprocess()
 
+        # reject noisy / low signal preprocessed stacks
+        if li_threshold_guess > self.stack_preprocessed.max():
+            msg = (
+                "Insufficient signal strength for segmentation: max intensity "
+                f"{self.stack_preprocessed.max():.2f} below threshold "
+                f"{li_threshold_guess:.2f}."
+            )
+            raise ValueError(msg)
+
         # TODO: justify Li thresholding and initial guess
-        threshold = ski.filters.threshold_li(self.stack_preprocessed, initial_guess=0.1)
+        threshold = ski.filters.threshold_li(
+            self.stack_preprocessed, initial_guess=li_threshold_guess
+        )
         stack_segmented = self.stack_preprocessed > threshold
 
-        # filter on object size
+        # filter out small objects
         stack_segmented = ski.morphology.remove_small_objects(stack_segmented, min_object_size)
+
+        # reject noisy / low-quality segmentations that have somehow made it this far
+        filled_volume_ratio = stack_segmented.sum() / stack_segmented.size
+        if filled_volume_ratio > filled_volume_threshold:
+            msg = (
+                "Segmentation results are too noisy: segmented volume ratio "
+                f"{filled_volume_ratio:.2f} above threshold "
+                f"{filled_volume_threshold:.2f}."
+            )
+            raise ValueError(msg)
 
         self.is_segmented = True
         self.stack_segmented = stack_segmented > threshold

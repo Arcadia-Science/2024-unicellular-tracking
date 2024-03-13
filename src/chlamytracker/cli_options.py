@@ -31,6 +31,6 @@ btrack_config_file_option = click.option(
     "btrack_config_file",
     type=Path,
     default="../../../btrack_config/cell_config.json",
-    show_default=False,
+    show_default=True,
     help="Path to btrack configuration file.",
 )

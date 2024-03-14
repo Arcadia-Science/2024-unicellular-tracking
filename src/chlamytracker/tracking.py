@@ -70,11 +70,3 @@ class PoolTracker:
         self.tracker.configure(self.config_file)
         self.tracker.append(self.trackable_objects)
         self.tracker.track()
-
-    # def export_tracks_to_csv(self, filename):
-    #     """"""
-    #     self.tracker
-
-    # def export_tracks_to_napari(self):
-    #     """"""
-    #     pass

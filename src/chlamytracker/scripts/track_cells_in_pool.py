@@ -25,11 +25,9 @@ def process_timelapse(filename, pool_radius_um, pool_spacing_um, btrack_config_f
     # track segmented cells in each pool and output to csv
     for (ix, iy), pool in pool_finder.pools.items():
         if pool.has_cells() and pool.is_segmented:
-
             # rescale segmentation data for btrack
             segmentation_data = ski.exposure.rescale_intensity(
-                pool.stack_segmented,
-                out_range=(0, 255)
+                pool.stack_segmented, out_range=(0, 255)
             ).astype(np.uint8)
 
             # cell tracking

@@ -386,10 +386,8 @@ class PoolFinder:
         """Apply MicrochamberPoolProcessor.segment() to each pool."""
         # segment each pool and update collection
         for (ix, iy), pool in self.pools.items():
-
             # only bother segmenting if the pool contains cells
             if pool.has_cells():
-
                 try:
                     pool.segment(min_object_size=self.min_object_size)
 
@@ -407,6 +405,13 @@ class PoolFinder:
         # set default output directory
         if dir_out is None:
             dir_out = self.filepath.parent / "processed"
+
+        # export poolmap
+        tgt = dir_out / self.filepath.stem / "poolmap.txt"
+        with open(tgt, "w") as file_:
+            for (ix, iy), ((cx, cy), status) in self.poolmap.items():
+                line = f"{ix}\t{iy}\t{cx}\t{cy}\t{status}\n"
+                file_.write(line)
 
         # loop through pools and save as uint8 tiffs
         # TODO: how to select which stack to export without hardcoding?

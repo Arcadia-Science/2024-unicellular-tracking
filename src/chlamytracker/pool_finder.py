@@ -73,7 +73,7 @@ class PoolFinder:
             sizes = nd2f.sizes  # e.g. {'T': 10, 'C': 2, 'Y': 256, 'X': 256}
         self.Nx = sizes["X"]
         self.Ny = sizes["Y"]
-        self.px_um = (voxels_um.x + voxels_um.y) / 2
+        self.um_per_px = (voxels_um.x + voxels_um.y) / 2
 
         # pre-processing parameters
         self.median_filter_radius = median_filter_radius
@@ -82,8 +82,8 @@ class PoolFinder:
         self.is_preprocessed = False
 
         # Hough transform parameters
-        self.pool_radius_px = pool_radius_um / self.px_um  # um --> px
-        self.pool_spacing_px = pool_spacing_um / self.px_um  # um --> px
+        self.pool_radius_px = pool_radius_um / self.um_per_px
+        self.pool_spacing_px = pool_spacing_um / self.um_per_px
         self.max_num_pools = self.get_max_num_pools()
         self.hough_threshold = hough_threshold
 
@@ -262,16 +262,14 @@ class PoolFinder:
 
         to the center coordinates of each pool e.g.
 
-            ()
-            ()
-            ()
+            (56, 197)  (358, 170)  (662, 146)
+            (74, 500)  (379, 477)  (684, 451)
+            (94, 806)  (401, 781)  (706, 756)
 
         This linear transformation can be solved for using the RANSAC (random
         sample consensus) algorithm [1], which is robust against outliers,
         which is beneficial here because `detect_pools()` will occasionally
         return false positives.
-
-        TODO: finish documenting this
 
         References
         ----------
@@ -335,6 +333,11 @@ class PoolFinder:
         for i, (ix, iy) in enumerate(detected_grid_coords):
             # measure the distance between the detected location and the
             # estimated location for outlier detection
+            # NOTE: safe to assume that (ix, iy) exists in self.poolmap since
+            #       1) the grid is a dense grid of all integers and
+            #       2) the bounds used to construct the grid mean that it's
+            #          safe to assume that none of the inverse centers lie
+            #          outside of the grid.
             cx, cy = self.poolmap[(ix, iy)][0]
             measured_residuals = self.model.residuals(
                 (ix, iy),  # detected
@@ -358,7 +361,7 @@ class PoolFinder:
         for (ix, iy), ((cx, cy), _status) in self.poolmap.items():
             # crop to pool (+1 pixel margin)
             try:
-                pool_stack = crop_out_prism(
+                pool_stack = crop_out_roi(
                     stack=self.stack, center=(cx, cy), radius=self.pool_radius_px + 1
                 )
             # pool extends beyond image border --> skip
@@ -449,27 +452,22 @@ def validate_model(model, src, dst, min_scale, max_scale):
     return is_valid
 
 
-def crop_out_prism(stack, center, radius):
-    """Crops a square out of an image stack along the first axis.
-
-    Because the first axis is expected to be >> radius, the shape of the
-    cropped out region will likely resemble a rectangular prism with
-    equal length and width (but unfortunately no such thing as a square-ular
-    prism).
+def crop_out_roi(stack, center, radius):
+    """Crops a square ROI out of an image stack along the first axis.
 
     Parameters
     ----------
     stack : ([T, Z], Y, X) array
         Image stack such as a timelapse or z-stack.
     center : 2-tuple
-        (x, y) coordinate -- center of circle from which to crop from.
+        ROI center as an (x, y) coordinate.
     radius : scalar
         Radius to determine cropping window (1/2 width of square).
 
     Returns
     -------
-    prism : (Z, Y, X) array
-        Cropped image stack with dimensions (Z, 2*R, 2*R).
+    roi : (Z, Y, X) array
+        Region of interest cropped from image stack with dimensions (Z, 2*R, 2*R).
 
     Raises
     ------
@@ -480,7 +478,7 @@ def crop_out_prism(stack, center, radius):
     cx, cy = tuple(int(i) for i in center)
     r = round(radius)
 
-    # crop to a rectangular prism
+    # crop to a rectangular roi
     nz, ny, nx = stack.shape
     y1, y2 = cy - r, cy + r
     x1, x2 = cx - r, cx + r
@@ -491,6 +489,6 @@ def crop_out_prism(stack, center, radius):
         )
         raise IndexError(msg)
     else:
-        prism = stack[:, y1:y2, x1:x2]
+        roi = stack[:, y1:y2, x1:x2]
 
-    return prism
+    return roi

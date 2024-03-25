@@ -14,10 +14,12 @@ class MicrochamberPoolProcessor:
     Parameters
     ----------
     stack : (T, Y, X) uint16 array
-        Input timelapse microscopy image data of an agar microchamber pool.
-    radius_median : scalar (optional)
+        Input timelapse microscopy image data of an individual agar microchamber
+        pool that has been tightly cropped to either manually or e.g. after
+        being detected with `PoolFinder.find_pools()`.
+    median_filter_radius : scalar (optional)
         Radius of median filter to apply (preprocessing).
-    sigma_gaussian : scalar (optional)
+    gaussian_filter_sigma : scalar (optional)
         Sigma of Gaussian filter for blurring the alpha mask (preprocessing).
 
     Attributes
@@ -35,8 +37,9 @@ class MicrochamberPoolProcessor:
 
     Notes
     -----
-    * Default values for `radius_median` and `sigma_gaussian` were chosen
-      empirically based on visual inspection of image data after preprocessing.
+    * Default values for `median_filter_radius` and `gaussian_filter_sigma`
+      were chosen empirically based on visual inspection of image data after
+      preprocessing.
 
     References
     ----------
@@ -46,12 +49,12 @@ class MicrochamberPoolProcessor:
     def __init__(
         self,
         stack,
-        radius_median=4,
-        sigma_gaussian=4,
+        median_filter_radius=4,
+        gaussian_filter_sigma=4,
     ):
         self.stack_raw = stack
-        self.radius_median = radius_median
-        self.sigma_gaussian = sigma_gaussian
+        self.median_filter_radius = median_filter_radius
+        self.gaussian_filter_sigma = gaussian_filter_sigma
 
         self.is_preprocessed = False
         self.is_segmented = False
@@ -82,6 +85,10 @@ class MicrochamberPoolProcessor:
     def preprocess(self, remove_stationary_objects=True):
         """Preprocess pool for cell tracking.
 
+        TODO: these preprocessing steps are applicable only for brightfield
+              microscopy datasets (inverting the contrast in particular), and
+              will have to be adjusted for other imaging modalities.
+
         Process
         -------
         1) Median filter
@@ -102,7 +109,7 @@ class MicrochamberPoolProcessor:
         """
 
         # apply median filter
-        pool_filtered = median_filter_3d_parellel(self.stack_raw, r_disk=self.radius_median)
+        pool_filtered = median_filter_3d_parellel(self.stack_raw, r_disk=self.median_filter_radius)
 
         # invert contrast
         pool_inverted = ski.util.invert(pool_filtered)
@@ -113,7 +120,7 @@ class MicrochamberPoolProcessor:
         rr, cc = ski.draw.disk(center=(nx // 2, ny // 2), radius=(nx // 2))
         mask[:, rr, cc] = 1
         # apply Guassian blur to mask
-        mask = ski.filters.gaussian(mask, sigma=self.sigma_gaussian)
+        mask = ski.filters.gaussian(mask, sigma=self.gaussian_filter_sigma)
         # apply mask (transforms rectangular prism --> tube)
         pool_tube = mask * pool_inverted
 

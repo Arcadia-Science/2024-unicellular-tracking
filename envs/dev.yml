@@ -214,21 +214,29 @@ dependencies:
     - dask==2024.2.1
     - docstring-parser==0.15
     - docutils==0.20.1
+    - ffmpeg==1.4
     - freetype-py==2.4.0
     - fsspec==2024.2.0
     - h5py==3.10.0
     - heapdict==1.0.1
     - hsluv==5.0.4
     - imageio==2.34.0
+    - imageio-ffmpeg==0.4.9
     - imagesize==1.4.1
     - in-n-out==0.1.9
+    - ipympl==0.9.3
+    - ipython-genutils==0.2.0
+    - ipywidgets==8.1.2
+    - jupyterlab-widgets==3.0.10
     - lazy-loader==0.3
     - locket==1.0.0
     - magicgui==0.8.1
     - markdown-it-py==3.0.0
     - mdurl==0.1.2
+    - mpl-interactions==0.24.1
     - mypy-extensions==1.0.0
     - napari==0.4.19.post1
+    - napari-animation==0.0.7
     - napari-console==0.0.9
     - napari-plugin-engine==0.2.0
     - napari-svg==0.1.10
@@ -271,4 +279,5 @@ dependencies:
     - typer==0.9.0
     - tzdata==2024.1
     - vispy==0.14.1
+    - widgetsnbextension==4.0.10
     - wrapt==1.16.0

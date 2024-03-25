@@ -73,7 +73,6 @@ def main(data_dir, pool_radius_um, pool_spacing_um, btrack_config_file):
         except ValueError as err:
             msg = f"Processing for {fp} failed:"
             print(msg, err)
-            continue
 
 
 if __name__ == "__main__":

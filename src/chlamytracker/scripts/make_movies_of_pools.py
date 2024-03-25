@@ -1,6 +1,7 @@
 import re
 
 import click
+import imageio
 import napari
 import nd2
 import numpy as np
@@ -10,6 +11,44 @@ from chlamytracker import cli_options
 from napari_animation import Animation
 from natsort import natsorted
 from tqdm import tqdm
+
+
+def crop_movie_to_content(filename, framerate):
+    """Crop movie to content (remove borders).
+
+    References
+    ----------
+    [1] https://github.com/napari/napari/issues/4943
+    """
+    # load movie
+    movie_data = ski.io.imread(filename)
+    dimensions = movie_data.shape  # (Z, Y, X, C)
+
+    # calculate dimensions of the video without border from first frame
+    avg_y_intensity = movie_data[0].mean(axis=(1, 2))
+    avg_x_intensity = movie_data[0].mean(axis=(0, 2))
+    nonzero_height = avg_y_intensity[avg_y_intensity > 1].size
+    nonzero_width = avg_x_intensity[avg_x_intensity > 1].size
+
+    # calculate border dimensions
+    border_y = dimensions[1] - nonzero_height
+    border_x = dimensions[2] - nonzero_width
+
+    # overwrite mp4 file
+    writer = imageio.get_writer(
+        filename,
+        fps=framerate,
+        quality=5,
+        format="mp4",
+    )
+
+    # create new movie with cropped frames
+    for frame in movie_data:
+        y1, y2 = border_y // 2, border_y // 2 + nonzero_height
+        x1, x2 = border_x // 2, border_x // 2 + nonzero_width
+        frame_cropped = frame[y1:y2, x1:x2]
+        writer.append_data(frame_cropped)
+    writer.close()
 
 
 def make_napari_animation_for_timelapse(
@@ -36,9 +75,11 @@ def make_napari_animation_for_timelapse(
         Text file (`poolmap.txt`) that contains the indices and coordinates of
         each pool detected from the timelapse.
     """
-    # load timelapse
-    timelapse = nd2.ND2File(nd2_file)
-    num_frames = timelapse.sizes["T"]
+    # load timelapse and metadata
+    timelapse = nd2.imread(nd2_file)
+    with nd2.ND2File(nd2_file) as nd2f:
+        timelapse = nd2f.asarray()
+        num_frames = nd2f.sizes["T"]
 
     # load poolmap (format: ix iy cx cy status)
     columns = ["ix", "iy", "cx", "cy", "status"]
@@ -46,8 +87,7 @@ def make_napari_animation_for_timelapse(
 
     # create napari viewer
     viewer = napari.Viewer(show=True)
-    viewer.add_image(timelapse.asarray()[:, np.newaxis, :, :], name=nd2_file.stem)
-    timelapse.close()
+    viewer.add_image(timelapse[:, np.newaxis, :, :], name=nd2_file.stem)
 
     # loop through data for each pool
     for tiff_file, csv_file in zip(tiff_files, csv_files, strict=False):
@@ -77,6 +117,7 @@ def make_napari_animation_for_timelapse(
     # make movie with napari
     animation = Animation(viewer)
 
+    # set first and last frames as key frames
     current_step = viewer.dims.current_step
     viewer.dims.current_step = (0, *current_step[1:])
     animation.capture_keyframe()
@@ -86,12 +127,10 @@ def make_napari_animation_for_timelapse(
     animation.animate(filename, fps=framerate, canvas_only=True)
     viewer.close()
 
-    # napari.run()
-
 
 @cli_options.data_dir_option
 @click.command()
-def main(data_dir):
+def main(data_dir, framerate=20):
     """Script for batch processing ...
 
     The following data files are needed to make a movie for each .nd2 timelapse
@@ -114,7 +153,22 @@ def main(data_dir):
         csv_files = natsorted(source_dir.glob("pool*_tracks.csv"))
         txt_file = source_dir / "poolmap.txt"
 
-        # make de movie
+        # skip over timelapses with missing data
+        if not txt_file.exists():
+            msg = f"Processing for {nd2_file.name} failed: {txt_file} not found."
+            print(msg)
+            continue
+
+        # skip over corrupt nd2 files
+        try:
+            with nd2.ND2File(nd2_file) as nd2f:
+                _ = nd2f.shape
+        except ValueError as err:
+            msg = f"Processing for {nd2_file.name} failed:"
+            print(msg, err)
+            continue
+
+        # make napari animation
         filename = nd2_file.parent / f"{nd2_file.stem}.mp4"
         make_napari_animation_for_timelapse(
             filename,
@@ -123,6 +177,9 @@ def main(data_dir):
             csv_files,
             txt_file,
         )
+
+        # resize movie
+        crop_movie_to_content(filename, framerate)
 
 
 if __name__ == "__main__":

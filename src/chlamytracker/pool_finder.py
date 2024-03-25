@@ -407,14 +407,14 @@ class PoolFinder:
             dir_out = self.filepath.parent / "processed"
 
         # export poolmap
-        tgt = dir_out / self.filepath.stem / "poolmap.txt"
-        with open(tgt, "w") as file_:
+        filename = dir_out / self.filepath.stem / "poolmap.txt"
+        filename.parent.mkdir(exist_ok=True, parents=False)
+        with open(filename, "w") as txt_file:
             for (ix, iy), ((cx, cy), status) in self.poolmap.items():
                 line = f"{ix}\t{iy}\t{cx}\t{cy}\t{status}\n"
-                file_.write(line)
+                txt_file.write(line)
 
-        # loop through pools and save as uint8 tiffs
-        # TODO: how to select which stack to export without hardcoding?
+        # loop through pools and export timelapses of each pool as uint8 tiffs
         for (ix, iy), pool in self.pools.items():
             # only export pools with cells
             if pool.has_cells() and pool.is_segmented:
@@ -424,9 +424,8 @@ class PoolFinder:
                 ).astype(np.ubyte)
 
                 # include pool x, y indices in filename
-                tgt = dir_out / self.filepath.stem / f"pool_{ix:02d}_{iy:02d}.tiff"
-                tgt.parent.mkdir(exist_ok=True, parents=True)
-                ski.io.imsave(tgt, pool_8bit, check_contrast=False)
+                filename = dir_out / self.filepath.stem / f"pool_{ix:02d}_{iy:02d}.tiff"
+                ski.io.imsave(filename, pool_8bit, check_contrast=False)
 
     def make_debug_sketch(self, save=True, dir_out=None):
         """Annotates the detected pools for debugging purposes."""

@@ -3,13 +3,13 @@ import numpy as np
 import skimage as ski
 from chlamytracker import cli_options
 from chlamytracker.pool_finder import PoolFinder
-from chlamytracker.tracking import PoolTracker
+from chlamytracker.tracking import Tracker
 from natsort import natsorted
 from tqdm import tqdm
 
 
 def process_timelapse(filename, pool_radius_um, pool_spacing_um, btrack_config_file):
-    """Function for processing an individual file of (raw) timelapse microscopy
+    """Function for processing an individual file of raw timelapse microscopy
     data of unicellular organisms in agar microchamber pools."""
     # extract, segment, and export pools
     pool_finder = PoolFinder(
@@ -31,7 +31,7 @@ def process_timelapse(filename, pool_radius_um, pool_spacing_um, btrack_config_f
             ).astype(np.uint8)
 
             # cell tracking
-            pool_tracker = PoolTracker(segmentation_data, btrack_config_file)
+            pool_tracker = Tracker(segmentation_data, btrack_config_file)
             pool_tracker.track_cells()
             csv_filename = (
                 pool_finder.filepath.parent
@@ -48,12 +48,12 @@ def process_timelapse(filename, pool_radius_um, pool_spacing_um, btrack_config_f
 @cli_options.data_dir_option
 @click.command()
 def main(data_dir, pool_radius_um, pool_spacing_um, btrack_config_file):
-    """Script for batch processing (raw) timelapse microscopy data of
+    """Script for batch processing raw timelapse microscopy data of
     unicellular organisms in agar microchamber pools.
 
     For every .nd2 file in the given directory, this script will output a .csv
-    file of motility data (x, y position) and object properties (e.g. area,
-    eccentricity) of segmented cells for each frame in the timelapse.
+    file of motility data (i.e. (x, y) positions) and object properties (e.g.
+    area, eccentricity) of segmented cells for each frame in the timelapse.
     """
 
     # glob all .nd2 files in directory
@@ -67,9 +67,9 @@ def main(data_dir, pool_radius_um, pool_spacing_um, btrack_config_file):
             process_timelapse(fp, pool_radius_um, pool_spacing_um, btrack_config_file)
 
         # skip over failures caused by
-        # > corrupt nd2 files
-        # > when extrapolation fails due to < 3 detected pools
-        # > segmentation failures
+        #   - corrupt nd2 files
+        #   - when extrapolation fails due to < 3 detected pools
+        #   - segmentation failures
         except ValueError as err:
             msg = f"Processing for {fp} failed:"
             print(msg, err)

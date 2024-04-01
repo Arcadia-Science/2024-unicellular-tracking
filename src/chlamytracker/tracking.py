@@ -1,7 +1,7 @@
 import btrack
 
 
-class PoolTracker:
+class Tracker:
     """Class for tracking cell motility within agar microchamber pools.
 
     Parameters

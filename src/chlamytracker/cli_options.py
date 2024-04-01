@@ -9,6 +9,24 @@ data_file_option = click.option(
     "--filename", "filepath", type=Path, help="Path to the file location."
 )
 
+log_level_option = click.option(
+    "--log-level",
+    "log_level",
+    type=str,
+    default="INFO",
+    show_default=True,
+    help="Log level."
+)
+
+btrack_config_file_option = click.option(
+    "--config-file",
+    "btrack_config_file",
+    type=Path,
+    default="../../../btrack_config/cell_config.json",
+    show_default=True,
+    help="Path to btrack configuration file.",
+)
+
 pool_radius_um_option = click.option(
     "--pool-radius",
     "pool_radius_um",
@@ -24,13 +42,4 @@ pool_spacing_um_option = click.option(
     default=200,
     show_default=True,
     help="Distance [um] between adjacent microchamber pools (measured from center to center).",
-)
-
-btrack_config_file_option = click.option(
-    "--config-file",
-    "btrack_config_file",
-    type=Path,
-    default="../../../btrack_config/cell_config.json",
-    show_default=True,
-    help="Path to btrack configuration file.",
 )

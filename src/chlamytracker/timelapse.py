@@ -22,11 +22,7 @@ class Timelapse:
         Whether to read nd2 file with dask.
     """
 
-    def __init__(
-        self,
-        nd2_file,
-        use_dask=False,
-    ):
+    def __init__(self, nd2_file, use_dask=False):
 
         self.nd2_file = Path(nd2_file)
         self.use_dask = use_dask

@@ -2,29 +2,37 @@ from pathlib import Path
 
 import click
 
-data_dir_option = click.option(
-    "--data-dir", "data_dir", type=Path, help="Path to the data directory."
-)
-data_file_option = click.option(
-    "--filename", "filepath", type=Path, help="Path to the file location."
+directory_argument = click.argument("directory", type=Path)
+
+glob_option = click.option(
+    "--glob",
+    "glob_str",
+    type=str,
+    default="*.nd2",
+    show_default=True,
+    help="A glob like string that may match one or multiple filenames.",
 )
 
 log_level_option = click.option(
-    "--log-level",
-    "log_level",
-    type=str,
-    default="INFO",
-    show_default=True,
-    help="Log level."
+    "--log-level", "log_level", type=str, default="INFO", show_default=True, help="Log level."
 )
 
 btrack_config_file_option = click.option(
     "--config-file",
     "btrack_config_file",
     type=Path,
-    default="../../../btrack_config/cell_config.json",
-    show_default=True,
+    default=None,
+    show_default=False,
     help="Path to btrack configuration file.",
+)
+
+min_cell_diameter_um_option = click.option(
+    "--min-cell-diameter",
+    "min_cell_diameter_um",
+    type=float,
+    default=6,
+    show_default=True,
+    help="Diameter [um] of smallest desired organism to be segmented.",
 )
 
 pool_radius_um_option = click.option(

@@ -2,7 +2,16 @@ from pathlib import Path
 
 import click
 
-directory_argument = click.argument("directory", type=Path)
+input_directory_argument = click.argument("input_directory", type=Path)
+
+output_directory_option = click.option(
+    "--output-directory",
+    "output_directory",
+    type=Path,
+    default=None,
+    show_default=False,
+    help="Path to directory in which to save output.",
+)
 
 glob_option = click.option(
     "--glob",
@@ -15,6 +24,15 @@ glob_option = click.option(
 
 log_level_option = click.option(
     "--log-level", "log_level", type=str, default="INFO", show_default=True, help="Log level."
+)
+
+use_dask_option = click.option(
+    "--use-dask",
+    "use_dask",
+    type=bool,
+    default=False,
+    show_default=True,
+    help="Whether to use `dask` for parallelization.",
 )
 
 btrack_config_file_option = click.option(

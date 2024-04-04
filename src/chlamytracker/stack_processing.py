@@ -1,5 +1,6 @@
 from multiprocessing import Pool
 
+import dask.array as da
 import numpy as np
 import skimage as ski
 
@@ -74,6 +75,38 @@ def otsu_threshold_3d(stack, num_central_frames=10):
     """
     central_frames = get_central_frames(stack, num_central_frames)
     threshold = ski.filters.threshold_otsu(central_frames)
+    return threshold
+
+
+def otsu_threshold_dask(dask_array):
+    """Otsu thresholding function compatible with dask.
+
+    This function is copied nearly verbatim from [1] except that numpy functions
+    are swapped with their dask equivalent (`np` --> `da`).
+
+    References
+    ----------
+    [1] https://github.com/scikit-image/scikit-image/blob/v0.22.0/skimage/filters/thresholding.py#L366-L379
+    """
+    # histogram
+    bin_range = (dask_array.min(), dask_array.max())
+    counts, bin_edges = da.histogram(dask_array, bins=256, range=bin_range)
+    bin_centers = (bin_edges[1:] + bin_edges[:-1]) / 2
+
+    # class probabilities for all possible thresholds
+    weight1 = da.cumsum(counts)
+    weight2 = da.cumsum(counts[::-1])[::-1]
+    # class means for all possible thresholds
+    mean1 = da.cumsum(counts * bin_centers) / weight1
+    mean2 = (da.cumsum((counts * bin_centers)[::-1]) / weight2[::-1])[::-1]
+
+    # Clip ends to align class 1 and class 2 variables:
+    # The last value of ``weight1``/``mean1`` should pair with zero values in
+    # ``weight2``/``mean2``, which do not exist.
+    variance12 = weight1[:-1] * weight2[1:] * (mean1[:-1] - mean2[1:]) ** 2
+
+    idx = da.argmax(variance12)
+    threshold = bin_centers[idx]
     return threshold
 
 

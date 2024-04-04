@@ -1,8 +1,10 @@
 import numpy as np
+from dask_image import ndfilters
 
 from .stack_processing import (
     gaussian_filter_3d_parallel,
     otsu_threshold_3d,
+    otsu_threshold_dask,
     remove_small_objects_3d_parallel,
     rescale_to_float,
 )
@@ -29,6 +31,10 @@ class WellSegmenter(Timelapse):
         else:
             segmentation = self._segment_zslice(background_subtracted)
 
+        # subsequent segmentation steps are not dask compatible
+        if self.use_dask:
+            segmentation = segmentation.compute()
+
         # filter out small objects
         min_area = self.convert_um_to_px2_circle(min_cell_diameter_um)
         segmentation_area_filtered = remove_small_objects_3d_parallel(
@@ -48,19 +54,42 @@ class WellSegmenter(Timelapse):
         return segmentation_area_filtered
 
     @timeit
-    def subtract_background(self):
-        """"""
+    def subtract_background(self, sigma=1.6):
+        """Apply background subtraction to the raw data.
+
+        Smoothing is effectively and mathematically the same whether using
+        the skimage or dask api, only change is in how the computation is done
+        (number of cores used, when it is executed, etc.).
+
+        Parameters
+        ----------
+        sigma : float (optional)
+            Standard deviation for Gaussian kernel.
+        """
         mean_projection = self.raw_data.mean(axis=0)
         background_subtracted = np.clip(self.raw_data - mean_projection, -np.inf, 0)
         background_subtracted_rescaled = 1 - rescale_to_float(background_subtracted)
-        background_subtracted_smoothed = gaussian_filter_3d_parallel(
-            background_subtracted_rescaled, num_workers=10
-        )
+
+        if self.use_dask:
+            background_subtracted_smoothed = ndfilters.gaussian_filter(
+                background_subtracted_rescaled, sigma=sigma
+            )
+        else:
+            background_subtracted_smoothed = gaussian_filter_3d_parallel(
+                background_subtracted_rescaled, sigma=sigma, num_workers=10
+            )
+
         return background_subtracted_smoothed
 
+    @timeit
     def _segment_zslice(self, background_subtracted):
         """"""
-        threshold = otsu_threshold_3d(background_subtracted)
+        # otsu threholding
+        if self.use_dask:
+            threshold = otsu_threshold_dask(background_subtracted)
+        else:
+            threshold = otsu_threshold_3d(background_subtracted)
+
         segmentation = background_subtracted > threshold
         return segmentation
 

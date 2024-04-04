@@ -61,7 +61,7 @@ class Timelapse:
         """Load timelapse from nd2 file as numpy array."""
         # check that nd2 file has not already been loaded
         if hasattr(self, "raw_data"):
-            logger.warn(f"{self.nd2_file.as_posix()} has already been loaded.")
+            logger.warning(f"{self.nd2_file.as_posix()} has already been loaded.")
             return
 
         raw_data = nd2.imread(self.nd2_file, dask=self.use_dask)

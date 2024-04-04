@@ -1,4 +1,8 @@
+from pathlib import Path
+
 import btrack
+
+CONFIG_FILE = Path(__file__).parents[2] / "btrack_config/cell_config.json"
 
 
 class Tracker:
@@ -24,10 +28,10 @@ class Tracker:
     [3] https://scikit-image.org/docs/stable/api/skimage.measure.html#skimage.measure.regionprops
     """
 
-    def __init__(self, segmentation_data, config_file, additional_properties=None):
+    def __init__(self, segmentation_data, additional_properties=None, config_file=None):
         self.segmentation_data = segmentation_data
-        self.config_file = config_file
         self.properties = self.set_properties(additional_properties)
+        self.config_file = CONFIG_FILE if config_file is None else config_file
 
         self.trackable_objects = btrack.io.segmentation_to_objects(
             segmentation_data, properties=self.properties

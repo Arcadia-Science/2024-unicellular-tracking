@@ -71,7 +71,6 @@ class Timelapse:
         raw_data = nd2.imread(self.nd2_file, dask=self.use_dask)
         return raw_data
 
-
     def convert_um_to_px2_circle(self, diameter_um):
         """Convert diameter [um] --> area [px^2]."""
         radius_um = diameter_um / 2

@@ -2,7 +2,10 @@ from pathlib import Path
 
 import click
 
-input_directory_argument = click.argument("input_directory", type=Path)
+input_directory_argument = click.argument(
+    "input_directory",
+    type=Path,
+)
 
 output_directory_option = click.option(
     "--output-directory",
@@ -23,11 +26,10 @@ glob_option = click.option(
 )
 
 verbose_option = click.option(
+    "-v",
     "--verbose",
     "verbose",
-    type=bool,
-    default=True,
-    show_default=True,
+    is_flag=True,
     help="Whether to output lots of neat information.",
 )
 
@@ -43,9 +45,7 @@ num_workers_option = click.option(
 use_dask_option = click.option(
     "--use-dask",
     "use_dask",
-    type=bool,
-    default=False,
-    show_default=True,
+    is_flag=True,
     help="Whether to use `dask` for parallelization.",
 )
 
@@ -75,6 +75,7 @@ pool_radius_um_option = click.option(
     show_default=True,
     help="Radius [um] of agar microchamber pool.",
 )
+
 pool_spacing_um_option = click.option(
     "--pool-spacing",
     "pool_spacing_um",

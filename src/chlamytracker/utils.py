@@ -1,8 +1,11 @@
+import logging
 from functools import wraps
 from time import time
 
 import imageio
 import skimage as ski
+
+logger = logging.getLogger(__name__)
 
 
 def timeit(f):
@@ -15,7 +18,7 @@ def timeit(f):
         t1 = time()
 
         out = f"{f.__name__} :: {t1-t0:.2f}s"
-        print(out)
+        logger.info(out)
         return result
 
     return wrap

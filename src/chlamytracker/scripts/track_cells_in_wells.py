@@ -12,15 +12,16 @@ from tqdm import tqdm
 logger = logging.getLogger(__name__)
 
 
-def process_timelapse(
-    nd2_file,
-    output_directory,
-    use_dask,
-    min_cell_diameter_um,
-    btrack_config_file,
-):
+def process_timelapse(nd2_file, output_directory, **kwargs):
     """Function for processing an individual file of raw timelapse microscopy
     data of unicellular organisms in agar microchamber pools."""
+
+    # unpack kwargs
+    num_workers = kwargs.get("num_workers")
+    use_dask = kwargs.get("use_dask")
+    min_cell_diameter_um = kwargs.get("min_cell_diameter_um")
+    btrack_config_file = kwargs.get("btrack_config_file")
+    verbose = kwargs.get("verbose")
 
     # segmentation
     well = WellSegmenter(nd2_file, use_dask=use_dask)
@@ -32,7 +33,7 @@ def process_timelapse(
     ski.io.imsave(tiff_filename, segmentation_8bit)
 
     # cell tracking
-    well_tracker = Tracker(segmentation_8bit, btrack_config_file)
+    well_tracker = Tracker(segmentation_8bit, btrack_config_file, num_workers, verbose)
     well_tracker.track_cells()
 
     # export tracking data
@@ -40,21 +41,16 @@ def process_timelapse(
     well_tracker.tracker.export(csv_filename)
 
 
+@click.command()
+@cli_api.verbose_option
 @cli_api.btrack_config_file_option
-@cli_api.min_cell_diameter_um_option
 @cli_api.use_dask_option
+@cli_api.num_workers_option
+@cli_api.min_cell_diameter_um_option
 @cli_api.glob_option
 @cli_api.output_directory_option
 @cli_api.input_directory_argument
-@click.command()
-def main(
-    input_directory,
-    output_directory,
-    glob_str,
-    use_dask,
-    min_cell_diameter_um,
-    btrack_config_file,
-):
+def main(**kwargs):
     """Script for batch processing raw timelapse microscopy data of unicellular
     organisms in 384 or 1536 well plates.
 
@@ -73,29 +69,33 @@ def main(
     Results are output to `{input_directory}/processed` by default if
     `output_directory` is not specified.
 
+    `num_workers` option is ignored if `use_dask` is True since dask pretty much
+    uses all available computing power at its disposal.
+
     References
     ----------
     [1] https://btrack.readthedocs.io/en/latest/index.html
     """
 
+    # set log level
+    if kwargs["verbose"]:
+        logger.setLevel(logging.INFO)
+
     # glob all .nd2 files in directory
+    input_directory = kwargs.get("input_directory")
+    glob_str = kwargs.get("glob_str")
     nd2_files = natsorted(input_directory.glob(glob_str))
     if not nd2_files:
         raise ValueError(f"No nd2 files found in {input_directory}.")
 
     # ensure output directory exists and is writeable
+    output_directory = kwargs.pop("output_directory")
     output_directory.mkdir(parents=True, exist_ok=True)
 
     # loop through nd2 files
     for nd2_file in tqdm(nd2_files):
         try:
-            process_timelapse(
-                nd2_file,
-                output_directory,
-                use_dask,
-                min_cell_diameter_um,
-                btrack_config_file,
-            )
+            process_timelapse(nd2_file, output_directory, **kwargs)
 
         # skip over segmentation failures and corrupt nd2 files
         except ValueError as err:

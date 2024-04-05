@@ -12,16 +12,17 @@ from tqdm import tqdm
 logger = logging.getLogger(__name__)
 
 
-def process_timelapse(nd2_file, output_directory, **kwargs):
+def process_timelapse(
+    nd2_file,
+    output_directory,
+    min_cell_diameter_um,
+    num_workers,
+    use_dask,
+    btrack_config_file,
+    verbose,
+):
     """Function for processing an individual file of raw timelapse microscopy
     data of unicellular organisms in agar microchamber pools."""
-
-    # unpack kwargs
-    num_workers = kwargs.get("num_workers")
-    use_dask = kwargs.get("use_dask")
-    min_cell_diameter_um = kwargs.get("min_cell_diameter_um")
-    btrack_config_file = kwargs.get("btrack_config_file")
-    verbose = kwargs.get("verbose")
 
     # segmentation
     well = WellSegmenter(nd2_file, use_dask=use_dask)
@@ -50,7 +51,16 @@ def process_timelapse(nd2_file, output_directory, **kwargs):
 @cli_api.glob_option
 @cli_api.output_directory_option
 @cli_api.input_directory_argument
-def main(**kwargs):
+def main(
+    input_directory,
+    output_directory,
+    glob_str,
+    min_cell_diameter_um,
+    num_workers,
+    use_dask,
+    btrack_config_file,
+    verbose,
+):
     """Script for batch processing raw timelapse microscopy data of unicellular
     organisms in 384 or 1536 well plates.
 
@@ -78,24 +88,29 @@ def main(**kwargs):
     """
 
     # set log level
-    if kwargs["verbose"]:
+    if verbose:
         logger.setLevel(logging.INFO)
 
     # glob all .nd2 files in directory
-    input_directory = kwargs.get("input_directory")
-    glob_str = kwargs.get("glob_str")
     nd2_files = natsorted(input_directory.glob(glob_str))
     if not nd2_files:
         raise ValueError(f"No nd2 files found in {input_directory}.")
 
     # ensure output directory exists and is writeable
-    output_directory = kwargs.pop("output_directory")
     output_directory.mkdir(parents=True, exist_ok=True)
 
     # loop through nd2 files
     for nd2_file in tqdm(nd2_files):
         try:
-            process_timelapse(nd2_file, output_directory, **kwargs)
+            process_timelapse(
+                nd2_file,
+                output_directory,
+                min_cell_diameter_um,
+                num_workers,
+                use_dask,
+                btrack_config_file,
+                verbose,
+            )
 
         # skip over segmentation failures and corrupt nd2 files
         except ValueError as err:

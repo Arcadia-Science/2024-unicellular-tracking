@@ -22,8 +22,22 @@ glob_option = click.option(
     help="A glob like string that may match one or multiple filenames.",
 )
 
-log_level_option = click.option(
-    "--log-level", "log_level", type=str, default="INFO", show_default=True, help="Log level."
+verbose_option = click.option(
+    "--verbose",
+    "verbose",
+    type=bool,
+    default=True,
+    show_default=True,
+    help="Whether to output lots of neat information.",
+)
+
+num_workers_option = click.option(
+    "--num-workers",
+    "num_workers",
+    type=int,
+    default=6,
+    show_default=True,
+    help="Number of workers to use for parallel processing.",
 )
 
 use_dask_option = click.option(

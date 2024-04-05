@@ -8,12 +8,16 @@ CONFIG_FILE = Path(__file__).parents[2] / "btrack_config/cell_config.json"
 class Tracker:
     """Class for tracking cell motility within agar microchamber pools.
 
+    Essentially a wrapper for `btrack.BayesianTracker` that automatically sets
+    the default configuration file and adds properties such as the area,
+    eccentricity, orientation, etc. to be calculated for each cell during
+    tracking and output to the resulting csv file.
+
     Parameters
     ----------
     segmentation_data : (T, [Z], Y, X) uint8 numpy array
         Segmented image data to input for cell tracking. Passed without
-        modification to `btrack.utils.segmentation_to_objects` [1]. Thus, other
-        forms of input are also accepted.
+        modification to `btrack.utils.segmentation_to_objects` [1].
     config_file : str or `pathlib.Path`
         Filepath to configuration file for btrack parameters [2].
     additional_properties : str or list-like
@@ -28,13 +32,22 @@ class Tracker:
     [3] https://scikit-image.org/docs/stable/api/skimage.measure.html#skimage.measure.regionprops
     """
 
-    def __init__(self, segmentation_data, additional_properties=None, config_file=None):
+    def __init__(
+        self,
+        segmentation_data,
+        config_file=None,
+        num_workers=6,
+        verbose=True,
+        additional_properties=None,
+    ):
         self.segmentation_data = segmentation_data
         self.properties = self.set_properties(additional_properties)
         self.config_file = CONFIG_FILE if config_file is None else config_file
+        self.num_workers = num_workers
+        self.verbose = verbose
 
         self.trackable_objects = btrack.io.segmentation_to_objects(
-            segmentation_data, properties=self.properties
+            segmentation_data, properties=self.properties, num_workers=self.num_workers
         )
 
     def set_properties(self, additional_properties):
@@ -70,7 +83,7 @@ class Tracker:
 
         Wrapper for `btrack.BayesianTracker().track()`.
         """
-        self.tracker = btrack.BayesianTracker(verbose=True)
+        self.tracker = btrack.BayesianTracker(verbose=self.verbose)
         self.tracker.configure(self.config_file)
         self.tracker.append(self.trackable_objects)
         self.tracker.track()

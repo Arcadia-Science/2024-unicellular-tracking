@@ -43,14 +43,14 @@ def process_timelapse(
 
 
 @click.command()
-@cli_api.verbose_option
-@cli_api.btrack_config_file_option
-@cli_api.use_dask_option
-@cli_api.num_workers_option
-@cli_api.min_cell_diameter_um_option
-@cli_api.glob_option
-@cli_api.output_directory_option
 @cli_api.input_directory_argument
+@cli_api.output_directory_option
+@cli_api.glob_option
+@cli_api.min_cell_diameter_um_option
+@cli_api.num_workers_option
+@cli_api.use_dask_option
+@cli_api.btrack_config_file_option
+@cli_api.verbose_option
 def main(
     input_directory,
     output_directory,
@@ -94,9 +94,11 @@ def main(
     # glob all .nd2 files in directory
     nd2_files = natsorted(input_directory.glob(glob_str))
     if not nd2_files:
-        raise ValueError(f"No nd2 files found in {input_directory}.")
+        logger.error(f"No nd2 files found in {input_directory}.")
 
     # ensure output directory exists and is writeable
+    if output_directory is None:
+        output_directory = input_directory / "processed"
     output_directory.mkdir(parents=True, exist_ok=True)
 
     # loop through nd2 files

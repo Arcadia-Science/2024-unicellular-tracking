@@ -1,3 +1,5 @@
+import logging
+
 import numpy as np
 from dask_image import ndfilters
 
@@ -10,6 +12,8 @@ from .stack_processing import (
 )
 from .timelapse import Timelapse
 from .utils import timeit
+
+logger = logging.getLogger(__name__)
 
 
 class WellSegmenter(Timelapse):

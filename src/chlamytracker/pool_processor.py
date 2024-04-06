@@ -3,10 +3,11 @@ from multiprocessing import Pool
 import numpy as np
 import skimage as ski
 
+from .stack_processing import median_filter_3d_parellel
 from .utils import timeit
 
 
-class MicrochamberPoolProcessor:
+class PoolSegmenter:
     """Class for processing timelapse microscopy data of an individual agar microchamber pool.
 
     TODO: detailed description of what processing steps this class seeks to accomplish.
@@ -184,33 +185,3 @@ class MicrochamberPoolProcessor:
 
         self.is_segmented = True
         self.stack_segmented = stack_segmented > threshold
-
-
-def median_filter_3d_parellel(stack, r_disk=4, n_workers=6):
-    """Apply median filter to every image in a stack along the first axis
-    (in parallel).
-
-    While it is unfortunately much slower, a median filter is used here
-    because it is much better than a mean or Gaussian filter at preserving
-    edges, which is desirable for cell detection and segmentation.
-
-    Parameters
-    ----------
-    r_disk : scalar
-        Radius of morphological footprint for median filter.
-    n_workers : int
-        Number of processors to dedicate for multiprocessing.
-
-    Notes
-    -----
-    * Timing analysis showed diminishing returns beyond 6 workers.
-    """
-
-    # make a bunch of footprints for batch processing
-    footprint = ski.morphology.disk(r_disk)
-    footprints = [footprint] * stack.shape[0]
-    # run median filter in parallel
-    with Pool(n_workers) as workers:
-        out = workers.starmap(ski.filters.median, zip(stack, footprints, strict=False))
-
-    return np.array(out)

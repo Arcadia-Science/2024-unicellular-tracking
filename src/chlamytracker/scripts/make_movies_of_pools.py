@@ -6,7 +6,7 @@ import nd2
 import numpy as np
 import pandas as pd
 import skimage as ski
-from chlamytracker import cli_options
+from chlamytracker import cli_api
 from chlamytracker.utils import crop_movie_to_content
 from napari_animation import Animation
 from natsort import natsorted
@@ -90,7 +90,7 @@ def make_napari_animation_for_timelapse(
     viewer.close()
 
 
-@cli_options.data_dir_option
+@cli_api.data_dir_option
 @click.command()
 def main(data_dir, framerate=20):
     """Script for batch processing ...

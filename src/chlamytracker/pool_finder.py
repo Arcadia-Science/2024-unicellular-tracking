@@ -1,85 +1,53 @@
+import logging
 from functools import partial
 
-import nd2
 import numpy as np
 import skimage as ski
 
-from .pool_processor import MicrochamberPoolProcessor
+from .pool_processor import PoolSegmenter
+from .timelapse import Timelapse
 from .utils import timeit
 
+logger = logging.getLogger(__name__)
 
-class PoolFinder:
-    """Class for processing timelapse brightfield microscopy data of agar microchamber pools.
+
+class PoolFinder(Timelapse):
+    """Subclass of `Timelapse` for detecting agar microchamber pools in
+    timelapse microscopy data.
 
     TODO: more detailed description of what an agar microchamber pool is and what
           processing steps this class seeks to accomplish (and why).
 
     Parameters
     ----------
-    filepath : `pathlib.Path`
-        Path to input nd2 file.
-    pool_radius_um : scalar
+    nd2_file : Path | str
+        Filepath to input nd2 file.
+    pool_radius_um : int (optional)
         Radius of pool in microns.
-    pool_spacing_um : scalar
+    pool_spacing_um : int (optional)
         (Center <--> center) distance between pools in microns.
     hough_threshold : float (optional)
         Threshold for Hough transformation (0, 1)
-    median_filter_radius : scalar (optional)
-        Radius of structuring element for median filter during preprocessing.
-    tophat_filter_radius : scalar (optional)
-        Radius of structuring element for tophat filter during preprocessing.
-    min_object_size : scalar (optional)
+    min_object_size : int (optional)
         Area threshold for object removal during preprocessing (objects below
         this size will be removed).
-
-    Attributes
-    ----------
-    stack : (T, Y, X) array
-        Timelapse data as numpy array.
-    pool_radius_px : float
-        Radius of pool in pixels.
-    pool_spacing_px : float
-        (Center <--> center) distance between pools in pixels.
-    max_num_pools : int
-        Max number of pools in timelapse as allowed by geometry.
-    mean_intensity_projection : (Y, X) array
-        Mean intensity projection of timelapse.
-    pool_edges : (Y, X) array
-        Mean intensity projection of timelapse thresholded to enhance edges
-        for circle detection.
-    poolmap : dict
-        Mapping of grid points to x, y coordinates of pool locations.
-    pools : dict
-        Collection of `MicrochamberPoolProcessor`s.
+    use_dask : bool (optional)
+        Whether to load and process nd2 file with dask.
     """
 
     def __init__(
         self,
-        filepath,
-        pool_radius_um,
-        pool_spacing_um,
+        nd2_file,
+        pool_radius_um=50,
+        pool_spacing_um=200,
         hough_threshold=0.2,
-        median_filter_radius=2,
-        tophat_filter_radius=5,
-        min_object_size=500,
+        min_object_size=400,
+        use_dask=False,
     ):
-        # check that nd2 file is valid
-        self.filepath = filepath
-        self._validate()
-
-        # metadata from .nd2 headers
-        with nd2.ND2File(filepath) as nd2f:
-            voxels_um = nd2f.voxel_size()  # in microns
-            sizes = nd2f.sizes  # e.g. {'T': 10, 'C': 2, 'Y': 256, 'X': 256}
-        self.Nx = sizes["X"]
-        self.Ny = sizes["Y"]
-        self.um_per_px = (voxels_um.x + voxels_um.y) / 2
+        super().__init__(nd2_file, use_dask)
 
         # pre-processing parameters
-        self.median_filter_radius = median_filter_radius
-        self.tophat_filter_radius = tophat_filter_radius
         self.min_object_size = min_object_size
-        self.is_preprocessed = False
 
         # Hough transform parameters
         self.pool_radius_px = pool_radius_um / self.um_per_px
@@ -92,29 +60,10 @@ class PoolFinder:
         #   beyond what should be allowed by the image dimensions; this allows
         #   for flexibility in detecting pools which is later accounted for by
         #   raising an IndexError for pools that are found to be out of bounds.
-        nx = int(np.ceil(self.Nx / self.pool_spacing_px))
-        ny = int(np.ceil(self.Ny / self.pool_spacing_px))
+        nx = int(np.ceil(self.dimensions["X"] / self.pool_spacing_px))
+        ny = int(np.ceil(self.dimensions["Y"] / self.pool_spacing_px))
         self.grid = np.mgrid[-1 : nx + 1, -1 : ny + 1].reshape(2, -1).T
         self.poolmap = dict.fromkeys([(ix, iy) for (ix, iy) in self.grid])
-
-        # load data from nd2 file
-        self.load()
-
-    def _validate(self):
-        """Check that nd2 file has not been corrupted."""
-        try:
-            # simply checking for shape will determine if nd2 file is corrupted
-            with nd2.ND2File(self.filepath) as nd2f:
-                _ = nd2f.shape
-        except ValueError as err:
-            msg = f"{self.filepath} is corrupted."
-            print(msg, err)
-
-    @timeit
-    def load(self):
-        """Load timelapse from nd2 file as numpy array."""
-        if not hasattr(self, "stack"):
-            self.stack = nd2.imread(self.filepath)
 
     def get_max_num_pools(self):
         """Calculate the max number of pools in the timelapse based on geometry.
@@ -129,8 +78,8 @@ class PoolFinder:
         transform can detect partial pools (rings), the calculation here returns
         the more practical maximum for subsequent circle detection.
         """
-        Nx = self.Nx
-        Ny = self.Ny
+        Nx = self.dimensions["X"]
+        Ny = self.dimensions["Y"]
         d = self.pool_spacing_px
 
         # number of pools in each dimension allowing for partial pools
@@ -140,59 +89,35 @@ class PoolFinder:
         return n_pools_x * n_pools_y
 
     @timeit
-    def preprocess(self):
-        """Apply preprocessing steps
+    def get_pool_edges(self):
+        """Run edge detection on timelapse data to get outlines of the pools.
 
-        Process
-        -------
-        1) Calculate the mean intensity projection (along time axis)
-        2) Median filter
-        3) Clip intensity range
-        4) White tophat filter
-        5) Threshold
-        6) Clean / remove small segments
-
-        Returns
-        -------
-        mean_intensity_projection : (Y, X) array
-            Mean intensity projection of timelapse.
-        pool_edges : (Y, X) array
-            Processed mean intensity projection with edges of pools enhanced (ideally).
+        Uses Sobel edge detection on the mean intensity projection of the
+        timelapse to find edges of the agar microchamber pools. Edges are
+        cleaned up by filtering out small objects (junk) with
+        `ski.remove.remove_small_objects`.
         """
-        # create structuring elements (aka footprint) for filters
-        footprint_median_filter = ski.morphology.disk(self.median_filter_radius)
-        footprint_tophat_filter = ski.morphology.disk(self.tophat_filter_radius)
+        # mean intensity projection
+        mean_projection = self.raw_data.mean(axis=0)
 
-        # calculate the mean intensity projection along the time axis
-        tproj = self.stack.mean(axis=0)
-
-        # apply edge-preserving smoothing filter
-        tproj_smooth = ski.filters.median(tproj, footprint=footprint_median_filter)
-
-        # clip intensity range (auto- brightness/contrast)
-        # NOTE: normally would set intensity range for auto- brightness/contrast
-        #       based on e.g. (1%, 99%) percentile range, but artefacts in the
-        #       microscopy data caused too many inconsistencies with this
-        #       approach so opted to clip intensity based on median +/- k*std
-        #       where k is somewhat arbitrary but there are no objective
-        #       answers here...
-        med = np.median(tproj_smooth)
-        std = tproj_smooth.std()
-        vmin, vmax = (med - 2 * std, med + 2 * std)
-        tproj_rescaled = ski.exposure.rescale_intensity(tproj_smooth, in_range=(vmin, vmax))
-        # tophat filter
-        tproj_pool_edges = ski.morphology.white_tophat(
-            image=tproj_rescaled, footprint=footprint_tophat_filter
+        # enhance contrast -- clip intensity centered on the median
+        med = np.median(mean_projection)
+        std = mean_projection.std()
+        vmin, vmax = med - 2 * std, med + 2 * std
+        mean_projection_rescaled = ski.exposure.rescale_intensity(
+            mean_projection, in_range=(vmin, vmax)
         )
-        # create rough mask on edges of the pools
-        thresh = ski.filters.threshold_otsu(tproj_pool_edges)
+
+        # edge detection on mean intensity projection
+        edges = ski.filters.sobel(mean_projection_rescaled)
+        threshold = ski.filters.threshold_otsu(edges)
+        edges_binary = edges > threshold
+
+        # remove junk
         pool_edges = ski.morphology.remove_small_objects(
-            tproj_pool_edges > thresh, min_size=self.min_object_size
+            edges_binary, min_size=self.min_object_size
         )
-
-        self.is_preprocessed = True
-        self.mean_intensity_projection = tproj_rescaled
-        self.pool_edges = pool_edges
+        return pool_edges
 
     def detect_pools(self):
         """Run Hough transform on preprocessed timelapse to detect pools.
@@ -204,21 +129,23 @@ class PoolFinder:
         ----------
         [1] https://scikit-image.org/docs/stable/auto_examples/edges/plot_circular_elliptical_hough_transform.html
         """
-        # preprocess
-        if not self.is_preprocessed:
-            self.preprocess()
+        pool_edges = self.get_pool_edges()
 
         # define radii for Hough transform
         #   a 10px range around the expected radius was found to work empirically
         #   defining the range of radii in this way ensures a +/-5 window around
         #   the expected radius
-        r_hough = range(round(self.pool_radius_px) - 5, round(self.pool_radius_px) + 6, 2)
+        r_hough = range(
+            round(self.pool_radius_px) - 5,
+            round(self.pool_radius_px) + 6,
+            2,
+        )
 
         # set minimum search distance between adjacent circles
         d_min = int(0.9 * self.pool_spacing_px)
 
         # apply circular Hough transform
-        hspaces = ski.transform.hough_circle(self.pool_edges, r_hough)
+        hspaces = ski.transform.hough_circle(pool_edges, r_hough)
         hough_peaks = ski.transform.hough_circle_peaks(
             hspaces=hspaces,
             radii=r_hough,
@@ -309,7 +236,7 @@ class PoolFinder:
             max_trials=500,
             is_model_valid=is_model_valid,
         )
-        self.model = model
+        return model
 
     @timeit
     def find_pools(self, residual_threshold=10):
@@ -321,15 +248,15 @@ class PoolFinder:
 
         # detect and extrapolate pool locations
         centers = self.detect_pools()
-        self.extrapolate_pool_locations(centers)
+        model = self.extrapolate_pool_locations(centers)
 
         # map grid indices to extrapolated coordinates with `extrapolated` status
         for ix, iy in self.grid:
-            cx, cy = self.model((ix, iy)).ravel().round().astype(int)
+            cx, cy = model((ix, iy)).ravel().round().astype(int)
             self.poolmap[(ix, iy)] = [(cx, cy), "extrapolated"]
 
         # loop through detected pool locations to update the poolmap
-        detected_grid_coords = self.model.inverse(centers).round()
+        detected_grid_coords = model.inverse(centers).round()
         for i, (ix, iy) in enumerate(detected_grid_coords):
             # measure the distance between the detected location and the
             # estimated location for outlier detection
@@ -339,7 +266,7 @@ class PoolFinder:
             #          safe to assume that none of the inverse centers lie
             #          outside of the grid.
             cx, cy = self.poolmap[(ix, iy)][0]
-            measured_residuals = self.model.residuals(
+            measured_residuals = model.residuals(
                 (ix, iy),  # detected
                 (cx, cy),  # extrapolated
             ).item()
@@ -369,7 +296,7 @@ class PoolFinder:
                 continue
 
             # collect pools
-            pool = MicrochamberPoolProcessor(pool_stack)
+            pool = PoolSegmenter(pool_stack)
             pools[(ix, iy)] = pool
 
         self.pools = pools

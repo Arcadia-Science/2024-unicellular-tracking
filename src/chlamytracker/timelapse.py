@@ -19,7 +19,7 @@ class Timelapse:
     nd2_file : Path | str
         Filepath to input nd2 file.
     use_dask : bool
-        Whether to read nd2 file with dask.
+        Whether to load and process nd2 file with dask.
     """
 
     def __init__(self, nd2_file, use_dask=False):

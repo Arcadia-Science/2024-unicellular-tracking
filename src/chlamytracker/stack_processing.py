@@ -111,6 +111,43 @@ def otsu_threshold_dask(dask_array):
 
 
 @timeit
+def circular_alpha_mask(stack, sigma=1.6, num_workers=6):
+    """Apply a circular alpha mask to every image in a stack along the first axis
+    (in parallel).
+
+    Transforms a rectangular prism to a cylinder. I.e. something like (but in 3D)
+
+        [[1, 1, 1, 1, 1],      [[0, 0.5, 1, 0.5, 0],
+         [1, 1, 1, 1, 1],       [0.5, 1, 1, 1, 0.5],
+         [1, 1, 1, 1, 1],  -->  [  1, 1, 1, 1,   1],
+         [1, 1, 1, 1, 1],       [0.5, 1, 1, 1, 0.5],
+         [1, 1, 1, 1, 1]]       [0, 0.5, 1, 0.5, 0]]
+
+    Parameters
+    ----------
+    stack : ([Z, T], Y, X) array
+        Input image stack of arbitrary dtype.
+    sigma : float (optional)
+        Standard deviation for Gaussian kernel.
+    num_workers : int (optional)
+        Number of processors to dedicate for multiprocessing.
+    """
+    # create alpha mask in the shape of a circle
+    nz, ny, nx = stack.shape
+    mask = np.zeros((nz, ny, nx))
+    rr, cc = ski.draw.disk(
+        center=(nx // 2, ny // 2),
+        radius=(nx // 2),
+    )
+    mask[:, rr, cc] = 1
+    # apply Guassian blur to mask
+    mask_smoothed = gaussian_filter_3d_parallel(mask, sigma=sigma, num_workers=num_workers)
+
+    # apply mask
+    return stack * mask_smoothed
+
+
+@timeit
 def gaussian_filter_3d_parallel(stack, sigma=1.6, num_workers=6):
     """Apply a Gaussian filter to every image in a stack along the first axis
     (in parallel).

@@ -41,6 +41,49 @@ def get_central_frames(stack, num_central_frames=10):
 
 
 @timeit
+def crop_out_roi(stack, center, radius):
+    """Crops a square ROI out of an image stack along the first axis.
+
+    Parameters
+    ----------
+    stack : ([Z, T], Y, X) array
+        Input image stack of arbitrary dtype.
+    center : 2-tuple
+        ROI center as an (x, y) coordinate.
+    radius : int
+        Radius to determine cropping window (1/2 width of square).
+
+    Returns
+    -------
+    roi : ([Z, T], Y, X) array
+        Region of interest cropped from image stack with dimensions ([Z, T], 2*R, 2*R).
+
+    Raises
+    ------
+    IndexError
+        If requested crop is outside the extent of the stack.
+    """
+    # validate input
+    cx, cy = tuple(int(i) for i in center)
+    r = round(radius)
+
+    # crop to a rectangular roi
+    nz, ny, nx = stack.shape
+    y1, y2 = cy - r, cy + r
+    x1, x2 = cx - r, cx + r
+    if (y1 < 0) or (y2 > ny) or (x1 < 0) or (x2 > nx):
+        msg = (
+            f"Requested crop (array[:, {y1}:{y2}, {x1}:{x2}]) is out of bounds "
+            f"for array with shape {stack.shape}."
+        )
+        raise IndexError(msg)
+    else:
+        roi = stack[:, y1:y2, x1:x2]
+
+    return roi
+
+
+@timeit
 def rescale_to_float(stack):
     """Rescale intensity values of an image stack to (0, 1) range.
 

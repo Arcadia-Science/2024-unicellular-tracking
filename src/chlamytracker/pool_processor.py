@@ -4,7 +4,6 @@ import skimage as ski
 from .stack_processing import (
     circular_alpha_mask,
     gaussian_filter_3d_parallel,
-    otsu_threshold_3d,
     remove_small_objects_3d_parallel,
     rescale_to_float,
 )
@@ -69,8 +68,8 @@ class PoolSegmenter:
         """"""
         # background subtraction
         background_subtracted = self.subtract_background()
-        # segment cells based on Otsu thresholding
-        threshold = otsu_threshold_3d(background_subtracted)
+        # segment cells based on Li thresholding -- more forgiving than Otsu
+        threshold = ski.filters.threshold_li(background_subtracted)
         segmentation = background_subtracted > threshold
 
         # apply circular alpha mask to segmentation

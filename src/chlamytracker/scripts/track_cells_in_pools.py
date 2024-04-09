@@ -17,41 +17,55 @@ def process_timelapse(
     output_directory,
     pool_radius_um,
     pool_spacing_um,
+    min_cell_diameter_um,
     num_workers,
     btrack_config_file,
     verbose,
 ):
-    """Function for processing an individual file of raw timelapse microscopy
+    """Function for processing an individual nd2 file of raw timelapse microscopy
     data of unicellular organisms in agar microchamber pools."""
-    # extract, segment, and export pools
+    # find pools within the timelapse
     pool_finder = PoolFinder(
-        filepath=nd2_file,
+        nd2_file=nd2_file,
         pool_radius_um=pool_radius_um,
         pool_spacing_um=pool_spacing_um,
     )
-    pool_finder.extract_pools()
-    pool_finder.make_debug_sketch()
-    pool_finder.segment_pools()
-    pool_finder.export_pools()
+
+    # configure export directory
+    #   output segmentation and tracking data to subdirectories as there are
+    #   multiple pools per nd2 file
+    output_directory /= pool_finder.nd2_file.stem
+    output_directory.mkdir(exist_ok=True)
+
+    # segment cells within each pool
+    pools_segmented = pool_finder.segment_pools(min_cell_diameter_um, filled_ratio_threshold=0.1)
+
+    # export poolmap
+    txt_file = output_directory / "poolmap.txt"
+    with open(txt_file, "w") as txt:
+        for (ix, iy), ((cx, cy), status) in pool_finder.poolmap.items():
+            line = f"{ix}\t{iy}\t{cx}\t{cy}\t{status}\n"
+            txt.write(line)
+
+    # render and save debug sketch of detected pools
+    pools_debug_sketch = pool_finder.make_debug_sketch()
+    jpg_file = output_directory / "pools_detected.jpg"
+    ski.io.imsave(jpg_file, pools_debug_sketch)
 
     # track segmented cells in each pool and output to csv
-    for (ix, iy), pool in pool_finder.pools.items():
-        if pool.has_cells() and pool.is_segmented:
-            # rescale segmentation data for btrack
-            segmentation_data = ski.exposure.rescale_intensity(
-                pool.stack_segmented, out_range=(0, 255)
-            ).astype(np.uint8)
+    for (ix, iy), segmentation in pools_segmented.items():
+        # export segmentation
+        tiff_file = output_directory / f"pool_{ix}_{iy}_segmented.tiff"
+        segmentation_8bit = (255 * segmentation).astype(np.uint8)
+        ski.io.imsave(tiff_file, segmentation_8bit)
 
-            # cell tracking
-            pool_tracker = Tracker(segmentation_8bit, btrack_config_file, num_workers, verbose)
-            pool_tracker.track_cells()
-            csv_filename = (
-                pool_finder.filepath.parent
-                / "processed"
-                / pool_finder.filepath.stem
-                / f"pool_{ix:02d}_{iy:02d}_tracks.csv"
-            )
-            pool_tracker.tracker.export(csv_filename)
+        # cell tracking
+        pool_tracker = Tracker(segmentation_8bit, btrack_config_file, num_workers, verbose)
+        pool_tracker.track_cells()
+
+        # export tracking data
+        csv_file = output_directory / f"pool_{ix}_{iy}_tracks.csv"
+        pool_tracker.tracker.export(csv_file)
 
 
 @click.command()
@@ -60,6 +74,7 @@ def process_timelapse(
 @cli_api.glob_option
 @cli_api.pool_radius_um_option
 @cli_api.pool_spacing_um_option
+@cli_api.min_cell_diameter_um_option
 @cli_api.num_workers_option
 @cli_api.btrack_config_file_option
 @cli_api.verbose_option
@@ -69,6 +84,7 @@ def main(
     glob_str,
     pool_radius_um,
     pool_spacing_um,
+    min_cell_diameter_um,
     num_workers,
     btrack_config_file,
     verbose,
@@ -119,6 +135,7 @@ def main(
                 output_directory,
                 pool_radius_um,
                 pool_spacing_um,
+                min_cell_diameter_um,
                 num_workers,
                 btrack_config_file,
                 verbose,

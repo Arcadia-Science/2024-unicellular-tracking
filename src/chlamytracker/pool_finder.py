@@ -5,6 +5,7 @@ import numpy as np
 import skimage as ski
 
 from .pool_processor import PoolSegmenter
+from .stack_processing import crop_out_roi
 from .timelapse import Timelapse
 from .utils import timeit
 
@@ -26,11 +27,13 @@ class PoolFinder(Timelapse):
         Radius of pool in microns.
     pool_spacing_um : int (optional)
         (Center <--> center) distance between pools in microns.
+    min_cell_diameter_um : int (optional)
+        Diameter of smallest desired organism to be segmented in microns.
     hough_threshold : float (optional)
         Threshold for Hough transformation (0, 1)
     min_object_size : int (optional)
-        Area threshold for object removal during preprocessing (objects below
-        this size will be removed).
+        Area threshold for object removal after Sobel edge filtering and before
+        applying the Hough transform.
     use_dask : bool (optional)
         Whether to load and process nd2 file with dask.
     """
@@ -117,7 +120,7 @@ class PoolFinder(Timelapse):
         pool_edges = ski.morphology.remove_small_objects(
             edges_binary, min_size=self.min_object_size
         )
-        return pool_edges
+        self.pool_edges = pool_edges
 
     def detect_pools(self):
         """Run Hough transform on preprocessed timelapse to detect pools.
@@ -129,7 +132,8 @@ class PoolFinder(Timelapse):
         ----------
         [1] https://scikit-image.org/docs/stable/auto_examples/edges/plot_circular_elliptical_hough_transform.html
         """
-        pool_edges = self.get_pool_edges()
+        # get rough outlines of each pool
+        self.get_pool_edges()
 
         # define radii for Hough transform
         #   a 10px range around the expected radius was found to work empirically
@@ -145,7 +149,7 @@ class PoolFinder(Timelapse):
         d_min = int(0.9 * self.pool_spacing_px)
 
         # apply circular Hough transform
-        hspaces = ski.transform.hough_circle(pool_edges, r_hough)
+        hspaces = ski.transform.hough_circle(self.pool_edges, r_hough)
         hough_peaks = ski.transform.hough_circle_peaks(
             hspaces=hspaces,
             radii=r_hough,
@@ -245,7 +249,6 @@ class PoolFinder(Timelapse):
         Runs detect_pools() and extrapolate_pool_locations(). Then updates
         `poolmap` by overwriting extrapolated pool locations with inliers.
         """
-
         # detect and extrapolate pool locations
         centers = self.detect_pools()
         model = self.extrapolate_pool_locations(centers)
@@ -279,8 +282,19 @@ class PoolFinder(Timelapse):
 
     @timeit
     def extract_pools(self):
-        """Extract pools."""
-        # find pools
+        """Extract pools.
+
+        Returns a mapping of grid coordinates of pool locations to `PoolSegmenter` instances.
+        >>> self.extract_pools()
+            {
+                (0, 0): `PoolSegmenter`,
+                (0, 1): `PoolSegmenter`,
+                (0, 2): `PoolSegmenter`,
+                ...
+                (Nx, Ny): `PoolSegmenter`
+            }
+        """
+        # find pools --> updates self.poolmap
         self.find_pools()
 
         # extract pools
@@ -288,73 +302,56 @@ class PoolFinder(Timelapse):
         for (ix, iy), ((cx, cy), _status) in self.poolmap.items():
             # crop to pool (+1 pixel margin)
             try:
-                pool_stack = crop_out_roi(
-                    stack=self.stack, center=(cx, cy), radius=self.pool_radius_px + 1
+                raw_data_pool = crop_out_roi(
+                    stack=self.raw_data, center=(cx, cy), radius=self.pool_radius_px + 1
                 )
             # pool extends beyond image border --> skip
             except IndexError:
                 continue
 
             # collect pools
-            pool = PoolSegmenter(pool_stack)
-            pools[(ix, iy)] = pool
+            pools[(ix, iy)] = PoolSegmenter(raw_data_pool)
 
-        self.pools = pools
+        return pools
 
-    def preprocess_pools(self):
-        """Apply MicrochamberPoolProcessor.prepocess() to each pool."""
-        # run preprocessing on each pool and update collection
-        # TODO: run in parallel (if possible)
-        for (ix, iy), pool in self.pools.items():
-            pool.preprocess()
-            self.pools[(ix, iy)] = pool
+    def segment_pools(self, min_cell_diameter_um=6, filled_ratio_threshold=0.1):
+        """Segment cells from each of the detected pools.
 
-    def segment_pools(self):
-        """Apply MicrochamberPoolProcessor.segment() to each pool."""
+        Returns a mapping of grid coordinates of pool locations to segmentation data.
+        >>> self.segment_pools(*args)
+            {
+                (0, 0): (T, Y, X) bool array,
+                (0, 1): (T, Y, X) bool array,
+                (0, 2): (T, Y, X) bool array,
+                ...
+                (Nx, Ny): (T, Y, X) bool array
+            }
+        """
+        # convert minimum cell diameter to pixelated area
+        min_area = self.convert_um_to_px2_circle(min_cell_diameter_um)
+
+        pools = self.extract_pools()
+        pools_segmented = {}
         # segment each pool and update collection
-        for (ix, iy), pool in self.pools.items():
+        for (ix, iy), pool in pools.items():
             # only bother segmenting if the pool contains cells
             if pool.has_cells():
                 try:
-                    pool.segment(min_object_size=self.min_object_size)
+                    pool_segmented = pool.segment(
+                        min_area=min_area,
+                        filled_ratio_threshold=filled_ratio_threshold,
+                    )
 
                 except ValueError as err:
-                    msg = f"Processing for pool ({ix}, {iy}) in {self.filepath.name} failed."
-                    print(msg, err)
+                    msg = f"Processing for pool ({ix}, {iy}) in {self.nd2_file.name} failed: "
+                    logger.error(msg + str(err))
                     continue
 
-                self.pools[(ix, iy)] = pool
+                pools_segmented[(ix, iy)] = pool_segmented
 
-    @timeit
-    def export_pools(self, dir_out=None):
-        """Export processed pools to disk as 8bit tiff stacks."""
+        return pools_segmented
 
-        # set default output directory
-        if dir_out is None:
-            dir_out = self.filepath.parent / "processed"
-
-        # export poolmap
-        filename = dir_out / self.filepath.stem / "poolmap.txt"
-        filename.parent.mkdir(exist_ok=True, parents=False)
-        with open(filename, "w") as txt_file:
-            for (ix, iy), ((cx, cy), status) in self.poolmap.items():
-                line = f"{ix}\t{iy}\t{cx}\t{cy}\t{status}\n"
-                txt_file.write(line)
-
-        # loop through pools and export timelapses of each pool as uint8 tiffs
-        for (ix, iy), pool in self.pools.items():
-            # only export pools with cells
-            if pool.has_cells() and pool.is_segmented:
-                # convert to 8bit
-                pool_8bit = ski.exposure.rescale_intensity(
-                    pool.stack_segmented, in_range=(0, 1), out_range=(0, 255)
-                ).astype(np.ubyte)
-
-                # include pool x, y indices in filename
-                filename = dir_out / self.filepath.stem / f"pool_{ix:02d}_{iy:02d}.tiff"
-                ski.io.imsave(filename, pool_8bit, check_contrast=False)
-
-    def make_debug_sketch(self, save=True, dir_out=None):
+    def make_debug_sketch(self):
         """Annotates the detected pools for debugging purposes."""
 
         colormap = {
@@ -371,18 +368,10 @@ class PoolFinder(Timelapse):
                 r=cy, c=cx, radius=int(self.pool_radius_px), shape=sketch.shape
             )
             sketch[rr, cc] = colormap[status]
+
             # annotate circle center
             rr, cc = ski.draw.disk(center=(cy, cx), radius=6, shape=sketch.shape)
             sketch[rr, cc] = colormap[status]
-
-        # save debug image to disk
-        if save:
-            if dir_out is None:
-                dir_out = self.filepath.parent / "processed"
-            # save as jpeg
-            tgt = dir_out / (self.filepath.stem + "_pools.jpg")
-            tgt.parent.mkdir(exist_ok=True, parents=True)
-            ski.io.imsave(tgt, sketch)
 
         return sketch
 
@@ -399,45 +388,3 @@ def validate_model(model, src, dst, min_scale, max_scale):
     """
     is_valid = min_scale < model.scale < max_scale
     return is_valid
-
-
-def crop_out_roi(stack, center, radius):
-    """Crops a square ROI out of an image stack along the first axis.
-
-    Parameters
-    ----------
-    stack : ([T, Z], Y, X) array
-        Image stack such as a timelapse or z-stack.
-    center : 2-tuple
-        ROI center as an (x, y) coordinate.
-    radius : scalar
-        Radius to determine cropping window (1/2 width of square).
-
-    Returns
-    -------
-    roi : (Z, Y, X) array
-        Region of interest cropped from image stack with dimensions (Z, 2*R, 2*R).
-
-    Raises
-    ------
-    IndexError
-        If requested crop is outside the extent of the stack.
-    """
-    # validate input
-    cx, cy = tuple(int(i) for i in center)
-    r = round(radius)
-
-    # crop to a rectangular roi
-    nz, ny, nx = stack.shape
-    y1, y2 = cy - r, cy + r
-    x1, x2 = cx - r, cx + r
-    if (y1 < 0) or (y2 > ny) or (x1 < 0) or (x2 > nx):
-        msg = (
-            f"Requested crop (array[:, {y1}:{y2}, {x1}:{x2}]) is out of bounds "
-            f"for array with shape {stack.shape}."
-        )
-        raise IndexError(msg)
-    else:
-        roi = stack[:, y1:y2, x1:x2]
-
-    return roi

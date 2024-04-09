@@ -69,7 +69,7 @@ class PoolSegmenter:
         # background subtraction
         background_subtracted = self.subtract_background()
         # segment cells based on Li thresholding -- more forgiving than Otsu
-        threshold = ski.filters.threshold_li(background_subtracted)
+        threshold = ski.filters.threshold_li(background_subtracted, initial_guess=0.1)
         segmentation = background_subtracted > threshold
 
         # apply circular alpha mask to segmentation

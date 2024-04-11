@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import btrack
+import pandas as pd
 
 CONFIG_FILE = Path(__file__).parents[2] / "btrack_config/cell_config.json"
 
@@ -87,3 +88,18 @@ class Tracker:
         self.tracker.configure(self.config_file)
         self.tracker.append(self.trackable_objects)
         self.tracker.track()
+
+    def to_dataframe(self):
+        """Converts tracklets to a pandas DataFrame object."""
+        # concatenate each tracklet as long as there are more than 3 rows
+        # (cell was tracked for at least 3 frames)
+        dataframe = pd.DataFrame()
+        for tracklet in self.tracker.tracks:
+            if len(tracklet) > 3:
+                df = pd.DataFrame(tracklet.to_dict())
+                dataframe = pd.concat([dataframe, df])
+
+        # reorganize column headers
+        btrack_default_properties = ["ID", "t", "x", "y", "z"]
+        columns = btrack_default_properties + list(self.properties)
+        return dataframe[columns]

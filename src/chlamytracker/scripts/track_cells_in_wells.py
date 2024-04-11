@@ -39,7 +39,8 @@ def process_timelapse(
 
     # export tracking data
     csv_filename = output_directory / f"{well.nd2_file.stem}_tracks.csv"
-    well_tracker.tracker.export(csv_filename)
+    dataframe = well_tracker.to_dataframe()
+    dataframe.to_csv(csv_filename, index=False)
 
 
 @click.command()

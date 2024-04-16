@@ -88,13 +88,8 @@ class TrajectoryCSVParser:
 
         return cell_trajectories
 
-    def measure_trajectories(self):
-        """
-
-        Returns
-        -------
-        dataframe : pd.DataFrame
-        """
+    def measure_trajectories(self, min_frames=5):
+        """"""
         if not hasattr(self, "frametime"):
             msg = (
                 "Must initialize `TrajectoryCSVParser` with a frametime in "
@@ -102,12 +97,36 @@ class TrajectoryCSVParser:
             )
             raise AttributeError(msg)
 
+        measurement_collection = []
+        for cell_id, cell_data in self.dataframe.groupby("ID"):
+            x = cell_data["x"].values
+            y = cell_data["y"].values
+
+            if x.size < min_frames:
+                logger.debug(
+                    f"Discarding cell {cell_id} with fewer than {min_frames} "
+                    "points in its trajectory."
+                )
+                continue
+
+            trajectory_analyzer = TrajectoryAnalyzer(x, y, dt=self.frametime)
+            measurements = trajectory_analyzer.measurements
+            measurements["cell_id"] = cell_id
+            measurement_collection.append(measurements)
+
+        return measurement_collection
+
     def get_trajectory_count(self):
-        """"""
+        """Get number of cell trajectories in motility data."""
         return self.dataframe["ID"].unique().size
 
     def estimate_cell_count(self):
-        """"""
+        """Estimate the number of cells in the motility data.
+
+        In general this will be somewhat close but not equal to the trajectory
+        count since new trajectories are created each time cells collide or go
+        in and out of focus.
+        """
         num_cells = 3
 
         return num_cells
@@ -115,6 +134,20 @@ class TrajectoryCSVParser:
 
 class TrajectoryAnalyzer:
     """Class for analyzing cell trajectories.
+
+    Motility measurements adapted from [1].
+    +--------------------------+------------------------------+
+    | Measurement              | Equation                     |
+    +--------------------------+------------------------------+
+    | total_time               | t_tot = N * dt               |
+    | total_distance           | d_tot = sum( d(p_i, p_i+1) ) |
+    | net_distance             | d_net = d(p_0, p_N)          |
+    | max_distance             | d_max = max( d(p_i, p_i+1) ) |
+    | confinement_ratio        | r_con = d_net / d_tot        |
+    | mean_curvilinear_speed   | v_avg = 1 / N * sum( v_i )   |
+    | mean_linear_speed        | v_lin = d_net / t_tot        |
+    | linearity_of_progression | r_lin = v_lin / v_avg        |
+    +--------------------------+------------------------------+
 
     Parameters
     ----------
@@ -127,7 +160,7 @@ class TrajectoryAnalyzer:
 
     References
     ----------
-    [1]
+    [1] https://doi.org/10.1016/B978-0-12-391857-4.00009-4
     """
 
     def __init__(self, x, y, dt) -> None:
@@ -136,109 +169,28 @@ class TrajectoryAnalyzer:
         self.dt = dt
         self.points = np.array([x, y]).T
 
-        # calculate instantaneous_quantities to facilitate motility measurements
-        self._calculate_instantaneous_quantities()
+        # calculate point-to-point distances to facilitate motility measurements
+        distances_L1 = np.diff(self.points, axis=0)
+        distances_L2 = np.linalg.norm(distances_L1, axis=1)
 
         # motility measurements
-        t_tot = self.calculate_total_time()
-        d_tot = self.calculate_total_distance()
-        d_net = self.calculate_net_distance()
-        r_con = self.calculate_confinement_ratio()
-        v_crv = self.calculate_mean_curvilinear_speed()
-        v_lin = self.calculate_mean_linear_speed()
-        r_lin = self.calculate_linearity_of_progression()
+        N = x.size
+        t_tot = N * dt
+        d_tot = distances_L2.sum()
+        d_net = np.linalg.norm(self.points[-1] - self.points[0])
+        d_max = distances_L2.max()
+        r_con = d_net / d_tot
+        v_avg = (distances_L2 / dt).mean()
+        v_lin = d_net / t_tot
+        r_lin = v_lin / v_avg
 
         self.measurements = {
             "total_time": t_tot,
             "total_distance": d_tot,
             "net_distance": d_net,
+            "max_distance": d_max,
             "confinement_ratio": r_con,
-            "mean_curvilinear_speed": v_crv,
+            "mean_curvilinear_speed": v_avg,
             "mean_linear_speed": v_lin,
             "linearity_of_progression": r_lin,
         }
-
-    def _calculate_instantaneous_quantities(self):
-        """"""
-        # instantaneous distances
-        self.L1_distances = np.diff(self.points, axis=0)
-        self.L2_distances = np.linalg.norm(self.L1_distances, axis=1)
-
-        # instantaneous angle
-        dx = np.diff(self.x)
-        dy = np.diff(self.y)
-        self.alpha = np.arctan2(dy, dx)
-        # instantaneous directional change
-        self.gamma = np.cumsum(np.abs(self.alpha))
-
-        # instantaneous linear and angular velocity
-        self.linear_velocity = self.L2_distances / self.dt
-        self.angular_velocity = self.gamma / self.dt
-
-    def calculate_total_time(self):
-        """Calculate the total time in which the cell traveled.
-
-        Equation
-        --------
-        t_tot = N * dt
-        """
-        return self.x * self.dt
-
-    def calculate_total_distance(self):
-        """Calculate the total distance traveled by the cell.
-
-        Equation
-        --------
-        d_tot = sum( distance(p_i, p_i+1) ) for i = 0 --> N
-        """
-        return self.L2_distances.sum()
-
-    def calculate_net_distance(self):
-        """Calculate the net distance traveled by the cell.
-
-        Equation
-        --------
-        d_net = distance(p_0, p_N)
-        """
-        return np.linalg.norm(self.points[-1] - self.points[0])
-
-    def calculate_confinement_ratio(self):
-        """Calculate the confinement ratio.
-
-        Equation
-        --------
-        r_con = d_net / d_tot
-        """
-        return self.net_distance / self.total_distance
-
-    def calculate_mean_curvilinear_speed(self):
-        """Calculate the average speed along the curved trajectory.
-
-        Equation
-        --------
-        v_avg = 1 / N * sum( v_i ) for i = 0 --> N
-        """
-        return self.linear_velocity.mean()
-
-    def calculate_mean_linear_speed(self):
-        """Calculate the average straight line speed.
-
-        Equation
-        --------
-        v_lin = d_net / t_tot
-        """
-        return self.net_distance / self.total_time
-
-    def calculate_linearity_of_progression(self):
-        """Calculate the linearity of forward progression.
-
-        Equation
-        --------
-        r_lin = v_lin / v_avg
-        """
-        return self.mean_linear_speed / self.mean_curvilinear_speed
-
-    def to_dataframe(self):
-        """"""
-        dataframe = pd.DataFrame()
-        return dataframe

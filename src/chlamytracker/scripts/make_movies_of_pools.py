@@ -1,3 +1,4 @@
+import logging
 import re
 
 import click
@@ -7,14 +8,16 @@ import numpy as np
 import pandas as pd
 import skimage as ski
 from chlamytracker import cli_api
-from chlamytracker.utils import crop_movie_to_content
+from chlamytracker.utils import configure_logger, crop_movie_to_content
 from napari_animation import Animation
 from natsort import natsorted
 from tqdm import tqdm
 
+logger = logging.getLogger(__name__)
+
 
 def make_napari_animation_for_timelapse(
-    filename,
+    mp4_file,
     nd2_file,
     tiff_files,
     csv_files,
@@ -25,7 +28,7 @@ def make_napari_animation_for_timelapse(
 
     Parameters
     ----------
-    filename : Path
+    mp4_file : Path
         Output filename for animation.
     nd2_file : Path
         Input timelapse microscopy data of tiny organisms swimming around in pools.
@@ -36,6 +39,8 @@ def make_napari_animation_for_timelapse(
     txt_file : Path
         Text file (`poolmap.txt`) that contains the indices and coordinates of
         each pool detected from the timelapse.
+    framerate : int (optional)
+        Frame rate for the animation.
     """
     # load timelapse and metadata
     timelapse = nd2.imread(nd2_file)
@@ -50,6 +55,11 @@ def make_napari_animation_for_timelapse(
     # create napari viewer
     viewer = napari.Viewer(show=True)
     viewer.add_image(timelapse[:, np.newaxis, :, :], name=nd2_file.stem)
+
+    # resize napari window
+    width_px = 1400
+    height_px = 1200
+    viewer.window.resize(width_px, height_px)
 
     # loop through data for each pool
     for tiff_file, csv_file in zip(tiff_files, csv_files, strict=False):
@@ -86,63 +96,80 @@ def make_napari_animation_for_timelapse(
     viewer.dims.current_step = (num_frames, *current_step[1:])
     animation.capture_keyframe(steps=120)
 
-    animation.animate(filename, fps=framerate, canvas_only=True)
+    animation.animate(mp4_file, fps=framerate, canvas_only=True)
     viewer.close()
 
 
-@cli_api.data_dir_option
 @click.command()
-def main(data_dir, framerate=20):
-    """Script for batch processing ...
+@cli_api.input_directory_argument
+@cli_api.output_directory_option
+@cli_api.glob_option
+@cli_api.verbose_option
+def main(
+    input_directory,
+    output_directory,
+    glob_str,
+    verbose,
+    framerate=20,
+):
+    """Script for batch processing napari animations of tracked cells in 384 or
+    1536 well plates.
 
-    The following data files are needed to make a movie for each .nd2 timelapse
-        - {timelapse}.nd2
-        - pool_{ix}_{iy}.tiff
-        - pool_{ix}_{iy}_tracks.csv
-        - poolmap.txt
+    The following data files are needed to make a movie for each nd2 file
+      - {timelapse}.nd2
+      - {timelapse}/pool_{x}_{y}_segmented.tiff(s)
+      - {timelapse}/pool_{x}_{y}_tracks.csv(s)
+
+    Searches {input_directory} for nd2 files of the raw timelapse data
+    and {output_directory} for corresponding tiff and csv files.
     """
+    if verbose:
+        configure_logger()
 
     # glob all .nd2 files in directory
-    nd2_files = natsorted(data_dir.glob("*.nd2"))
+    nd2_files = natsorted(input_directory.glob(glob_str))
     if not nd2_files:
-        raise ValueError(f"No .nd2 files found in {data_dir}")
+        raise ValueError(f"No nd2 files found in {input_directory}.")
 
-    # loop through .nd2 files
+    # ensure output directory exists
+    if output_directory is None:
+        output_directory = input_directory / "processed"
+    if not output_directory.exists():
+        msg = f"Output directory: {output_directory} does not exist."
+        raise FileNotFoundError(msg)
+
+    # loop through nd2 files
     for nd2_file in tqdm(nd2_files):
-        # collect data files
-        source_dir = nd2_file.parent / "processed" / nd2_file.stem
-        tiff_files = natsorted(source_dir.glob("pool*.tiff"))
-        csv_files = natsorted(source_dir.glob("pool*_tracks.csv"))
-        txt_file = source_dir / "poolmap.txt"
+        # find tiff and csv files
+        output_subdirectory = output_directory / nd2_file.stem
+        tiff_files = natsorted(output_subdirectory.glob("*_segmented.tiff"))
+        csv_files = natsorted(output_subdirectory.glob("*_tracks.csv"))
+        txt_file = output_subdirectory / "poolmap.txt"
 
-        # skip over timelapses with missing data
+        # missing `poolmap.txt` --> skip
         if not txt_file.exists():
-            msg = f"Processing for {nd2_file.name} failed: {txt_file} not found."
-            print(msg)
+            logger.warning(f"Processing for {nd2_file.name} failed: {txt_file} not found.")
             continue
 
-        # skip over corrupt nd2 files
-        try:
-            with nd2.ND2File(nd2_file) as nd2f:
-                _ = nd2f.shape
-        except ValueError as err:
-            msg = f"Processing for {nd2_file.name} failed:"
-            print(msg, err)
+        # missing tiffs or csvs --> skip
+        if not tiff_files or not csv_files or not txt_file.exists():
+            logger.warning(f"Processing for {nd2_file.name} failed: missing tiff or csv files.")
             continue
 
-        # make napari animation
-        filename = nd2_file.parent / f"{nd2_file.stem}.mp4"
+        # create napari animation
+        mp4_file = output_directory / f"{nd2_file.stem}_animation.mp4"
         make_napari_animation_for_timelapse(
-            filename,
+            mp4_file,
             nd2_file,
             tiff_files,
             csv_files,
             txt_file,
         )
 
-        # resize movie
-        crop_movie_to_content(filename, framerate)
+        # crop borders
+        crop_movie_to_content(mp4_file, framerate)
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
     main()

@@ -13,12 +13,18 @@ class TrajectoryCSVParser:
     ----------
     csv_file : str or `pathlib.Path`
         Path to csv file of motility data for analysis.
-    frametime : float (optional)
-        Time increment [ms] between sequential rows of the motility data.
-        Equal to the exposure time of the timelapse or 1000 / frames per second.
+    framerate : float (optional)
+        Frame rate [frames per second (fps)] of timelapse from which motility
+        data originates. Equal to 1000 / exposure time when exposure time is
+        measured in milliseconds.
+    pixelsize : float (optional)
+        Pixel size [µm / px] of timelapse from which motility data originates
+        (assumes square pixels).
+    min_frames : int (optional)
+        Minimum number of frames required for measuring a trajectory.
     """
 
-    def __init__(self, csv_file, frametime=None):
+    def __init__(self, csv_file, framerate=None, pixelsize=None, min_frames=5):
         # This is kind of awkward but basically the tracking data is output as
         # a csv file in one of two styles. The first basically follows the btrack
         # default plus a few extra columns for the properties such as area,
@@ -38,8 +44,12 @@ class TrajectoryCSVParser:
         else:
             raise ValueError(f"Unable to read csv file {csv_file}.")
 
-        if frametime is not None:
-            self.frametime = frametime
+        if framerate is not None:
+            self.framerate = framerate
+            self.frametime = 1 / framerate
+        if pixelsize is not None:
+            self.pixelsize = pixelsize
+        self.min_frames = min_frames
 
     def set_properties(self):
         """Handles additional object properties for tracking."""
@@ -88,12 +98,18 @@ class TrajectoryCSVParser:
 
         return cell_trajectories
 
-    def measure_trajectories(self, min_frames=5):
-        """"""
-        if not hasattr(self, "frametime"):
+    def measure_trajectories(self):
+        """
+
+        Returns
+        -------
+        measurement_collection : list
+            List of trajectory measurements
+        """
+        if not hasattr(self, "framerate") or not hasattr(self, "pixelsize"):
             msg = (
-                "Must initialize `TrajectoryCSVParser` with a frametime in "
-                "order to make trajectory measurements."
+                "Must initialize `TrajectoryCSVParser` with framerate and "
+                "pixel size in order to make trajectory measurements."
             )
             raise AttributeError(msg)
 
@@ -102,14 +118,16 @@ class TrajectoryCSVParser:
             x = cell_data["x"].values
             y = cell_data["y"].values
 
-            if x.size < min_frames:
+            if x.size < self.min_frames:
                 logger.debug(
-                    f"Discarding cell {cell_id} with fewer than {min_frames} "
+                    f"Discarding cell {cell_id} with fewer than {self.min_frames} "
                     "points in its trajectory."
                 )
                 continue
 
-            trajectory_analyzer = TrajectoryAnalyzer(x, y, dt=self.frametime)
+            trajectory_analyzer = TrajectoryAnalyzer(
+                x, y, seconds=self.frametime, microns=self.pixelsize
+            )
             measurements = trajectory_analyzer.measurements
             measurements["cell_id"] = cell_id
             measurement_collection.append(measurements)
@@ -136,18 +154,19 @@ class TrajectoryAnalyzer:
     """Class for analyzing cell trajectories.
 
     Motility measurements adapted from [1].
-    +--------------------------+------------------------------+
-    | Measurement              | Equation                     |
-    +--------------------------+------------------------------+
-    | total_time               | t_tot = N * dt               |
-    | total_distance           | d_tot = sum( d(p_i, p_i+1) ) |
-    | net_distance             | d_net = d(p_0, p_N)          |
-    | max_distance             | d_max = max( d(p_i, p_i+1) ) |
-    | confinement_ratio        | r_con = d_net / d_tot        |
-    | mean_curvilinear_speed   | v_avg = 1 / N * sum( v_i )   |
-    | mean_linear_speed        | v_lin = d_net / t_tot        |
-    | linearity_of_progression | r_lin = v_lin / v_avg        |
-    +--------------------------+------------------------------+
+    +--------------------------+------------------------------+------+
+    | Variable                 | Equation                     | Unit |
+    +--------------------------+------------------------------+------+
+    | total_time               | t_tot = N * dt               | s    |
+    | total_distance           | d_tot = sum( d(p_i, p_i+1) ) | µm   |
+    | net_distance             | d_net = d(p_0, p_N)          | µm   |
+    | max_sprint_length        | d_max = max( d(p_i, p_i+1) ) | µm   |
+    | confinement_ratio        | r_con = d_net / d_tot        |      |
+    | mean_curvilinear_speed   | v_avg = 1 / N * sum( v_i )   | µm/s |
+    | mean_linear_speed        | v_lin = d_net / t_tot        | µm/s |
+    | mean_angular_velocity    | v_ang = 
+    | linearity_of_progression | r_lin = v_lin / v_avg        |      |
+    +--------------------------+------------------------------+------+
 
     Parameters
     ----------
@@ -155,42 +174,51 @@ class TrajectoryAnalyzer:
         X coordinates with respect to time.
     y : 1D float array
         Y coordinates with respect to time.
-    dt : float
-        Time increment [ms] between sequential (x, y) data points.
+    seconds : float (optional)
+        Time increment [s] between sequential (x, y) data points.
+        Frame time of timelapse from which motility data originates.
+    microns : float (optional)
+        Distance [µm] that a cell moves for each integer step in (x, y).
+        Pixel size [µm / px] of timelapse from which motility data originates
+        (assumes square pixels).
 
     References
     ----------
     [1] https://doi.org/10.1016/B978-0-12-391857-4.00009-4
     """
 
-    def __init__(self, x, y, dt) -> None:
-        self.x = x
-        self.y = y
-        self.dt = dt
-        self.points = np.array([x, y]).T
+    def __init__(self, x, y, seconds=1, microns=1) -> None:
+        # create time axis based on number of points in trajectory
+        num_points = x.size
+        self.time_seconds = np.arange(num_points) * seconds  # t [s]
+        # calibrated trajectory
+        self.x_position_microns = x * microns  # x(t) [µm]
+        self.y_position_microns = y * microns  # y(t) [µm]
+        self.xy_points_microns = np.array([
+            self.x_position_microns, self.y_position_microns
+        ]).T
 
         # calculate point-to-point distances to facilitate motility measurements
-        distances_L1 = np.diff(self.points, axis=0)
-        distances_L2 = np.linalg.norm(distances_L1, axis=1)
+        distances_L1_microns = np.diff(self.xy_points_microns, axis=0)
+        distances_L2_microns = np.linalg.norm(distances_L1_microns, axis=1)
 
         # motility measurements
-        N = x.size
-        t_tot = N * dt
-        d_tot = distances_L2.sum()
-        d_net = np.linalg.norm(self.points[-1] - self.points[0])
-        d_max = distances_L2.max()
-        r_con = d_net / d_tot
-        v_avg = (distances_L2 / dt).mean()
-        v_lin = d_net / t_tot
-        r_lin = v_lin / v_avg
+        total_time = num_points * seconds
+        total_distance = distances_L2_microns.sum()
+        net_distance = np.linalg.norm(self.xy_points_microns[-1] - self.xy_points_microns[0])
+        max_sprint_length = distances_L2_microns.max()
+        confinement_ratio = net_distance / total_distance
+        mean_curvilinear_speed = (distances_L2_microns / seconds).mean()
+        mean_linear_speed = net_distance / total_time
+        linearity_of_progression = mean_linear_speed / mean_curvilinear_speed
 
         self.measurements = {
-            "total_time": t_tot,
-            "total_distance": d_tot,
-            "net_distance": d_net,
-            "max_distance": d_max,
-            "confinement_ratio": r_con,
-            "mean_curvilinear_speed": v_avg,
-            "mean_linear_speed": v_lin,
-            "linearity_of_progression": r_lin,
+            "total_time": total_time,
+            "total_distance": total_distance,
+            "net_distance": net_distance,
+            "max_sprint_length": max_sprint_length,
+            "confinement_ratio": confinement_ratio,
+            "mean_curvilinear_speed": mean_curvilinear_speed,
+            "mean_linear_speed": mean_linear_speed,
+            "linearity_of_progression": linearity_of_progression,
         }

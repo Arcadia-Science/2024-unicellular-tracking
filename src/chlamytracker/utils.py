@@ -24,6 +24,18 @@ def timeit(f):
     return wrap
 
 
+def configure_logger():
+    """"""
+    handler = logging.StreamHandler()
+    formatter = logging.Formatter(
+        fmt="[%(levelname)s][%(asctime)s] %(message)s",
+        datefmt="%Y/%m/%d %I:%M:%S",
+    )
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    logger.setLevel(logging.DEBUG)
+
+
 def crop_movie_to_content(filename, framerate):
     """Crop movie to content (remove borders).
 

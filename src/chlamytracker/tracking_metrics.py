@@ -1,4 +1,5 @@
 import logging
+from math import pi
 
 import numpy as np
 import pandas as pd
@@ -153,20 +154,21 @@ class TrajectoryCSVParser:
 class TrajectoryAnalyzer:
     """Class for analyzing cell trajectories.
 
-    Motility measurements adapted from [1].
-    +--------------------------+------------------------------+------+
-    | Variable                 | Equation                     | Unit |
-    +--------------------------+------------------------------+------+
-    | total_time               | t_tot = N * dt               | s    |
-    | total_distance           | d_tot = sum( d(p_i, p_i+1) ) | µm   |
-    | net_distance             | d_net = d(p_0, p_N)          | µm   |
-    | max_sprint_length        | d_max = max( d(p_i, p_i+1) ) | µm   |
-    | confinement_ratio        | r_con = d_net / d_tot        |      |
-    | mean_curvilinear_speed   | v_avg = 1 / N * sum( v_i )   | µm/s |
-    | mean_linear_speed        | v_lin = d_net / t_tot        | µm/s |
-    | mean_angular_velocity    | v_ang = 
-    | linearity_of_progression | r_lin = v_lin / v_avg        |      |
-    +--------------------------+------------------------------+------+
+    Motility measurements adapted and expanded from [1].
+    +--------------------------+----------------------------------+---------+
+    | Variable                 | Equation                         | Unit    |
+    +--------------------------+----------------------------------+---------+
+    | total_time               | t_tot = N * dt                   | s       |
+    | total_distance           | d_tot = sum( d(p_i, p_i+1) )     | µm      |
+    | net_distance             | d_net = d(p_0, p_N)              | µm      |
+    | max_distance             | d_max = max( d(p_i, p_i+1) )     | µm      |
+    | confinement_ratio        | r_con = d_net / d_tot            |         |
+    | mean_curvilinear_speed   | v_avg = 1 / N * sum( v_i )       | µm / s  |
+    | mean_linear_speed        | v_lin = d_net / t_tot            | µm / s  |
+    | mean_angular_velocity    | v_ang =                          | rad / s |
+    | linearity_of_progression | r_lin = v_lin / v_avg            |         |
+    | num_direction_changes    | n_chg = sum( sign(v_i+1 - v_i) ) |         |
+    +--------------------------+----------------------------------+---------+
 
     Parameters
     ----------
@@ -194,13 +196,19 @@ class TrajectoryAnalyzer:
         # calibrated trajectory
         self.x_position_microns = x * microns  # x(t) [µm]
         self.y_position_microns = y * microns  # y(t) [µm]
-        self.xy_points_microns = np.array([
-            self.x_position_microns, self.y_position_microns
-        ]).T
+        self.xy_points_microns = np.array([self.x_position_microns, self.y_position_microns]).T
 
         # calculate point-to-point distances to facilitate motility measurements
         distances_L1_microns = np.diff(self.xy_points_microns, axis=0)
         distances_L2_microns = np.linalg.norm(distances_L1_microns, axis=1)
+
+        # direction and angle-based calculations
+        x_velocity = np.diff(self.x_position_microns)
+        y_velocity = np.diff(self.y_position_microns)
+        angle = np.arctan2(y_velocity, x_velocity)
+        directional_change = np.diff(angle)
+        x_direction_change = np.abs(np.diff(np.sign(x_velocity))) / 2
+        y_direction_change = np.abs(np.diff(np.sign(y_velocity))) / 2
 
         # motility measurements
         total_time = num_points * seconds
@@ -210,7 +218,9 @@ class TrajectoryAnalyzer:
         confinement_ratio = net_distance / total_distance
         mean_curvilinear_speed = (distances_L2_microns / seconds).mean()
         mean_linear_speed = net_distance / total_time
+        mean_angular_velocity = (directional_change / seconds).mean()
         linearity_of_progression = mean_linear_speed / mean_curvilinear_speed
+        num_direction_changes = x_direction_change.sum() + y_direction_change.sum()
 
         self.measurements = {
             "total_time": total_time,
@@ -220,5 +230,7 @@ class TrajectoryAnalyzer:
             "confinement_ratio": confinement_ratio,
             "mean_curvilinear_speed": mean_curvilinear_speed,
             "mean_linear_speed": mean_linear_speed,
+            "mean_angular_velocity": mean_angular_velocity,
             "linearity_of_progression": linearity_of_progression,
+            "num_direction_changes": num_direction_changes,
         }

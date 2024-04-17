@@ -4,7 +4,6 @@ import click
 import napari
 import nd2
 import numpy as np
-import pandas as pd
 from chlamytracker import cli_api
 from chlamytracker.tracking_metrics import TrajectoryCSVParser
 from chlamytracker.utils import configure_logger, crop_movie_to_content

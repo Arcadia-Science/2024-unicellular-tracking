@@ -1,5 +1,4 @@
 import logging
-from math import pi
 
 import numpy as np
 import pandas as pd

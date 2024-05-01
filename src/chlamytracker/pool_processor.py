@@ -64,12 +64,12 @@ class PoolSegmenter:
         return normalized_contrast > contrast_threshold
 
     @timeit
-    def segment(self, min_area=150, filled_ratio_threshold=0.1):
+    def segment(self, min_area=150, filled_ratio_threshold=0.1, li_threshold=0.1):
         """"""
         # background subtraction
         background_subtracted = self.subtract_background()
         # segment cells based on Li thresholding -- more forgiving than Otsu
-        threshold = ski.filters.threshold_li(background_subtracted, initial_guess=0.1)
+        threshold = ski.filters.threshold_li(background_subtracted, initial_guess=li_threshold)
         segmentation = background_subtracted > threshold
 
         # apply circular alpha mask to segmentation

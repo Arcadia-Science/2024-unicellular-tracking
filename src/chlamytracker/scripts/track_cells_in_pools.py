@@ -29,6 +29,7 @@ def process_timelapse(
         nd2_file=nd2_file,
         pool_radius_um=pool_radius_um,
         pool_spacing_um=pool_spacing_um,
+        min_cell_diameter_um=min_cell_diameter_um,
     )
 
     # configure export directory
@@ -38,7 +39,7 @@ def process_timelapse(
     output_directory.mkdir(exist_ok=True)
 
     # segment cells within each pool
-    pools_segmented = pool_finder.segment_pools(min_cell_diameter_um, filled_ratio_threshold=0.1)
+    pools_segmented = pool_finder.segment_pools()
 
     # export poolmap
     txt_file = output_directory / "poolmap.txt"

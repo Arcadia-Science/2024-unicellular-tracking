@@ -42,9 +42,6 @@ def make_napari_animation_for_timelapse(
         timelapse = nd2f.asarray()
         num_frames = nd2f.sizes["T"]
 
-    # # load segmentation
-    # segmentation = ski.io.imread(tiff_file)
-
     # create napari viewer
     viewer = napari.Viewer(show=True)
     viewer.add_image(timelapse[:, np.newaxis, :, :], name=nd2_file.stem)
@@ -53,10 +50,6 @@ def make_napari_animation_for_timelapse(
     width_px = 1400
     height_px = 1200
     viewer.window.resize(width_px, height_px)
-
-    # load tracks (format: ID t x y z)
-    # df = pd.read_csv(csv_file, sep="\\s+", header=None, skiprows=1)
-    # tracks = df[[0, 1, 4, 3, 2]].values
 
     df = TrajectoryCSVParser(csv_file).dataframe
     # napari format: ID,T,(Z),Y,X
@@ -72,7 +65,7 @@ def make_napari_animation_for_timelapse(
     viewer.dims.current_step = (0, *current_step[1:])
     animation.capture_keyframe()
     viewer.dims.current_step = (num_frames, *current_step[1:])
-    animation.capture_keyframe(steps=120)
+    animation.capture_keyframe(steps=num_frames)
 
     animation.animate(mp4_file, fps=framerate, canvas_only=True)
     viewer.close()
@@ -81,14 +74,15 @@ def make_napari_animation_for_timelapse(
 @click.command()
 @cli_api.input_directory_argument
 @cli_api.output_directory_option
+@cli_api.framerate_option
 @cli_api.glob_option
 @cli_api.verbose_option
 def main(
     input_directory,
     output_directory,
+    framerate,
     glob_str,
     verbose,
-    framerate=20,
 ):
     """Script for batch processing napari animations of tracked cells in 384 or
     1536 well plates.

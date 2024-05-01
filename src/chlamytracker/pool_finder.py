@@ -43,13 +43,16 @@ class PoolFinder(Timelapse):
         nd2_file,
         pool_radius_um=50,
         pool_spacing_um=200,
+        min_cell_diameter_um=6,
         hough_threshold=0.2,
         min_object_size=400,
         use_dask=False,
+        load=True,
     ):
-        super().__init__(nd2_file, use_dask)
+        super().__init__(nd2_file, use_dask, load)
 
-        # pre-processing parameters
+        # object removal parameters
+        self.min_cell_diameter_um = min_cell_diameter_um
         self.min_object_size = min_object_size
 
         # Hough transform parameters
@@ -314,7 +317,7 @@ class PoolFinder(Timelapse):
 
         return pools
 
-    def segment_pools(self, min_cell_diameter_um=6, filled_ratio_threshold=0.1):
+    def segment_pools(self, filled_ratio_threshold=0.1):
         """Segment cells from each of the detected pools.
 
         Returns a mapping of grid coordinates of pool locations to segmentation data.
@@ -328,7 +331,7 @@ class PoolFinder(Timelapse):
             }
         """
         # convert minimum cell diameter to pixelated area
-        min_area = self.convert_um_to_px2_circle(min_cell_diameter_um)
+        min_area = self.convert_um_to_px2_circle(self.min_cell_diameter_um)
 
         pools = self.extract_pools()
         pools_segmented = {}

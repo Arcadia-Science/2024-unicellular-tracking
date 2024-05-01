@@ -20,8 +20,8 @@ class WellSegmenter(Timelapse):
     """Subclass of `Timelapse` for segmenting timelapse microscopy data from one
     well of a 384 or 1536 well plate."""
 
-    def __init__(self, nd2_file, use_dask=False):
-        super().__init__(nd2_file, use_dask)
+    def __init__(self, nd2_file, use_dask=False, load=True):
+        super().__init__(nd2_file, use_dask, load)
 
     @timeit
     def segment(self, min_cell_diameter_um=6, filled_ratio_threshold=0.1):

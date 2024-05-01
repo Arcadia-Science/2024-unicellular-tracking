@@ -58,6 +58,15 @@ btrack_config_file_option = click.option(
     help="Path to btrack configuration file.",
 )
 
+framerate_option = click.option(
+    "--framerate",
+    "framerate",
+    type=int,
+    default=30,
+    show_default=True,
+    help="Framerate of output Napari animation."
+)
+
 min_cell_diameter_um_option = click.option(
     "--min-cell-diameter",
     "min_cell_diameter_um",

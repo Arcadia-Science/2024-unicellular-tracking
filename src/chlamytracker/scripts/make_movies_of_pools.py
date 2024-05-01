@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import skimage as ski
 from chlamytracker import cli_api
+from chlamytracker.tracking_metrics import TrajectoryCSVParser
 from chlamytracker.utils import configure_logger, crop_movie_to_content
 from napari_animation import Animation
 from natsort import natsorted
@@ -65,15 +66,18 @@ def make_napari_animation_for_timelapse(
     for tiff_file, csv_file in zip(tiff_files, csv_files, strict=False):
         # get pool index
         ix, iy = (int(i) for i in re.findall("\\d+", tiff_file.stem))
+        _ix, _iy = (int(i) for i in re.findall("\\d+", csv_file.stem))
+        if (ix != _ix) or (iy != _iy):
+            msg = "Tiff file and csv file indices do not match."
+            raise ValueError(msg)
 
         # load segmentation
         cells = ski.io.imread(tiff_file)
         # cells_labelled = ski.measure.label(cells)
 
-        # load tracks (format: ID t x y z)
-        df = pd.read_csv(csv_file, sep="\\s+", header=None, skiprows=1)
+        df = TrajectoryCSVParser(csv_file).dataframe
         # napari format: ID,T,(Z),Y,X
-        tracks = df[[0, 1, 4, 3, 2]].values
+        tracks = df[["ID", "t", "z", "y", "x"]].values
 
         # shift tracks to center of each pool
         pool_coords = poolmap.loc[(poolmap["ix"] == ix) & (poolmap["iy"] == iy)].iloc[0]
@@ -94,7 +98,7 @@ def make_napari_animation_for_timelapse(
     viewer.dims.current_step = (0, *current_step[1:])
     animation.capture_keyframe()
     viewer.dims.current_step = (num_frames, *current_step[1:])
-    animation.capture_keyframe(steps=120)
+    animation.capture_keyframe(steps=num_frames)
 
     animation.animate(mp4_file, fps=framerate, canvas_only=True)
     viewer.close()
@@ -103,14 +107,15 @@ def make_napari_animation_for_timelapse(
 @click.command()
 @cli_api.input_directory_argument
 @cli_api.output_directory_option
+@cli_api.framerate_option
 @cli_api.glob_option
 @cli_api.verbose_option
 def main(
     input_directory,
     output_directory,
+    framerate,
     glob_str,
     verbose,
-    framerate=20,
 ):
     """Script for batch processing napari animations of tracked cells in 384 or
     1536 well plates.
@@ -146,6 +151,19 @@ def main(
         csv_files = natsorted(output_subdirectory.glob("*_tracks.csv"))
         txt_file = output_subdirectory / "poolmap.txt"
 
+        # align tiff files and csv files (very ugly, please help)
+        #   it is possible that a timelapse was segmented but there were no
+        #   cells tracked or vice versa which would lead to a mismatch of tracks
+        #   in the Napari animations
+        csv_indices = [csv_file.stem.split("_")[1:3] for csv_file in csv_files]
+        tiff_indices = [tiff_file.stem.split("_")[1:3] for tiff_file in tiff_files]
+        csv_files_aligned = natsorted(
+            [csv_file for i, csv_file in enumerate(csv_files) if csv_indices[i] in tiff_indices]
+        )
+        tiff_files_aligned = natsorted(
+            [tiff_file for i, tiff_file in enumerate(tiff_files) if tiff_indices[i] in csv_indices]
+        )
+
         # missing `poolmap.txt` --> skip
         if not txt_file.exists():
             logger.warning(f"Processing for {nd2_file.name} failed: {txt_file} not found.")
@@ -161,8 +179,8 @@ def main(
         make_napari_animation_for_timelapse(
             mp4_file,
             nd2_file,
-            tiff_files,
-            csv_files,
+            tiff_files_aligned,
+            csv_files_aligned,
             txt_file,
         )
 

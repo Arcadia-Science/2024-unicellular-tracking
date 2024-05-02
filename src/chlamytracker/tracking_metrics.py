@@ -281,9 +281,9 @@ class TrajectoryAnalyzer:
         distances_L1_um = np.diff(self.xy_positions_um, axis=0)
         distances_L2_um = np.linalg.norm(distances_L1_um, axis=1)
         # rolling average for max sprint length
-        distances_L2_um_rolling_average = np.convolve(
-            distances_L2_um, np.ones(self.window_size)
-        ) / self.window_size
+        distances_L2_um_rolling_average = (
+            np.convolve(distances_L2_um, np.ones(self.window_size)) / self.window_size
+        )
 
         # instantaneous velocities
         x_velocity = np.diff(self.x_position_um)

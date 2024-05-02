@@ -64,7 +64,7 @@ framerate_option = click.option(
     type=int,
     default=30,
     show_default=True,
-    help="Framerate of output Napari animation."
+    help="Framerate of output Napari animation.",
 )
 
 min_cell_diameter_um_option = click.option(

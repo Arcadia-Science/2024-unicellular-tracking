@@ -4,21 +4,23 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - natsort
-  - click
-  - napari-animation
-  - scikit-image
+  - natsort=8.4.0
+  - click=8.1.7
+  - napari-animation=0.0.8
+  - scikit-image=0.22.0
   - python=3.12
-  - nd2
-  - jupyterlab
-  - ffmpeg
-  - numpy
-  - dask
-  - pandas
-  - dask-image
-  - imageio
-  - pyqt
-  - matplotlib
-  - tqdm
-  - napari
-  - seaborn
+  - nd2=0.10.1
+  - jupyterlab=4.1.8
+  - ffmpeg=6.1.1
+  - numpy=1.26.4
+  - dask=2024.4.2
+  - pandas=2.2.2
+  - dask-image=2023.8.1
+  - imageio=2.34.1
+  - pyqt=5.15.9
+  - matplotlib=3.8.4
+  - tqdm=4.66.2
+  - napari=0.4.19.post1
+  - seaborn=0.13.2
+  - pip:
+    - btrack==0.6.5

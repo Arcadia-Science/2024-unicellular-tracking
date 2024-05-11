@@ -239,7 +239,7 @@ def median_filter_3d_parellel(stack, radius=4, num_workers=6):
     footprints = [footprint] * stack.shape[0]
     # run median filter in parallel
     with Pool(num_workers) as workers:
-        out = workers.starmap(ski.filters.median, zip(stack, footprints, strict=False))
+        out = workers.starmap(ski.filters.median, zip(stack, footprints, strict=True))
     return np.array(out)
 
 

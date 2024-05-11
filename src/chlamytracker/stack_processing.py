@@ -13,7 +13,7 @@ def get_central_frames(stack, num_central_frames=10):
 
     Parameters
     ----------
-    stack : ([Z, T], Y, X) array
+    stack : (Z, Y, X) array
         Input image stack of arbitrary dtype.
     num_central_frames : int
         Number of frames to crop from center.
@@ -46,17 +46,17 @@ def crop_out_roi(stack, center, radius):
 
     Parameters
     ----------
-    stack : ([Z, T], Y, X) array
+    stack : (Z, Y, X) array
         Input image stack of arbitrary dtype.
-    center : 2-tuple
+    center : tuple[int, int]
         ROI center as an (x, y) coordinate.
-    radius : int
+    radius : float
         Radius to determine cropping window (1/2 width of square).
 
     Returns
     -------
-    roi : ([Z, T], Y, X) array
-        Region of interest cropped from image stack with dimensions ([Z, T], 2*R, 2*R).
+    roi : (Z, Y, X) array
+        Region of interest cropped from image stack with dimensions (Z, 2*R, 2*R).
 
     Raises
     ------
@@ -89,7 +89,7 @@ def rescale_to_float(stack):
 
     Parameters
     ----------
-    stack : ([Z, T], Y, X) array
+    stack : (Z, Y, X) array
         Input image stack of arbitrary dtype.
 
     Notes
@@ -110,7 +110,7 @@ def otsu_threshold_3d(stack, num_central_frames=10):
 
     Parameters
     ----------
-    stack : ([Z, T], Y, X) array
+    stack : (Z, Y, X) array
         Input image stack of arbitrary dtype.
     num_central_frames : int
         Number of central frames to use for determining the threshold. Useful
@@ -168,7 +168,7 @@ def circular_alpha_mask(stack, sigma=1.6, num_workers=6):
 
     Parameters
     ----------
-    stack : ([Z, T], Y, X) array
+    stack : (Z, Y, X) array
         Input image stack of arbitrary dtype.
     sigma : float (optional)
         Standard deviation for Gaussian kernel.
@@ -197,7 +197,7 @@ def gaussian_filter_3d_parallel(stack, sigma=1.6, num_workers=6):
 
     Parameters
     ----------
-    stack : ([Z, T], Y, X) array
+    stack : (Z, Y, X) array
         Input image stack of arbitrary dtype.
     sigma : float (optional)
         Standard deviation for Gaussian kernel.
@@ -208,7 +208,7 @@ def gaussian_filter_3d_parallel(stack, sigma=1.6, num_workers=6):
     sigmas = [sigma] * stack.shape[0]
     # run Gaussian filter in parallel
     with Pool(num_workers) as workers:
-        out = workers.starmap(ski.filters.gaussian, zip(stack, sigmas, strict=False))
+        out = workers.starmap(ski.filters.gaussian, zip(stack, sigmas, strict=True))
     return np.array(out)
 
 
@@ -223,7 +223,7 @@ def median_filter_3d_parellel(stack, radius=4, num_workers=6):
 
     Parameters
     ----------
-    stack : ([Z, T], Y, X) array
+    stack : (Z, Y, X) array
         Input image stack of arbitrary dtype.
     radius : int (optional)
         Radius of the disk used as the structuring element for the filter.
@@ -249,7 +249,7 @@ def remove_small_objects_3d_parallel(stack, min_area=150, num_workers=6):
 
     Parameters
     ----------
-    stack : ([Z, T], Y, X) bool array
+    stack : (Z, Y, X) bool array
         Input segmented image stack of dtype `bool`.
     min_area : int (optional)
         The smallest allowable object size.
@@ -266,6 +266,6 @@ def remove_small_objects_3d_parallel(stack, min_area=150, num_workers=6):
     # run remove small objects in parallel
     with Pool(num_workers) as workers:
         out = workers.starmap(
-            ski.morphology.remove_small_objects, zip(stack, min_areas, strict=False)
+            ski.morphology.remove_small_objects, zip(stack, min_areas, strict=True)
         )
     return np.array(out)

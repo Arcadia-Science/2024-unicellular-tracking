@@ -39,6 +39,12 @@ def configure_logger():
 def crop_movie_to_content(filename, framerate):
     """Crop movie to content (remove borders).
 
+    The napari canvas has a non-square default aspect ratio such that black
+    borders appear on the side of the canvas when loading square image data.
+    There does not appear to be a convenient way to set the canvas size via
+    the napari API [1], so this function provides a way to brute-force remove
+    the borders from a movie and overwrite it.
+
     References
     ----------
     [1] https://github.com/napari/napari/issues/4943
@@ -54,8 +60,8 @@ def crop_movie_to_content(filename, framerate):
     nonzero_width = avg_x_intensity[avg_x_intensity > 1].size
 
     # calculate border dimensions
-    border_y = dimensions[1] - nonzero_height
-    border_x = dimensions[2] - nonzero_width
+    border_y = (dimensions[1] - nonzero_height) // 2
+    border_x = (dimensions[2] - nonzero_width) // 2
 
     # overwrite mp4 file
     writer = imageio.get_writer(
@@ -65,10 +71,12 @@ def crop_movie_to_content(filename, framerate):
         format="mp4",
     )
 
+    # set x, y indices for cropping
+    y1, y2 = border_y, border_y + nonzero_height
+    x1, x2 = border_x, border_x + nonzero_width
+
     # create new movie with cropped frames
     for frame in movie_data:
-        y1, y2 = border_y // 2, border_y // 2 + nonzero_height
-        x1, x2 = border_x // 2, border_x // 2 + nonzero_width
         frame_cropped = frame[y1:y2, x1:x2]
         writer.append_data(frame_cropped)
     writer.close()

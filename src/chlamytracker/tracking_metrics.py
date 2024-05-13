@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 class TrajectoryCSVParser:
-    """Class for tracking cell motility within agar microchamber pools.
+    """Class for processing motility data from a csv file.
 
     Parameters
     ----------
@@ -37,8 +37,10 @@ class TrajectoryCSVParser:
         with open(csv_file) as csv:
             csv_headers = next(csv)
 
-        if len(csv_headers.split(" ")) > 1:
-            properties = self.set_properties()
+        # check if expected column names are white space delimited
+        expected_columns = ["ID", "t", "x", "y"]
+        if all(column in csv_headers.split(" ") for column in expected_columns):
+            properties = self.get_btrack_output_column_names()
             self.dataframe = pd.read_csv(csv_file, sep="\\s+", names=properties, skiprows=1)
         elif len(csv_headers.split(",")) > 1:
             self.dataframe = pd.read_csv(csv_file)
@@ -52,7 +54,7 @@ class TrajectoryCSVParser:
             self.pixelsize = pixelsize
         self.min_frames = min_frames
 
-    def set_properties(self):
+    def get_btrack_output_column_names(self):
         """Handles additional object properties for tracking."""
 
         # btrack.constants.DEFAULT_EXPORT_PROPERTIES
@@ -153,13 +155,13 @@ class TrajectoryCSVParser:
             ]
         >>> pd.DataFrame(summary_statistics)[columns_subset].head()
 
-        |   cell_id |   total_distance |   confinement_ratio |   max_sprint_length |
-        |----------:|-----------------:|--------------------:|--------------------:|
-        |         1 |          35.5695 |            0.997105 |            2.42239  |
-        |         3 |          45.0043 |            0.896259 |            1.36801  |
-        |         4 |          68.2631 |            0.959883 |            0.767712 |
-        |         5 |         323.361  |            0.687338 |            2.23714  |
-        |         7 |         180.866  |            0.812985 |            1.13697  |
+        | cell_id | total_distance | confinement_ratio | max_sprint_length |
+        |--------:|---------------:|------------------:|------------------:|
+        |       1 |        35.5695 |          0.997105 |          2.42239  |
+        |       3 |        45.0043 |          0.896259 |          1.36801  |
+        |       4 |        68.2631 |          0.959883 |          0.767712 |
+        |       5 |       323.361  |          0.687338 |          2.23714  |
+        |       7 |       180.866  |          0.812985 |          1.13697  |
         """
         if not hasattr(self, "framerate") or not hasattr(self, "pixelsize"):
             msg = (
@@ -296,6 +298,7 @@ class TrajectoryAnalyzer:
         #       the derivative of the angle when the angle flips from 2π to 0
         #       (aka from 359° to 0°)
         curvature = np.where(angular_change - pi > 0, 2 * pi - angular_change, angular_change).sum()
+        # np.min(np.stack((angular_change, 2*pi - angular_change)), axis=0)
 
         # directional changes
         x_direction_change = np.abs(np.diff(np.sign(x_velocity))) / 2

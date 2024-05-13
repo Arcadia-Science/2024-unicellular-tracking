@@ -4,7 +4,7 @@ import click
 import napari
 import nd2
 import numpy as np
-from chlamytracker import cli_api
+from chlamytracker import cli_options
 from chlamytracker.tracking_metrics import TrajectoryCSVParser
 from chlamytracker.utils import configure_logger, crop_movie_to_content
 from napari_animation import Animation
@@ -17,12 +17,18 @@ logger = logging.getLogger(__name__)
 def make_napari_animation_for_timelapse(
     mp4_file,
     nd2_file,
-    tiff_file,
     csv_file,
     framerate=20,
 ):
     """Renders a napari animation of tracked cells and overlays it onto the
     raw timelapse data.
+
+    Animations are rendered by making smooth transitions between key frames [1]
+    of the napari UI canvas. While more elaborate transitions are possible via
+    the napari-animation API [2] (think Ken Burns style documentaries), the
+    animations created here simply take the first and last frame of the
+    timelapse as key frames and interpolate between them at the specified
+    `framerate`.
 
     Parameters
     ----------
@@ -30,10 +36,13 @@ def make_napari_animation_for_timelapse(
         Output filename for animation.
     nd2_file : Path
         Input timelapse microscopy data of tiny organisms swimming around in a well.
-    tiff_file : Path
-        Tiff file of segmented cells corresponding to the nd2 file.
     csv_file : Path
         Csv file of motility data corresponding to the nd2 file.
+
+    References
+    ----------
+    [1] https://en.wikipedia.org/wiki/Key_frame
+    [2] https://napari.org/napari-animation/index.html
     """
     # load timelapse and metadata
     logger.info(f"Loading nd2 file {nd2_file}...")
@@ -72,11 +81,11 @@ def make_napari_animation_for_timelapse(
 
 
 @click.command()
-@cli_api.input_directory_argument
-@cli_api.output_directory_option
-@cli_api.framerate_option
-@cli_api.glob_option
-@cli_api.verbose_option
+@cli_options.input_directory_argument
+@cli_options.output_directory_option
+@cli_options.framerate_option
+@cli_options.glob_option
+@cli_options.verbose_option
 def main(
     input_directory,
     output_directory,
@@ -113,12 +122,11 @@ def main(
     # loop through nd2 files
     for nd2_file in tqdm(nd2_files):
         # find tiff and csv files
-        tiff_file = output_directory / f"{nd2_file.stem}_segmented.tiff"
         csv_file = output_directory / f"{nd2_file.stem}_tracks.csv"
 
         # handle case for no tiff or csv file found
-        if not (tiff_file.exists() and csv_file.exists()):
-            logger.warning(f"No tiff or csv file corresponding to {nd2_file} found.")
+        if not csv_file.exists():
+            logger.warning(f"No csv file corresponding to {nd2_file} found.")
             continue
 
         # create napari animation
@@ -126,7 +134,6 @@ def main(
         make_napari_animation_for_timelapse(
             mp4_file,
             nd2_file,
-            tiff_file,
             csv_file,
             framerate,
         )

@@ -7,7 +7,7 @@ import nd2
 import numpy as np
 import pandas as pd
 import skimage as ski
-from chlamytracker import cli_api
+from chlamytracker import cli_options
 from chlamytracker.tracking_metrics import TrajectoryCSVParser
 from chlamytracker.utils import configure_logger, crop_movie_to_content
 from napari_animation import Animation
@@ -20,12 +20,15 @@ logger = logging.getLogger(__name__)
 def make_napari_animation_for_timelapse(
     mp4_file,
     nd2_file,
-    tiff_files,
-    csv_files,
+    tiff_csv_file_pairs,
     txt_file,
     framerate=20,
 ):
-    """Function for ...
+    """Renders a napari animation of tracked cells and overlays it onto the
+    raw timelapse data.
+
+    See `make_movies_of_wells.make_napari_animation_for_timelapse()` for details
+    on how the animation is rendered.
 
     Parameters
     ----------
@@ -33,10 +36,9 @@ def make_napari_animation_for_timelapse(
         Output filename for animation.
     nd2_file : Path
         Input timelapse microscopy data of tiny organisms swimming around in pools.
-    tiff_files : list
-        List of tiff files of segmented pools.
-    csv_files : list
-        List of csv files of motility data from each pool.
+    tiff_csv_file_pairs : list
+        List of tiff files of segmented pools and corresponding csv files of
+        motility data from each pool.
     txt_file : Path
         Text file (`poolmap.txt`) that contains the indices and coordinates of
         each pool detected from the timelapse.
@@ -63,13 +65,9 @@ def make_napari_animation_for_timelapse(
     viewer.window.resize(width_px, height_px)
 
     # loop through data for each pool
-    for tiff_file, csv_file in zip(tiff_files, csv_files, strict=False):
+    for tiff_file, csv_file in tiff_csv_file_pairs:
         # get pool index
         ix, iy = (int(i) for i in re.findall("\\d+", tiff_file.stem))
-        _ix, _iy = (int(i) for i in re.findall("\\d+", csv_file.stem))
-        if (ix != _ix) or (iy != _iy):
-            msg = "Tiff file and csv file indices do not match."
-            raise ValueError(msg)
 
         # load segmentation
         cells = ski.io.imread(tiff_file)
@@ -105,11 +103,11 @@ def make_napari_animation_for_timelapse(
 
 
 @click.command()
-@cli_api.input_directory_argument
-@cli_api.output_directory_option
-@cli_api.framerate_option
-@cli_api.glob_option
-@cli_api.verbose_option
+@cli_options.input_directory_argument
+@cli_options.output_directory_option
+@cli_options.framerate_option
+@cli_options.glob_option
+@cli_options.verbose_option
 def main(
     input_directory,
     output_directory,
@@ -145,33 +143,37 @@ def main(
 
     # loop through nd2 files
     for nd2_file in tqdm(nd2_files):
-        # find tiff and csv files
+        # find corresponding tiff files and `poolmap.txt`
         output_subdirectory = output_directory / nd2_file.stem
         tiff_files = natsorted(output_subdirectory.glob("*_segmented.tiff"))
-        csv_files = natsorted(output_subdirectory.glob("*_tracks.csv"))
         txt_file = output_subdirectory / "poolmap.txt"
 
-        # align tiff files and csv files (very ugly, please help)
-        #   it is possible that a timelapse was segmented but there were no
-        #   cells tracked or vice versa which would lead to a mismatch of tracks
-        #   in the Napari animations
-        csv_indices = [csv_file.stem.split("_")[1:3] for csv_file in csv_files]
-        tiff_indices = [tiff_file.stem.split("_")[1:3] for tiff_file in tiff_files]
-        csv_files_aligned = natsorted(
-            [csv_file for i, csv_file in enumerate(csv_files) if csv_indices[i] in tiff_indices]
-        )
-        tiff_files_aligned = natsorted(
-            [tiff_file for i, tiff_file in enumerate(tiff_files) if tiff_indices[i] in csv_indices]
-        )
-
+        # missing tiff files --> skip
+        if not tiff_files:
+            logger.warning(
+                f"Processing for {nd2_file.name} failed: no tiff files of segmented cells found."
+            )
+            continue
         # missing `poolmap.txt` --> skip
         if not txt_file.exists():
             logger.warning(f"Processing for {nd2_file.name} failed: {txt_file} not found.")
             continue
 
-        # missing tiffs or csvs --> skip
-        if not tiff_files or not csv_files or not txt_file.exists():
-            logger.warning(f"Processing for {nd2_file.name} failed: missing tiff or csv files.")
+        # find csv files corresponding to each tiff
+        tiff_csv_file_pairs = []
+        for tiff_file in tiff_files:
+            # construct the expected csv file (which may or may not exist)
+            ix, iy = (int(i) for i in re.findall("\\d+", tiff_file.stem))
+            csv_file = tiff_file.parent / f"pool_{ix}_{iy}_tracks.csv"
+            if csv_file.exists():
+                tiff_csv_file_pairs.append((tiff_file, csv_file))
+
+        # missing corresponding csv files --> skip
+        if not tiff_csv_file_pairs:
+            logger.warning(
+                f"Processing for {nd2_file.name} failed: no corresponding csv "
+                "files of cell trajectories found."
+            )
             continue
 
         # create napari animation
@@ -179,8 +181,7 @@ def main(
         make_napari_animation_for_timelapse(
             mp4_file,
             nd2_file,
-            tiff_files_aligned,
-            csv_files_aligned,
+            tiff_csv_file_pairs,
             txt_file,
         )
 

@@ -87,7 +87,7 @@ class WellSegmenter(Timelapse):
 
     @timeit
     def _segment_zslice(self, background_subtracted):
-        """"""
+        """Segment timelapse microscopy data with dimensions (T, Y, X)."""
         # otsu threholding
         if self.use_dask:
             threshold = otsu_threshold_dask(background_subtracted)
@@ -98,8 +98,9 @@ class WellSegmenter(Timelapse):
         return segmentation
 
     def _segment_zstack(self, background_subtracted):
-        """"""
+        """Segment timelapse microscopy data with dimensions (T, Z, Y, X)."""
         raise NotImplementedError("Cannot yet segment a zstack timelapse.")
+        # TODO: code below outlines a possible implementation for future dev
         # std_projection = self.raw_data.std(axis=1)
         # thresh = np.percentile(std_projection, 99)
         # segmentation = std_projection > thresh

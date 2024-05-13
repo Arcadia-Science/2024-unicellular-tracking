@@ -3,7 +3,7 @@ import logging
 import click
 import numpy as np
 import skimage as ski
-from chlamytracker import cli_api
+from chlamytracker import cli_options
 from chlamytracker.pool_finder import PoolFinder
 from chlamytracker.tracking import Tracker
 from natsort import natsorted
@@ -70,15 +70,15 @@ def process_timelapse(
 
 
 @click.command()
-@cli_api.input_directory_argument
-@cli_api.output_directory_option
-@cli_api.glob_option
-@cli_api.pool_radius_um_option
-@cli_api.pool_spacing_um_option
-@cli_api.min_cell_diameter_um_option
-@cli_api.num_workers_option
-@cli_api.btrack_config_file_option
-@cli_api.verbose_option
+@cli_options.input_directory_argument
+@cli_options.output_directory_option
+@cli_options.glob_option
+@cli_options.pool_radius_um_option
+@cli_options.pool_spacing_um_option
+@cli_options.min_cell_diameter_um_option
+@cli_options.num_workers_option
+@cli_options.btrack_config_file_option
+@cli_options.verbose_option
 def main(
     input_directory,
     output_directory,
@@ -116,7 +116,7 @@ def main(
 
     # set log level
     if verbose:
-        logger.setLevel(logging.INFO)
+        logger.setLevel(logging.DEBUG)
 
     # glob all .nd2 files in directory
     nd2_files = natsorted(input_directory.glob(glob_str))

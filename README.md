@@ -68,7 +68,8 @@ python track_cells_in_pools.py /path/to/directory/of/nd2/files/ --output-directo
 ```
 
 Notes
-* Will attempt to output to `{input-directory}/processed/` if `{output-directory}` is not provided.
+* These scripts will attempt to output to `{input-directory}/processed/` if  the `--output-directory` option is not provided.
+* If `{input-directory}/processed/` already exists, files may be overwritten.
 
 
 ### Making movies of tracked cells

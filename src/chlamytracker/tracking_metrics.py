@@ -261,8 +261,8 @@ class TrajectoryAnalyzer:
 
     def __init__(
         self,
-        x_position,
-        y_position,
+        x_positions,
+        y_positions,
         time_increment_s=1,
         scale_um=1,
         window_size=5,
@@ -270,12 +270,12 @@ class TrajectoryAnalyzer:
         self.time_increment_s = time_increment_s
         self.scale_um = scale_um
         self.window_size = window_size
-        self.num_points = x_position.size
+        self.num_points = x_positions.size
 
         # scale trajectory from px --> µm
-        self.x_position_um = x_position * self.scale_um  # x(t) [µm]
-        self.y_position_um = y_position * self.scale_um  # y(t) [µm]
-        self.xy_positions_um = np.array([self.x_position_um, self.y_position_um]).T
+        self.x_positions_um = x_positions * self.scale_um  # x(t) [µm]
+        self.y_positions_um = y_positions * self.scale_um  # y(t) [µm]
+        self.xy_positions_um = np.array([self.x_positions_um, self.y_positions_um]).T
 
     def compute_motility_metrics(self):
         """Compute motility metrics."""
@@ -288,33 +288,47 @@ class TrajectoryAnalyzer:
         )
 
         # instantaneous velocities
-        x_velocity = np.diff(self.x_position_um)
-        y_velocity = np.diff(self.y_position_um)
+        x_velocities = np.diff(self.x_positions_um)
+        y_velocities = np.diff(self.y_positions_um)
+        # rolling averages for calculating directional change
+        x_velocities_rolling_average = (
+            np.convolve(x_velocities, np.ones(self.window_size)) / self.window_size
+        )
+        y_velocities_rolling_average = (
+            np.convolve(y_velocities, np.ones(self.window_size)) / self.window_size
+        )
 
         # instantaneous angle and angular change
-        angle = np.arctan2(y_velocity, x_velocity)
-        angular_change = np.abs(np.diff(angle))
-        # TODO: this feels very wrong but not sure how else to avoid spikes in
-        #       the derivative of the angle when the angle flips from 2π to 0
-        #       (aka from 359° to 0°)
-        curvature = np.where(angular_change - pi > 0, 2 * pi - angular_change, angular_change).sum()
-        # np.min(np.stack((angular_change, 2*pi - angular_change)), axis=0)
+        angles = np.arctan2(y_velocities, x_velocities)
+        # to avoid spikes in the angular change when the angle flips from
+        # 2π to 0 we take the minimum angular change by absolute value
+        angular_changes = np.stack(
+            [np.diff(angles) - 2 * pi, np.diff(angles), np.diff(angles) + 2 * pi]
+        ).T
+        smallest_change_index = np.abs(angular_changes).argmin(axis=1)
+        row_index = np.arange(angular_changes.shape[0])
+        angular_change = angular_changes[row_index, smallest_change_index]
 
-        # directional changes
-        x_direction_change = np.abs(np.diff(np.sign(x_velocity))) / 2
-        y_direction_change = np.abs(np.diff(np.sign(y_velocity))) / 2
+        # directional change -- whenever velocity flips from positive to negative
+        # or vice versa
+        x_direction_changes = (
+            x_velocities_rolling_average[:-1] * x_velocities_rolling_average[1:] < 0
+        )
+        y_direction_changes = (
+            y_velocities_rolling_average[:-1] * y_velocities_rolling_average[1:] < 0
+        )
 
         # motility measurements
-        total_time = self.num_points * self.time_increment_s
+        total_time = (self.num_points - 1) * self.time_increment_s
         total_distance = distances_L2_um.sum()
         net_distance = np.linalg.norm(self.xy_positions_um[-1] - self.xy_positions_um[0])
         max_sprint_length = distances_L2_um_rolling_average.max()
         confinement_ratio = net_distance / total_distance
         mean_curvilinear_speed = total_distance / total_time
         mean_linear_speed = net_distance / total_time
-        mean_angular_velocity = curvature / total_time
-        num_rotations = curvature / (2 * pi)
-        num_direction_changes = x_direction_change.sum() + y_direction_change.sum()
+        mean_angular_speed = np.abs(angular_change).mean() / self.time_increment_s
+        num_rotations = np.floor(np.abs(angular_change.sum() / (2 * pi)))
+        num_direction_changes = x_direction_changes.sum() + y_direction_changes.sum()
         pivot_rate = num_direction_changes / total_distance
 
         measurements = {
@@ -325,7 +339,7 @@ class TrajectoryAnalyzer:
             "confinement_ratio": confinement_ratio,
             "mean_curvilinear_speed": mean_curvilinear_speed,
             "mean_linear_speed": mean_linear_speed,
-            "mean_angular_velocity": mean_angular_velocity,
+            "mean_angular_speed": mean_angular_speed,
             "num_rotations": num_rotations,
             "num_direction_changes": num_direction_changes,
             "pivot_rate": pivot_rate,

@@ -56,6 +56,7 @@ def crop_movie_to_content(filename, framerate):
     # calculate dimensions of the video without border from first frame
     avg_y_intensity = movie_data[0].mean(axis=(1, 2))
     avg_x_intensity = movie_data[0].mean(axis=(0, 2))
+    # if pixel intensity is > 1 then safe to assume it is not the border region
     nonzero_height = avg_y_intensity[avg_y_intensity > 1].size
     nonzero_width = avg_x_intensity[avg_x_intensity > 1].size
 

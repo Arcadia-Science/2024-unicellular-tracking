@@ -56,8 +56,8 @@ class PoolFinder(Timelapse):
         self.min_object_size = min_object_size
 
         # Hough transform parameters
-        self.pool_radius_px = pool_radius_um / self.um_per_px
-        self.pool_spacing_px = pool_spacing_um / self.um_per_px
+        self.pool_radius_px = pool_radius_um / self.pixelsize_um
+        self.pool_spacing_px = pool_spacing_um / self.pixelsize_um
         self.max_num_pools = self.get_max_num_pools()
         self.hough_threshold = hough_threshold
 

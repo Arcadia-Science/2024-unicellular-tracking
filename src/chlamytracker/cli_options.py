@@ -76,9 +76,9 @@ substrate_option = click.option(
     "--substrate",
     "substrate",
     type=click.Choice(possible_substrates),
-    default="384-Well Plate",
+    default="384-well plate",
     show_default=True,
-    help="The substrate used "
+    help="The type of substrate in which the cells are swimming."
 )
 
 min_cell_diameter_um_option = click.option(

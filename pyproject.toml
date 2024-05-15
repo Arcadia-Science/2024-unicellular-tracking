@@ -5,7 +5,6 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "chlamytracker"
 version = "1.0"
-dynamic = ["version"]
 description = "Image analysis workflows for tracking unicellular organisms"
 readme = "README.md"
 requires-python = ">=3.10"

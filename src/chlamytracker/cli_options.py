@@ -67,6 +67,20 @@ framerate_option = click.option(
     help="Framerate of output Napari animation.",
 )
 
+possible_substrates = [
+    "384-well plate",
+    "1536-well plate",
+    "pools",
+]
+substrate_option = click.option(
+    "--substrate",
+    "substrate",
+    type=click.Choice(possible_substrates),
+    default="384-Well Plate",
+    show_default=True,
+    help="The substrate used "
+)
+
 min_cell_diameter_um_option = click.option(
     "--min-cell-diameter",
     "min_cell_diameter_um",

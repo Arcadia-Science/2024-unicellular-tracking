@@ -228,9 +228,8 @@ class TrajectoryAnalyzer:
     +--------------------------+----------------------------------+---------+
     | mean_curvilinear_speed   | v_avg = d_tot / t_tot            | µm / s  |
     | mean_linear_speed        | v_lin = d_net / t_tot            | µm / s  |
-    | max_sprint_speed         | v_max = max( v(p_i, p_i+w) )     | µm / s  |
     +--------------------------+----------------------------------+---------+
-    | mean_angular_velocity    | v_ang = r_tot / t_tot            | rad / s |
+    | mean_angular_speed       | v_ang = r_tot / t_tot            | rad / s |
     | num_rotations            | n_rot = r_tot / 2π               |         |
     | num_direction_changes    | n_chg = sum( sign(v_i+1 - v_i) ) |         |
     | pivot_rate               | r_piv = n_chg / d_tot            | 1 / µm  |
@@ -251,8 +250,10 @@ class TrajectoryAnalyzer:
         This should be equivalent to the pixel size [µm / px] of timelapse from
         which motility data originates (assumes square pixels).
     window_size : int (optional)
-        Window size for computing the metrics `max_sprint_length` and
-        `max_sprint_speed`.
+        Window size for computing the metrics `max_sprint_length`,
+        `num_direction_changes`, and `pivot_rate`, which are calculated on the
+        basis of a rolling average (`max_sprint_length` is technically a rolling
+        sum).
 
     References
     ----------
@@ -282,9 +283,15 @@ class TrajectoryAnalyzer:
         # calculate point-to-point distances to facilitate motility measurements
         distances_L1_um = np.diff(self.xy_positions_um, axis=0)
         distances_L2_um = np.linalg.norm(distances_L1_um, axis=1)
-        # rolling average for max sprint length
+        # rolling average to suppress noise
         distances_L2_um_rolling_average = (
             np.convolve(distances_L2_um, np.ones(self.window_size)) / self.window_size
+        )
+        # rolling sum for max sprint length
+        distances_L2_um_cumulative = np.cumsum(distances_L2_um_rolling_average)
+        distances_L2_um_rolling_sum = (
+            distances_L2_um_cumulative[self.window_size :]
+            - distances_L2_um_cumulative[: -self.window_size]
         )
 
         # instantaneous velocities
@@ -309,8 +316,8 @@ class TrajectoryAnalyzer:
         row_index = np.arange(angular_changes.shape[0])
         angular_change = angular_changes[row_index, smallest_change_index]
 
-        # directional change -- whenever velocity flips from positive to negative
-        # or vice versa
+        # directional change -- whenever velocity vector flips from
+        # positive to negative or vice versa
         x_direction_changes = (
             x_velocities_rolling_average[:-1] * x_velocities_rolling_average[1:] < 0
         )
@@ -322,7 +329,7 @@ class TrajectoryAnalyzer:
         total_time = (self.num_points - 1) * self.time_increment_s
         total_distance = distances_L2_um.sum()
         net_distance = np.linalg.norm(self.xy_positions_um[-1] - self.xy_positions_um[0])
-        max_sprint_length = distances_L2_um_rolling_average.max()
+        max_sprint_length = distances_L2_um_rolling_sum.max()
         confinement_ratio = net_distance / total_distance
         mean_curvilinear_speed = total_distance / total_time
         mean_linear_speed = net_distance / total_time

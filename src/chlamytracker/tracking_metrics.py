@@ -306,7 +306,7 @@ class TrajectoryAnalyzer:
         )
 
         # instantaneous angle and angular change
-        angles = np.arctan2(y_velocities, x_velocities)
+        angles = np.arctan2(y_velocities_rolling_average, x_velocities_rolling_average)
         # to avoid spikes in the angular change when the angle flips from
         # 2π to 0 we take the minimum angular change by absolute value
         angular_changes = np.stack(

@@ -1,0 +1,78 @@
+{
+    "AMID-04": {
+        "S1-Cr3-T": {
+            "strain": "cc124",
+            "vessel_type": "pools",
+            "position_in_tube": "top",
+            "time_in_water": 21
+        },
+        "S2-Cr3-M": {
+            "strain": "cc124",
+            "vessel_type": "pools",
+            "position_in_tube": "middle",
+            "time_in_water": 21
+        },
+        "S3-Cr4-T": {
+            "strain": "cc124",
+            "vessel_type": "pools",
+            "position_in_tube": "top",
+            "time_in_water": 4
+        },
+        "S4-Cr4-M": {
+            "strain": "cc124",
+            "vessel_type": "pools",
+            "position_in_tube": "middle",
+            "time_in_water": 4
+        }
+    },
+    "AMID-05": {
+        "I01": {
+            "strain": "cc124",
+            "vessel_type": "wells",
+            "position_in_tube": "top",
+            "time_in_water": 21
+        },
+        "J01": {
+            "strain": "cc124",
+            "vessel_type": "wells",
+            "position_in_tube": "top",
+            "time_in_water": 21
+        },
+        "K01": {
+            "strain": "cc124",
+            "vessel_type": "wells",
+            "position_in_tube": "top",
+            "time_in_water": 4
+        },
+        "L01": {
+            "strain": "cc124",
+            "vessel_type": "wells",
+            "position_in_tube": "top",
+            "time_in_water": 4
+        },
+        "I03": {
+            "strain": "cc124",
+            "vessel_type": "wells",
+            "position_in_tube": "middle",
+            "time_in_water": 21
+        },
+        "J03": {
+            "strain": "cc124",
+            "vessel_type": "wells",
+            "position_in_tube": "middle",
+            "time_in_water": 21
+        },
+        "K03": {
+            "strain": "cc124",
+            "vessel_type": "wells",
+            "position_in_tube": "middle",
+            "time_in_water": 4
+        },
+        "L03": {
+            "strain": "cc124",
+            "vessel_type": "wells",
+            "position_in_tube": "middle",
+            "time_in_water": 4
+        }
+    }
+}

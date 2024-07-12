@@ -155,13 +155,15 @@ class TrajectoryCSVParser:
             ]
         >>> pd.DataFrame(summary_statistics)[columns_subset].head()
 
+        +---------+----------------+-------------------+-------------------+
         | cell_id | total_distance | confinement_ratio | max_sprint_length |
-        |--------:|---------------:|------------------:|------------------:|
+        +---------+----------------+-------------------+-------------------+
         |       1 |        35.5695 |          0.997105 |          2.42239  |
         |       3 |        45.0043 |          0.896259 |          1.36801  |
         |       4 |        68.2631 |          0.959883 |          0.767712 |
         |       5 |       323.361  |          0.687338 |          2.23714  |
         |       7 |       180.866  |          0.812985 |          1.13697  |
+        +---------+----------------+-------------------+-------------------+
         """
         if not hasattr(self, "framerate") or not hasattr(self, "pixelsize"):
             msg = (
@@ -306,7 +308,7 @@ class TrajectoryAnalyzer:
         )
 
         # instantaneous angle and angular change
-        angles = np.arctan2(y_velocities, x_velocities)
+        angles = np.arctan2(y_velocities_rolling_average, x_velocities_rolling_average)
         # to avoid spikes in the angular change when the angle flips from
         # 2π to 0 we take the minimum angular change by absolute value
         angular_changes = np.stack(

@@ -1,6 +1,8 @@
 # 2024-unicellular-tracking
 
-[![run with conda](http://img.shields.io/badge/run%20with-conda-3EB049?labelColor=000000&logo=anaconda)](https://docs.conda.io/projects/miniconda/en/latest/)
+[![run with conda](https://img.shields.io/badge/run%20with-conda-3EB049?labelColor=000000&logo=anaconda)](https://docs.conda.io/projects/miniconda/en/latest/)
+[![Arcadia Pub](https://img.shields.io/badge/Arcadia-Pub-596F74.svg?logo=data:image/svg%2bxml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI3LjcuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA0My4yIDQwLjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQzLjIgNDAuNDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVqb2luOmJldmVsO3N0cm9rZS1taXRlcmxpbWl0OjEwO30KPC9zdHlsZT4KPGc+Cgk8cG9seWdvbiBjbGFzcz0ic3QwIiBwb2ludHM9IjIxLjYsMyAxLjcsMzcuNCA0MS41LDM3LjQgCSIvPgoJPGxpbmUgY2xhc3M9InN0MCIgeDE9IjIxLjYiIHkxPSIzIiB4Mj0iMjEuNiIgeTI9IjI3LjMiLz4KCTxwb2x5bGluZSBjbGFzcz0ic3QwIiBwb2ludHM9IjEyLjIsMTkuNCAyNC42LDMwLjEgMjQuNiwzNy40IAkiLz4KCTxsaW5lIGNsYXNzPSJzdDAiIHgxPSIxNy42IiB5MT0iMTYuNyIgeDI9IjE3LjYiIHkyPSIyNC4xIi8+Cgk8bGluZSBjbGFzcz0ic3QwIiB4MT0iMjguNiIgeTE9IjE1LjIiIHgyPSIyMS43IiB5Mj0iMjIuMSIvPgoJPHBvbHlsaW5lIGNsYXNzPSJzdDAiIHBvaW50cz0iNi44LDI4LjcgMTkuNSwzNC40IDE5LjUsMzcuNCAJIi8+Cgk8bGluZSBjbGFzcz0ic3QwIiB4MT0iMzQuOCIgeTE9IjI1LjgiIHgyPSIyNC42IiB5Mj0iMzYuMSIvPgoJPGxpbmUgY2xhc3M9InN0MCIgeDE9IjI5LjciIHkxPSIyMi4yIiB4Mj0iMjkuNyIgeTI9IjMwLjkiLz4KPC9nPgo8L3N2Zz4K)](https://doi.org/10.57844/arcadia-2d61-fb05)
+
 
 ## Purpose
 
@@ -8,11 +10,18 @@ Detect and track unicellular organisms for scaling up high-throughput motility a
 
 ## Installation and Setup
 
-This repository uses conda to manage software environments and installations.
+This repository uses conda to manage software environments and installations. If you do not already have conda installed, you can find operating system-specific instructions for installing miniconda [here](https://docs.anaconda.com/miniconda/). After installing conda, navigate to a directory where you would like to clone the repository to, and run the following commands to create the pipeline run environment.
 
 ```{bash}
-conda env create -n tracking --file envs/dev.yml
-conda activate tracking
+git clone https://github.com/Arcadia-Science/2024-unicellular-tracking.git
+conda env create -n unicellular-tracking --file envs/dev.yml
+conda activate unicellular-tracking
+pip install -e .
+```
+
+If the installation was successful, the below command will return `chlamytracker`.
+```{bash}
+python -c "import chlamytracker;print(chlamytracker.__name__)"
 ```
 
 ## Overview
@@ -53,7 +62,7 @@ python track_cells_in_wells.py /path/to/directory/of/nd2/files/ --glob "WellB*.n
 For more information on glob patterns check out the official Python [documentation](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob) for the pathlib library. The default glob pattern is "*.nd2".
 
 ### Cell tracking
-There are two scripts for executing cell tracking on a batch of timelapse microscopy data. Which script to run depends on the substrate used in the experiment: either agar microchamber pools or 384 (or 1536) well plates. Regardless of the substrate, however, the expected input is more or less the same: a ~20 sec timelapse of brightfield microscopy data stored as a nd2 file in which there are clearly unicellular organisms swimming around. There are no constraints on the duration, dimensions, frame rate, or pixel size of the timelapse, but the code has thus far predominantly been tested on 20 sec timelapses with dimensions around (400, 1200, 1200) T, Y, X acquired at 20-50 frames per second. Most cell tracking has been performed on different species and strains of Chlamydomonas, hence the default of 6 µm for the `min_cell_diameter_um` parameter. This parameter should be increased or decreased based on the size of the organism recorded.
+There are two scripts for executing cell tracking on a batch of time-lapse microscopy data. Which script to run depends on the type of vessel used in the experiment: either agar microchamber pools or 384 (or 1536) well plates. Regardless of the vessel type, however, the expected input is more or less the same: a ~20 sec timelapse of brightfield microscopy data stored as a nd2 file in which there are clearly unicellular organisms swimming around. There are no constraints on the duration, dimensions, frame rate, or pixel size of the timelapse, but the code has thus far predominantly been tested on 20 sec timelapses with dimensions around (400, 1200, 1200) T, Y, X acquired at 20-30 frames per second. Most cell tracking has been performed on different species and strains of Chlamydomonas, hence the default of 6 µm for the `min_cell_diameter_um` parameter. This parameter should be increased or decreased based on the size of the organism recorded.
 
 Both scripts will perform segmentation and cell tracking on the timelapse. The segmentation is effectively just background subtraction and intensity thresholding; cell tracking is done using [btrack](https://btrack.readthedocs.io/en/latest/index.html). The output for each nd2 file is a tiff file of the segmented timelapse and a csv file of the motility data that contains every cell detected in the segmentation.
 
@@ -73,7 +82,7 @@ Notes
 
 
 ### Making movies of tracked cells
-To provide some sort of visual confirmation that the segmentation and cell tracking was done successfully, there are also scripts for adding animations of cell trajectories to the tracked cells using the napari plugin [napari-animation](https://github.com/napari/napari-animation). Here too the choice for which script to run depends on the substrate used in the experiment.
+To provide some sort of visual confirmation that the segmentation and cell tracking was done successfully, there are also scripts for adding animations of cell trajectories to the tracked cells using the napari plugin [napari-animation](https://github.com/napari/napari-animation). Here too the choice for which script to run depends on the type of vessel used in the experiment.
 
 To create animations of tracked cells in 384 or 1536 well plates.
 ```bash

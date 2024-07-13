@@ -67,18 +67,18 @@ framerate_option = click.option(
     help="Framerate of output Napari animation.",
 )
 
-possible_substrates = [
+possible_vessels = [
     "384-well plate",
     "1536-well plate",
     "pools",
 ]
-substrate_option = click.option(
-    "--substrate",
-    "substrate",
-    type=click.Choice(possible_substrates),
+vessel_type_option = click.option(
+    "--vessel",
+    "vessel_type",
+    type=click.Choice(possible_vessels),
     default="384-well plate",
     show_default=True,
-    help="The type of substrate in which the cells are swimming.",
+    help="The type of vessel in which the cells are swimming.",
 )
 
 min_cell_diameter_um_option = click.option(

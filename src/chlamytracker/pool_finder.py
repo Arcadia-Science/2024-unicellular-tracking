@@ -330,6 +330,9 @@ class PoolFinder(Timelapse):
                 (Nx, Ny): (T, Y, X) bool array
             }
         """
+        # set imaging modality for segmentation
+        modality = "brightfield" if self.is_brightfield else "DIC"
+
         # convert minimum cell diameter to pixelated area
         min_area = self.convert_um_to_px2_circle(self.min_cell_diameter_um)
 
@@ -341,6 +344,7 @@ class PoolFinder(Timelapse):
             if pool.has_cells():
                 try:
                     pool_segmented = pool.segment(
+                        modality=modality,
                         min_area=min_area,
                         filled_ratio_threshold=filled_ratio_threshold,
                     )

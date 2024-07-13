@@ -25,4 +25,7 @@ dependencies:
   - pip:
     - btrack==0.6.5
     - lxml-html-clean==0.1.1
+    - mpl-interactions==0.24.1
+    - ipympl==0.9.4
+    - arcadia-pycolor==0.5.0
     - ipywidgets==8.1.2

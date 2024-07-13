@@ -19,7 +19,7 @@ conda activate unicellular-tracking
 pip install -e .
 ```
 
-If the installation was successful, the below command will return `chlamytracker`.
+If the installation was successful, the below command will return the name of the package, `chlamytracker`.
 ```{bash}
 python -c "import chlamytracker;print(chlamytracker.__name__)"
 ```

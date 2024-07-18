@@ -43,24 +43,24 @@ class PoolSegmenter:
         self.raw_data = raw_data_pool.copy()
         self.num_workers = num_workers
 
-    def has_cells(self, contrast_threshold=1e-6):
+    def has_cells(self, contrast_threshold=1e-3, num_central_frames=200):
         """Determine whether pool contains cells.
 
         Determination is based on the amount of contrast in the standard
-        deviation projection, using the variance of intensity values as a proxy
-        for contrast.
+        deviation projection, using the standard deviation of intensity
+        values as a proxy for contrast.
+
+        Default values for `contrast_threshold` and `num_central_frames`
+        were derived empirically from visual inspection of several time
+        lapses of pools with and without cells.
         """
-        # get dtype limits for normalization
-        # (0, 65535) is expected but safer to check
-        # dtype_limit_max = max(ski.util.dtype_limits(self.raw_data))
-        dtype_limit_max = 1
         # std projection on smoothed substack
-        num_frames = min(200, self.raw_data.shape[0])
-        central_frames = get_central_frames(self.raw_data, num_frames)
-        central_frames_smoothed = gaussian_filter_3d_parallel(central_frames, sigma=3).std(axis=0)
+        num_central_frames = min(num_central_frames, self.raw_data.shape[0])
+        central_frames = get_central_frames(self.raw_data, num_central_frames)
+        central_frames_smoothed = gaussian_filter_3d_parallel(central_frames, sigma=3)
         std_projection = central_frames_smoothed.std(axis=0)
-        # use variance of intensity as measure of contrast
-        normalized_contrast = std_projection.var() / dtype_limit_max
+        # use std dev of intensity as measure of contrast
+        normalized_contrast = std_projection.std()
         return normalized_contrast > contrast_threshold
 
     @timeit

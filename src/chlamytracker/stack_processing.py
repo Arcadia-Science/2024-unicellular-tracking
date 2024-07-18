@@ -135,7 +135,7 @@ def li_threshold_3d(stack, num_central_frames=100, initial_guess=0.1):
         for speeding up computation time when large stacks when
     """
     central_frames = get_central_frames(stack, num_central_frames)
-    threshold = ski.filters.threshold_li(central_frames, initial_guess=0.1)
+    threshold = ski.filters.threshold_li(central_frames, initial_guess=initial_guess)
     return threshold
 
 

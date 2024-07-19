@@ -8,7 +8,7 @@ from chlamytracker.utils import timeit
 
 
 @timeit
-def get_central_frames(stack, num_central_frames=10):
+def get_central_frames(stack, num_central_frames=100):
     """Crops `num_central_frames` from the center of an image stack.
 
     Parameters
@@ -104,7 +104,7 @@ def rescale_to_float(stack):
 
 
 @timeit
-def otsu_threshold_3d(stack, num_central_frames=10):
+def otsu_threshold_3d(stack, num_central_frames=100):
     """Wrapper for `ski.filters.threshold_otsu` better equipped for handling
     large image stacks.
 
@@ -118,6 +118,24 @@ def otsu_threshold_3d(stack, num_central_frames=10):
     """
     central_frames = get_central_frames(stack, num_central_frames)
     threshold = ski.filters.threshold_otsu(central_frames)
+    return threshold
+
+
+@timeit
+def li_threshold_3d(stack, num_central_frames=100, initial_guess=0.1):
+    """Wrapper for `ski.filters.threshold_li` better equipped for handling
+    large image stacks.
+
+    Parameters
+    ----------
+    stack : (Z, Y, X) array
+        Input image stack of arbitrary dtype.
+    num_central_frames : int
+        Number of central frames to use for determining the threshold. Useful
+        for speeding up computation time when large stacks when
+    """
+    central_frames = get_central_frames(stack, num_central_frames)
+    threshold = ski.filters.threshold_li(central_frames, initial_guess=initial_guess)
     return threshold
 
 

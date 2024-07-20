@@ -35,11 +35,13 @@ class Timelapse:
 
         # extract relevant metadata from nd2 headers
         with nd2.ND2File(nd2_file) as nd2f:
+            metadata = nd2f.metadata
             voxels_um = nd2f.voxel_size()  # in microns
             sizes = nd2f.sizes  # e.g. {'T': 10, 'C': 2, 'Y': 256, 'X': 256}
             events = nd2f.events()
 
         # convert metadata fields to useful attributes
+        self.metadata = metadata
         self.dimensions = sizes
         self.pixelsize_um = (voxels_um.x + voxels_um.y) / 2
         self.frametimes = np.diff([event["Time [s]"] for event in events])
@@ -55,6 +57,9 @@ class Timelapse:
 
         # determine whether timelapse is also a zstack
         self.is_zstack = self.dimensions.get("Z") is not None
+        # determine imaging modality
+        self.modality_flags = self.metadata.channels[0].microscope.modalityFlags[0]
+        self.is_brightfield = "brightfield" in self.modality_flags
 
         # load data from nd2 file
         if load:

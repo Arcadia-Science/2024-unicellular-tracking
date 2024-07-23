@@ -12,6 +12,7 @@ from tqdm import tqdm
 
 logger = logging.getLogger(__name__)
 
+
 def process_timelapse_of_well(
     nd2_file,
     output_directory,

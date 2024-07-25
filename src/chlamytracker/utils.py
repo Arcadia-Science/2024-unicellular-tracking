@@ -3,9 +3,7 @@ from functools import wraps
 from time import time
 
 import imageio
-import numpy as np
 import skimage as ski
-from scipy import stats
 
 logger = logging.getLogger(__name__)
 
@@ -83,68 +81,3 @@ def crop_movie_to_content(filename, framerate):
         frame_cropped = frame[y1:y2, x1:x2]
         writer.append_data(frame_cropped)
     writer.close()
-
-
-def map_p_value_to_asterisks(p_value):
-    """Map P value to symbol representing statistical significance."""
-    if p_value <= 0.0001:
-        return "****"
-    elif p_value <= 0.001:
-        return "***"
-    elif p_value <= 0.01:
-        return "**"
-    elif p_value <= 0.05:
-        return "*"
-    else:
-        return "NS"
-
-
-def annotate_statistical_significance(
-    distribution_A,
-    distribution_B,
-    matplotlib_axis,
-    min_sample_size=6,
-    center_annotation=False,
-):
-    """Measure statistical significance of two distributions and annotate plot accordingly.
-
-    Parameters
-    ----------
-    distribution_A, distribution_B : (N,) array-like
-        Distributions for the statistical test.
-    matplotlib_axis : `matplotlib.axes.Axes`
-        Matplotlib axis to annotate.
-    center_annotation : bool
-        Whether to place the annotation in the center of the axis. Appropriate for when the x-axis
-        is categorical as opposed to numerical.
-    """
-    if (distribution_A.size < min_sample_size) or (distribution_B.size < min_sample_size):
-        msg = (
-            "Sample size of one or both distributions less than min sample size: "
-            f"{min_sample_size}."
-        )
-        raise ValueError(msg)
-
-    # Mann-Whitney U test
-    _, p_value = stats.mannwhitneyu(distribution_A, distribution_B, alternative="two-sided")
-    # get appropriate number of asterisks based on p-value
-    asterisks = map_p_value_to_asterisks(p_value)
-
-    # sort out (x, y) coordinates for annotations
-    if center_annotation:
-        x_center = 0.5
-        x_start, x_end = 0.3, 0.7
-    else:
-        x_limits = matplotlib_axis.get_xlim()
-        x_range = x_limits[1] - x_limits[0]
-        x_center = (np.median(distribution_A) + np.median(distribution_B)) / 2
-        x_start = x_center - x_range / 8
-        x_end = x_center + x_range / 8
-    # y coordinate independent of plotting style
-    y_limits = matplotlib_axis.get_ylim()
-    y_center = 1.1 * y_limits[1]
-
-    # plot annotation line and symbol illustrating stastistical significance
-    matplotlib_axis.plot([x_start, x_end], [y_center, y_center], "k-")
-    fontsize = 20 if asterisks != "NS" else 12
-    matplotlib_axis.text(x_center, 1.05 * y_center, asterisks, fontsize=fontsize, ha="center")

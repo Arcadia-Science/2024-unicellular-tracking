@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="509.789365pt" height="453.99888pt" viewBox="0 0 509.789365 453.99888" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2024-07-31T16:24:19.365688</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.8.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 453.99888 
+L 509.789365 453.99888 
+L 509.789365 0 
+L 0 0 
+L 0 453.99888 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 197.594531 410.49888 
+L 392.843971 410.49888 
+L 392.843971 20 
+L 197.594531 20 
+L 197.594531 410.49888 
+z
+" style="fill: none"/>
+   </g>
+   <g id="QuadMesh_1">
+    <path d="M 197.594531 20 
+L 262.677678 20 
+L 262.677678 85.083147 
+L 197.594531 85.083147 
+L 197.594531 20 
+" clip-path="url(#p2072f20e2b)" style="fill: #b14749"/>
+    <path d="M 262.677678 20 
+L 327.760825 20 
+L 327.760825 85.083147 
+L 262.677678 85.083147 
+L 262.677678 20 
+" clip-path="url(#p2072f20e2b)" style="fill: #f0c7c8"/>
+    <path d="M 327.760825 20 
+L 392.843971 20 
+L 392.843971 85.083147 
+L 327.760825 85.083147 
+L 327.760825 20 
+" clip-path="url(#p2072f20e2b)" style="fill: #e5a6a7"/>
+    <path d="M 197.594531 85.083147 
+L 262.677678 85.083147 
+L 262.677678 150.166293 
+L 197.594531 150.166293 
+L 197.594531 85.083147 
+" clip-path="url(#p2072f20e2b)" style="fill: #6798cd"/>
+    <path d="M 262.677678 85.083147 
+L 327.760825 85.083147 
+L 327.760825 150.166293 
+L 262.677678 150.166293 
+L 262.677678 85.083147 
+" clip-path="url(#p2072f20e2b)" style="fill: #9e3f41"/>
+    <path d="M 327.760825 85.083147 
+L 392.843971 85.083147 
+L 392.843971 150.166293 
+L 327.760825 150.166293 
+L 327.760825 85.083147 
+" clip-path="url(#p2072f20e2b)" style="fill: #e19b9c"/>
+    <path d="M 197.594531 150.166293 
+L 262.677678 150.166293 
+L 262.677678 215.24944 
+L 197.594531 215.24944 
+L 197.594531 150.166293 
+" clip-path="url(#p2072f20e2b)" style="fill: #c95354"/>
+    <path d="M 262.677678 150.166293 
+L 327.760825 150.166293 
+L 327.760825 215.24944 
+L 262.677678 215.24944 
+L 262.677678 150.166293 
+" clip-path="url(#p2072f20e2b)" style="fill: #ebb8b9"/>
+    <path d="M 327.760825 150.166293 
+L 392.843971 150.166293 
+L 392.843971 215.24944 
+L 327.760825 215.24944 
+L 327.760825 150.166293 
+" clip-path="url(#p2072f20e2b)" style="fill: #e29d9e"/>
+    <path d="M 197.594531 215.24944 
+L 262.677678 215.24944 
+L 262.677678 280.332587 
+L 197.594531 280.332587 
+L 197.594531 215.24944 
+" clip-path="url(#p2072f20e2b)" style="fill: #ebf4fc"/>
+    <path d="M 262.677678 215.24944 
+L 327.760825 215.24944 
+L 327.760825 280.332587 
+L 262.677678 280.332587 
+L 262.677678 215.24944 
+" clip-path="url(#p2072f20e2b)" style="fill: #dc8d8e"/>
+    <path d="M 327.760825 215.24944 
+L 392.843971 215.24944 
+L 392.843971 280.332587 
+L 327.760825 280.332587 
+L 327.760825 215.24944 
+" clip-path="url(#p2072f20e2b)" style="fill: #e09899"/>
+    <path d="M 197.594531 280.332587 
+L 262.677678 280.332587 
+L 262.677678 345.415733 
+L 197.594531 345.415733 
+L 197.594531 280.332587 
+" clip-path="url(#p2072f20e2b)" style="fill: #cfe1f2"/>
+    <path d="M 262.677678 280.332587 
+L 327.760825 280.332587 
+L 327.760825 345.415733 
+L 262.677678 345.415733 
+L 262.677678 280.332587 
+" clip-path="url(#p2072f20e2b)" style="fill: #7aa6d4"/>
+    <path d="M 327.760825 280.332587 
+L 392.843971 280.332587 
+L 392.843971 345.415733 
+L 327.760825 345.415733 
+L 327.760825 280.332587 
+" clip-path="url(#p2072f20e2b)" style="fill: #cc5e5f"/>
+    <path d="M 197.594531 345.415733 
+L 262.677678 345.415733 
+L 262.677678 410.49888 
+L 197.594531 410.49888 
+L 197.594531 345.415733 
+" clip-path="url(#p2072f20e2b)" style="fill: #b2cce8"/>
+    <path d="M 262.677678 345.415733 
+L 327.760825 345.415733 
+L 327.760825 410.49888 
+L 262.677678 410.49888 
+L 262.677678 345.415733 
+" clip-path="url(#p2072f20e2b)" style="fill: #81abd6"/>
+    <path d="M 327.760825 345.415733 
+L 392.843971 345.415733 
+L 392.843971 410.49888 
+L 327.760825 410.49888 
+L 327.760825 345.415733 
+" clip-path="url(#p2072f20e2b)" style="fill: #ba4b4c"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="mb8267dd9b0" d="M 0 0 
+L 0 5 
+" style="stroke: #000000; stroke-width: 0.75"/>
+      </defs>
+      <g>
+       <use xlink:href="#mb8267dd9b0" x="230.136105" y="410.49888" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="230.136105" y="431.37388" transform="rotate(-0 230.136105 431.37388)">PCA-1</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#mb8267dd9b0" x="295.219251" y="410.49888" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="295.219251" y="431.37388" transform="rotate(-0 295.219251 431.37388)">PCA-2</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#mb8267dd9b0" x="360.302398" y="410.49888" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="360.302398" y="431.37388" transform="rotate(-0 360.302398 431.37388)">PCA-3</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_4">
+      <defs>
+       <path id="mdc43bf8957" d="M 0 0 
+L -5 0 
+" style="stroke: #000000; stroke-width: 0.75"/>
+      </defs>
+      <g>
+       <use xlink:href="#mdc43bf8957" x="197.594531" y="52.541573" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: end" x="187.594531" y="56.569308" transform="rotate(-0 187.594531 56.569308)">max_sprint_length</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#mdc43bf8957" x="197.594531" y="117.62472" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: end" x="187.594531" y="121.74972" transform="rotate(-0 187.594531 121.74972)">confinement_ratio</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#mdc43bf8957" x="197.594531" y="182.707867" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: end" x="187.594531" y="186.832867" transform="rotate(-0 187.594531 186.832867)">mean_curvilinear_speed</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#mdc43bf8957" x="197.594531" y="247.791013" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: end" x="187.594531" y="251.916013" transform="rotate(-0 187.594531 251.916013)">mean_linear_speed</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#mdc43bf8957" x="197.594531" y="312.87416" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: end" x="187.594531" y="316.901894" transform="rotate(-0 187.594531 316.901894)">mean_angular_speed</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#mdc43bf8957" x="197.594531" y="377.957307" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: end" x="187.594531" y="382.082307" transform="rotate(-0 187.594531 382.082307)">pivot_rate</text>
+     </g>
+    </g>
+   </g>
+   <g id="text_10">
+    <text style="fill: #ffffff; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="230.136105" y="56.666573" transform="rotate(-0 230.136105 56.666573)">0.65</text>
+   </g>
+   <g id="text_11">
+    <text style="fill: #262626; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="295.219251" y="56.666573" transform="rotate(-0 295.219251 56.666573)">0.15</text>
+   </g>
+   <g id="text_12">
+    <text style="fill: #262626; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="360.302398" y="56.666573" transform="rotate(-0 360.302398 56.666573)">0.27</text>
+   </g>
+   <g id="text_13">
+    <text style="fill: #ffffff; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="230.136105" y="121.74972" transform="rotate(-0 230.136105 121.74972)">-0.46</text>
+   </g>
+   <g id="text_14">
+    <text style="fill: #ffffff; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="295.219251" y="121.74972" transform="rotate(-0 295.219251 121.74972)">0.72</text>
+   </g>
+   <g id="text_15">
+    <text style="fill: #262626; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="360.302398" y="121.74972" transform="rotate(-0 360.302398 121.74972)">0.3</text>
+   </g>
+   <g id="text_16">
+    <text style="fill: #ffffff; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="230.136105" y="186.832867" transform="rotate(-0 230.136105 186.832867)">0.56</text>
+   </g>
+   <g id="text_17">
+    <text style="fill: #262626; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="295.219251" y="186.832867" transform="rotate(-0 295.219251 186.832867)">0.2</text>
+   </g>
+   <g id="text_18">
+    <text style="fill: #262626; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="360.302398" y="186.832867" transform="rotate(-0 360.302398 186.832867)">0.3</text>
+   </g>
+   <g id="text_19">
+    <text style="fill: #262626; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="230.136105" y="251.916013" transform="rotate(-0 230.136105 251.916013)">-0.032</text>
+   </g>
+   <g id="text_20">
+    <text style="fill: #ffffff; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="295.219251" y="251.916013" transform="rotate(-0 295.219251 251.916013)">0.36</text>
+   </g>
+   <g id="text_21">
+    <text style="fill: #ffffff; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="360.302398" y="251.916013" transform="rotate(-0 360.302398 251.916013)">0.32</text>
+   </g>
+   <g id="text_22">
+    <text style="fill: #262626; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="230.136105" y="316.99916" transform="rotate(-0 230.136105 316.99916)">-0.12</text>
+   </g>
+   <g id="text_23">
+    <text style="fill: #ffffff; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="295.219251" y="316.99916" transform="rotate(-0 295.219251 316.99916)">-0.39</text>
+   </g>
+   <g id="text_24">
+    <text style="fill: #ffffff; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="360.302398" y="316.99916" transform="rotate(-0 360.302398 316.99916)">0.52</text>
+   </g>
+   <g id="text_25">
+    <text style="fill: #262626; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="230.136105" y="382.082307" transform="rotate(-0 230.136105 382.082307)">-0.21</text>
+   </g>
+   <g id="text_26">
+    <text style="fill: #ffffff; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="295.219251" y="382.082307" transform="rotate(-0 295.219251 382.082307)">-0.37</text>
+   </g>
+   <g id="text_27">
+    <text style="fill: #ffffff; font: 15px &quot;Suisse Int&apos;l&quot;, sans-serif; text-anchor: middle" x="360.302398" y="382.082307" transform="rotate(-0 360.302398 382.082307)">0.61</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_3">
+    <path d="M 428.65753 351.924048 
+L 442.32499 351.924048 
+L 442.32499 78.574832 
+L 428.65753 78.574832 
+L 428.65753 351.924048 
+z
+" style="fill: none"/>
+   </g>
+   <image xlink:href="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAA0AAAERCAYAAACgiC0oAAABWUlEQVR4nO2ZsW0AMQwDZcPbZK4MlhWT/p0mP4CuIC6GvycoUKRk+8fH59eu5rfGGF1MEjQZ0ySgPlOfpqrWmGrJk33KgUKO0Euu9h7Mk9sR+mi4QcSwkzW3jYHNJSAaDQCaTHLAlMsTKg8J4bZR1BFmG7E8TQDTNxeVR4Swx53tpxTTzdMLCh6x2xicJ3fckY3cW8O9PmGe1DMiegpT20i/alJMZ66aFJP+pgaYcs9aybgDJiZ5cNUgkHuW209h8psaYDpwfQbzFLtRj/390/+5uHcbU6uepw/aBFSkPMR0hXiZAIjlKSi5u7lXiJdJ7XKkHozGVe9/MLn7dKAQyTzJJXc39wrxMuXG8s3TH8hdnp3pPJfDERa7Ct2jW55JXp5bCPuqOTBP8vLsTHIbufP0ICHaEMxEQH0ZMBNQYu1CTOeVBzC1HlAefcUGIJinVHPl5enjbh6Wv/kjRzSxMJdlAAAAAElFTkSuQmCC" id="imagedc35069164" transform="scale(1 -1) translate(0 -273)" x="429" y="-78" width="13" height="273"/>
+   <g id="matplotlib.axis_3"/>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_7">
+     <g id="line2d_10">
+      <defs>
+       <path id="mee1c272841" d="M 0 0 
+L 5 0 
+" style="stroke: #000000; stroke-width: 0.75"/>
+      </defs>
+      <g>
+       <use xlink:href="#mee1c272841" x="442.32499" y="329.754784" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_28">
+      <text style="font: 14.5px &quot;Suisse Int&apos;l Mono&quot;; text-anchor: start" x="452.32499" y="335.011034" transform="rotate(-0 452.32499 335.011034)">−0.6</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_11">
+      <g>
+       <use xlink:href="#mee1c272841" x="442.32499" y="291.586336" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_29">
+      <text style="font: 14.5px &quot;Suisse Int&apos;l Mono&quot;; text-anchor: start" x="452.32499" y="296.842586" transform="rotate(-0 452.32499 296.842586)">−0.4</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#mee1c272841" x="442.32499" y="253.417888" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_30">
+      <text style="font: 14.5px &quot;Suisse Int&apos;l Mono&quot;; text-anchor: start" x="452.32499" y="258.674138" transform="rotate(-0 452.32499 258.674138)">−0.2</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_13">
+      <g>
+       <use xlink:href="#mee1c272841" x="442.32499" y="215.24944" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_31">
+      <text style="font: 14.5px &quot;Suisse Int&apos;l Mono&quot;; text-anchor: start" x="452.32499" y="220.50569" transform="rotate(-0 452.32499 220.50569)">0.0</text>
+     </g>
+    </g>
+    <g id="ytick_11">
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#mee1c272841" x="442.32499" y="177.080992" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_32">
+      <text style="font: 14.5px &quot;Suisse Int&apos;l Mono&quot;; text-anchor: start" x="452.32499" y="182.337242" transform="rotate(-0 452.32499 182.337242)">0.2</text>
+     </g>
+    </g>
+    <g id="ytick_12">
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#mee1c272841" x="442.32499" y="138.912544" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_33">
+      <text style="font: 14.5px &quot;Suisse Int&apos;l Mono&quot;; text-anchor: start" x="452.32499" y="144.168794" transform="rotate(-0 452.32499 144.168794)">0.4</text>
+     </g>
+    </g>
+    <g id="ytick_13">
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#mee1c272841" x="442.32499" y="100.744096" style="stroke: #000000; stroke-width: 0.75"/>
+      </g>
+     </g>
+     <g id="text_34">
+      <text style="font: 14.5px &quot;Suisse Int&apos;l Mono&quot;; text-anchor: start" x="452.32499" y="106.000346" transform="rotate(-0 452.32499 106.000346)">0.6</text>
+     </g>
+    </g>
+   </g>
+   <g id="LineCollection_1"/>
+   <g id="patch_4">
+    <path d="M 428.65753 351.924048 
+L 435.49126 351.924048 
+L 442.32499 351.924048 
+L 442.32499 78.574832 
+L 435.49126 78.574832 
+L 428.65753 78.574832 
+L 428.65753 351.924048 
+z
+" style="fill: none"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p2072f20e2b">
+   <rect x="197.594531" y="20" width="195.24944" height="390.49888"/>
+  </clipPath>
+ </defs>
+</svg>

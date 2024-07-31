@@ -1,4 +1,3 @@
-import arcadia_pycolor as apc
 import numpy as np
 import seaborn as sns
 from scipy import stats
@@ -75,9 +74,6 @@ def split_violin_plot_with_stats(
             sample_size = len(data.groupby(hue_variable).get_group(group_key))
             legend_label.set_text(f"{init_label} | n={sample_size}")
 
-    # aesthetics
-    apc.mpl.style_plot(ax.axes)
-
     return ax
 
 
@@ -130,9 +126,6 @@ def joint_grid_with_stats(
             group_key = next(k for k in group_keys if str(k) == init_label)
             sample_size = len(data.groupby(hue_variable).get_group(group_key))
             legend_label.set_text(f"{init_label} | n={sample_size}")
-
-    # aesthetics
-    apc.mpl.style_plot(ax.ax_joint)
 
     return ax
 

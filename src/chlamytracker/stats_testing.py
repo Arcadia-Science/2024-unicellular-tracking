@@ -5,7 +5,7 @@ from scipy import stats
 
 
 def map_p_value_to_asterisks(p_value):
-    """Map P value to symbol representing statistical significance."""
+    """Map a p-value to a symbol representing statistical significance."""
     if p_value <= 0.0001:
         return "****"
     elif p_value <= 0.001:
@@ -33,20 +33,20 @@ def split_violin_plot_with_stats(
     data,
     x_variable,
     y_variable,
-    hue,
+    hue_variable,
     min_sample_size=6,
     **split_violin_kwargs,
 ):
     """Run statistical tests and add annotations of the results to a seaborn violin plot."""
     data = data.reset_index(drop=True).copy()
-    ensure_two_groups(data, groupby_variable=hue)
+    ensure_two_groups(data, groupby_variable=hue_variable)
 
     # render violin plot
-    g = sns.violinplot(
+    ax = sns.violinplot(
         data=data,
         x=x_variable,
         y=y_variable,
-        hue=hue,
+        hue=hue_variable,
         split=True,
         **split_violin_kwargs,
     )
@@ -54,87 +54,87 @@ def split_violin_plot_with_stats(
     # extract distributions for statistical tests
     group_keys = []
     group_x_values = []
-    for key, group in data.groupby(hue):
+    for key, group in data.groupby(hue_variable):
         group_keys.append(key)
         group_x_values.append(group[y_variable].values)
 
     # annotate stats
     annotate_statistical_significance(
         *group_x_values,
-        g.axes,
+        ax.axes,
         min_sample_size,
         orientation="horizontal",
         center_annotation=True,
     )
 
     # add sample size to legend
-    if g.axes.get_legend() is not None:
-        for legend_label in g.axes.get_legend().texts:
+    if ax.axes.get_legend() is not None:
+        for legend_label in ax.axes.get_legend().texts:
             init_label = legend_label.get_text()
             group_key = next(k for k in group_keys if str(k) == init_label)
-            sample_size = len(data.groupby(hue).get_group(group_key))
+            sample_size = len(data.groupby(hue_variable).get_group(group_key))
             legend_label.set_text(f"{init_label} | n={sample_size}")
 
     # aesthetics
-    apc.mpl.style_plot(g.axes)
+    apc.mpl.style_plot(ax.axes)
 
-    return g
+    return ax
 
 
 def joint_grid_with_stats(
     data,
     x_variable,
     y_variable,
-    hue,
+    hue_variable,
     min_sample_size=6,
     **joint_grid_kwargs,
 ):
     """Run statistical tests and add annotations of the results to a seaborn JointGrid."""
     data = data.reset_index(drop=True).copy()
-    ensure_two_groups(data, groupby_variable=hue)
+    ensure_two_groups(data, groupby_variable=hue_variable)
 
     # render JointGrid
-    g = sns.JointGrid(
+    ax = sns.JointGrid(
         data=data,
         x=x_variable,
         y=y_variable,
-        hue=hue,
+        hue=hue_variable,
         **joint_grid_kwargs,
     )
 
     # plot onto JointGrid
-    g.plot_joint(sns.scatterplot, legend=True)
-    g.plot_marginals(sns.kdeplot, lw=2, fill=True, common_norm=False)
+    ax.plot_joint(sns.scatterplot, legend=True)
+    ax.plot_marginals(sns.kdeplot, lw=2, fill=True, common_norm=False)
 
     # extract distributions for statistical tests
     group_keys = []
     group_x_values = []
     group_y_values = []
-    for key, group in data.groupby(hue):
+    for key, group in data.groupby(hue_variable):
         group_keys.append(key)
         group_x_values.append(group[x_variable].values)
         group_y_values.append(group[y_variable].values)
 
     # annotate stats
     annotate_statistical_significance(
-        *group_x_values, g.ax_marg_x, min_sample_size, orientation="horizontal"
+        *group_x_values, ax.ax_marg_x, min_sample_size, orientation="horizontal"
     )
     annotate_statistical_significance(
-        *group_y_values, g.ax_marg_y, min_sample_size, orientation="vertical"
+        *group_y_values, ax.ax_marg_y, min_sample_size, orientation="vertical"
     )
 
     # add sample size to legend
-    if g.ax_joint.get_legend() is not None:
-        for legend_label in g.ax_joint.get_legend().texts:
+    if ax.ax_joint.get_legend() is not None:
+        for legend_label in ax.ax_joint.get_legend().texts:
             init_label = legend_label.get_text()
             group_key = next(k for k in group_keys if str(k) == init_label)
-            sample_size = len(data.groupby(hue).get_group(group_key))
+            sample_size = len(data.groupby(hue_variable).get_group(group_key))
             legend_label.set_text(f"{init_label} | n={sample_size}")
 
     # aesthetics
-    apc.mpl.style_plot(g.ax_joint)
+    apc.mpl.style_plot(ax.ax_joint)
 
-    return g
+    return ax
 
 
 def annotate_statistical_significance(
@@ -147,6 +147,11 @@ def annotate_statistical_significance(
 ):
     """Measure statistical significance of two distributions and annotate plot accordingly.
 
+    Statistical significance is measured using the Mann-Whitney U test [1], which is a versatile
+    nonparametric test suitable for comparing two independent samples, particularly when the data
+    does not meet the assumptions required for parametric tests. Input distributions should be
+    tested for normality by e.g. D'Agostino's K-squared test [2] prior to running this function.
+
     Parameters
     ----------
     sample_a_values, sample_b_values : (N,) array-like
@@ -158,6 +163,11 @@ def annotate_statistical_significance(
         is categorical as opposed to numerical.
     orientation : str
         Whether the matplotlib axis is oriented horizontally or vertically.
+
+    References
+    ----------
+    [1] https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html
+    [2] https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.normaltest.html
     """
     if (sample_a_values.size < min_sample_size) or (sample_b_values.size < min_sample_size):
         msg = "Sample size of one or both distributions less than `min_sample_size`."
@@ -172,8 +182,8 @@ def annotate_statistical_significance(
     fontsize = 20 if "*" in significance_text else 16
     if orientation == "horizontal":
         text_padding = 0 if "*" in significance_text else 0.05
-        x_start, x_center, x_end, y_center = _get_coordinates_for_horizontal_orientation(
-            sample_a_values, sample_b_values, matplotlib_axis, center_annotation
+        x_start, x_center, x_end, y_center = _get_coordinates_for_annotation(
+            sample_a_values, sample_b_values, matplotlib_axis, center_annotation, orientation
         )
         matplotlib_axis.plot([x_start, x_end], [y_center, y_center], "k-")
         matplotlib_axis.text(
@@ -186,8 +196,8 @@ def annotate_statistical_significance(
 
     elif orientation == "vertical":
         text_padding = -0.2 if "*" in significance_text else 0.05
-        y_start, y_center, y_end, x_center = _get_coordinates_for_vertical_orientation(
-            sample_a_values, sample_b_values, matplotlib_axis, center_annotation
+        y_start, y_center, y_end, x_center = _get_coordinates_for_annotation(
+            sample_a_values, sample_b_values, matplotlib_axis, center_annotation, orientation
         )
         matplotlib_axis.plot([x_center, x_center], [y_start, y_end], "k-")
         matplotlib_axis.text(
@@ -204,47 +214,29 @@ def annotate_statistical_significance(
         raise ValueError(msg)
 
 
-def _get_coordinates_for_horizontal_orientation(
+def _get_coordinates_for_annotation(
     sample_a_values,
     sample_b_values,
     matplotlib_axis,
     center_annotation,
+    orientation,
 ):
-    if center_annotation:
-        x_center = 0.5
-        x_start, x_end = 0.3, 0.7
-    else:
-        x_limits = matplotlib_axis.get_xlim()
-        x_range = x_limits[1] - x_limits[0]
-        x_center = (np.median(sample_a_values) + np.median(sample_b_values)) / 2
-        x_start = x_center - x_range / 8
-        x_end = x_center + x_range / 8
-
-    # y coordinate independent of plotting style
-    y_limits = matplotlib_axis.get_ylim()
-    y_center = 1.2 * y_limits[1]
-
-    return x_start, x_center, x_end, y_center
-
-
-def _get_coordinates_for_vertical_orientation(
-    sample_a_values,
-    sample_b_values,
-    matplotlib_axis,
-    center_annotation,
-):
-    if center_annotation:
-        y_center = 0.5
-        y_start, y_end = 0.3, 0.7
-    else:
-        y_limits = matplotlib_axis.get_ylim()
-        y_range = y_limits[1] - y_limits[0]
-        y_center = (np.median(sample_a_values) + np.median(sample_b_values)) / 2
-        y_start = y_center - y_range / 8
-        y_end = y_center + y_range / 8
-
-    # x coordinate independent of plotting style
+    """Return axes coordinates for drawing the statistical annotation."""
     x_limits = matplotlib_axis.get_xlim()
-    x_center = 1.2 * x_limits[1]
+    y_limits = matplotlib_axis.get_ylim()
+    main_axis_limits = x_limits if orientation == "horizontal" else y_limits
+    cross_axis_limits = y_limits if orientation == "horizontal" else x_limits
 
-    return y_start, y_center, y_end, x_center
+    if center_annotation:
+        main_axis_center = 0.5
+        main_axis_start, main_axis_end = 0.3, 0.7
+    else:
+        range = main_axis_limits[1] - main_axis_limits[0]
+        main_axis_center = (np.median(sample_a_values) + np.median(sample_b_values)) / 2
+        main_axis_start = main_axis_center - range / 8
+        main_axis_end = main_axis_center + range / 8
+
+    # the cross-axis coordinate is independent of plotting style.
+    cross_axis_center = 1.2 * cross_axis_limits[1]
+
+    return main_axis_start, main_axis_center, main_axis_end, cross_axis_center

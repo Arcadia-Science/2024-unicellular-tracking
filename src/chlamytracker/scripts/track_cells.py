@@ -105,7 +105,7 @@ def process_timelapse_of_pools(
 @cli_options.input_directory_argument
 @cli_options.output_directory_option
 @cli_options.glob_option
-@cli_options.substrate_option
+@cli_options.vessel_type_option
 @cli_options.min_cell_diameter_um_option
 @cli_options.pool_radius_um_option
 @cli_options.pool_spacing_um_option
@@ -117,7 +117,7 @@ def main(
     input_directory,
     output_directory,
     glob_str,
-    substrate,
+    vessel_type,
     min_cell_diameter_um,
     pool_radius_um,
     pool_spacing_um,
@@ -168,7 +168,7 @@ def main(
         output_directory = input_directory / "processed"
     output_directory.mkdir(parents=True, exist_ok=True)
 
-    if "well" in substrate.lower():
+    if "well" in vessel_type.lower():
         # loop through nd2 files
         for nd2_file in tqdm(nd2_files):
             try:
@@ -187,7 +187,7 @@ def main(
                 msg = f"Processing for {nd2_file} failed:"
                 logger.warning(msg + str(err))
 
-    elif "pool" in substrate.lower():
+    elif "pool" in vessel_type.lower():
         # loop through nd2 files
         for nd2_file in tqdm(nd2_files):
             try:

@@ -8,7 +8,7 @@
 
 Detect and track unicellular organisms for scaling up high-throughput motility assay development.
 
-## Installation and Setup
+## Installation and setup
 
 This repository uses conda to manage software environments and installations. If you do not already have conda installed, you can find operating system-specific instructions for installing miniconda [here](https://docs.anaconda.com/miniconda/). After installing conda, navigate to a directory where you would like to clone the repository to, and run the following commands to create the pipeline run environment.
 
@@ -19,9 +19,9 @@ conda activate unicellular-tracking
 pip install -e .
 ```
 
-If the installation was successful, the below command will return the name of the package, `chlamytracker`.
+If the installation was successful, the below command will return without error.
 ```{bash}
-python -c "import chlamytracker;print(chlamytracker.__name__)"
+python -c "import chlamytracker"
 ```
 
 ## Overview
@@ -97,10 +97,7 @@ python make_movies_of_pools.py /path/to/directory/of/nd2/files/ --output-directo
 The output for each nd2 file is a mp4 file that is basically a compressed, contrast-enhanced version of the timelapse with cell trajectories animated in a variety of colors corresponding to the trajectory ID.
 
 ## Data
-
-TODO: Add videos that show the expected input/output.
-
-TODO: Add details about the description of input / output data and links to Zenodo depositions, if applicable.
+The full dataset underlying this repository is in excess of 300 GB and thus has been uploaded to the BioImage Archive (DOI: [10.6019/S-BIAD1298](https://doi.org/10.6019/S-BIAD1298)). To enable users to perform the analysis related to motility metrics, this repository provides CSV files containing summary motility statistics. More information is provided in [data/](data/README.md).
 
 
 ## Contributing

@@ -30,6 +30,6 @@ Brightfield time-lapse microscopy data was acquired on two separate microscopes:
 
 
 ### Study components
-Datasets uploaded to the BioImage Archive are organized into study components, which provide context for the pipeline in which a dataset was generated (e.g. sample preparation, image acquisition, and analysis methods). Each study component is accompanied by a TSV file that lists every file included in the study component as explained above. A visual representation of the study components pertaining to this work is shown below, complete descriptions are provided [with the dataset](https://doi.org/10.6019/S-BIAD1298).
+Datasets uploaded to the BioImage Archive are organized into study components, which provide context for the pipeline in which a dataset was generated (e.g. sample preparation, image acquisition, and analysis methods). Each study component is accompanied by a TSV file that lists every file included in the study component as explained above. A visual representation of the study components pertaining to this work is shown below, while more complete descriptions are provided [with the dataset](https://doi.org/10.6019/S-BIAD1298).
 
 <img src="../resources/BioImage_Archive_study_components.png" width="640">

@@ -4,13 +4,12 @@ The full dataset that accompanies the [pub](https://doi.org/10.57844/.arcadia-2d
 
 ### Contents
 
+The data in this repository is limited to files related to the archived dataset and summary motility statistics that were used for statistical analysis as explained below.
+
 **Nomenclature**  
 Brightfield time-lapse microscopy data was acquired on two separate microscopes: one for each type of vessel the cells were swimming in. As such, different names are used to identify the different acquisitions.
 * Agar microchamber pools (aka "pools") --> `AMID-04`
 * 384-well plate (aka "wells") --> `AMID-05`
-
-
-The data in this repository is limited to files related to the archived dataset and summary motility statistics that were used for statistical analysis as explained below.
 
 ```bash
 2024-unicellular-tracking/data

@@ -9,6 +9,8 @@ Brightfield time-lapse microscopy data was acquired on two separate microscopes:
 
 ### Contents
 
+The data in this repository is limited to files related to the archived dataset and summary motility statistics that were used for statistical analysis as explained below.
+
 ```bash
 2024-unicellular-tracking/data
 ├── AMID-04_CC-124_pools_file-list.tsv
@@ -30,4 +32,4 @@ Brightfield time-lapse microscopy data was acquired on two separate microscopes:
 ### Study components
 Datasets uploaded to the BioImage Archive are organized into [study components](https://www.ebi.ac.uk/bioimage-archive/rembi-help-examples/), which provide context for the pipeline in which a dataset was generated (e.g. sample preparation, image acquisition, and analysis methods). Each study component is accompanied by a TSV file that lists every file included in the study component as explained above. A visual representation of the study components pertaining to this work is shown below, complete descriptions are provided [with the dataset](https://doi.org/10.6019/S-BIAD1298).
 
-![BioImage Archive S-BIAD1298](../resources/BioImage_Archive_study_components.png)
+<img src="../resources/BioImage_Archive_study_components.png" width="720">

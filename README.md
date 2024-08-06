@@ -8,6 +8,9 @@
 
 Detect and track unicellular organisms for scaling up high-throughput motility assay development.
 
+![movie](../resources/cell-tracks-in-pools.gif)
+
+
 ## Installation and setup
 
 This repository uses conda to manage software environments and installations. If you do not already have conda installed, you can find operating system-specific instructions for installing miniconda [here](https://docs.anaconda.com/miniconda/). After installing conda, navigate to a directory where you would like to clone the repository to, and run the following commands to create the pipeline run environment.
@@ -28,7 +31,16 @@ python -c "import chlamytracker"
 
 ### Description of the folder structure
 
-TODO: Write description.
+This repository is organized into the following top-level directories.
+* **btrack_config**: YAML file for [`btrack`](https://btrack.readthedocs.io/en/latest/index.html) configuration.
+* **data**: CSV files containing summary motility metrics from measured cell trajectories.
+* **envs**: YAML file including the packages and dependencies used for creating the conda environment.
+* **notebooks**: 
+* **resources**: 
+* **results**: A collection of output files used for the analysis described in the pub as well as for generating the figures.
+* **src/chlamytracker**: Source code
+
+
 
 ### Methods
 
@@ -45,9 +57,14 @@ TODO: Include a brief, step-wise overview of analyses performed.
 
 TODO: Describe what compute resources were used to run the analysis. For example, you could list the operating system, number of cores, RAM, and storage space.
 
+## Data
+The full dataset underlying the pub is in excess of 300 GB and thus has been uploaded to the BioImage Archive (DOI: [10.6019/S-BIAD1298](https://doi.org/10.6019/S-BIAD1298)). To enable users to perform the analysis related to motility metrics, this repository provides CSV files containing summary motility statistics. More information is provided in [data/](data/README.md).
+
 ## Scripts
 
-Scripts are located in `2024-unicellular-tracking/src/chlamytracker/scripts/`. Examples below assume this is your current working directory. All scripts are configured with [click](https://click.palletsprojects.com/en/8.1.x/) such that
+Scripts are located in `2024-unicellular-tracking/src/chlamytracker/scripts/`. Examples below assume this is your current working directory. 
+
+All scripts are configured with [click](https://click.palletsprojects.com/en/8.1.x/) such that
 
 ```bash
 python {script}.py --help
@@ -95,9 +112,6 @@ python make_movies_of_pools.py /path/to/directory/of/nd2/files/ --output-directo
 ```
 
 The output for each nd2 file is a mp4 file that is basically a compressed, contrast-enhanced version of the timelapse with cell trajectories animated in a variety of colors corresponding to the trajectory ID.
-
-## Data
-The full dataset underlying this repository is in excess of 300 GB and thus has been uploaded to the BioImage Archive (DOI: [10.6019/S-BIAD1298](https://doi.org/10.6019/S-BIAD1298)). To enable users to perform the analysis related to motility metrics, this repository provides CSV files containing summary motility statistics. More information is provided in [data/](data/README.md).
 
 
 ## Contributing

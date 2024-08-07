@@ -13,11 +13,25 @@ logger = logging.getLogger(__name__)
 
 
 class PoolFinder(Timelapse):
-    """Subclass of `Timelapse` for detecting agar microchamber pools in
-    timelapse microscopy data.
+    """Subclass of `Timelapse` for detecting agar microchamber pools in timelapse microscopy data.
 
-    TODO: more detailed description of what an agar microchamber pool is and what
-          processing steps this class seeks to accomplish (and why).
+    To more carefully observe motile, single-celled organisms at Arcadia, cells are sometimes
+    loaded into agar microchambers [1], commonly referred to as "pools". These microchambers are
+    printed via a PDMS stamp into a grid-like fashion and loaded with cells via a pipette. The
+    arrangement of the microchambers depends on the stamp, which comes in several different
+    configurations. The default values for `pool_radius_um` and `pool_spacing_um` stem from the
+    most common stamp chosen for handling C. reinhardtii cells.
+
+    When imaging cells loaded into pools at low magnification, there will be 10-20 pools per field
+    of view. To facilitate cell segmentation, which is needed for cell tracking, it is convenient
+    to first detect the outline of each pool in the field of view. Each pool is then tightly
+    cropped to for cell segmentation, which is expedited due to the reduced dimensions of image
+    data for segmentation.
+
+    The default parameters for `hough_threshold` and `min_object_size` were derived empirically
+    by doing parameter sweeps through small batches of time lapse data. The default value for
+    `min_cell_diameter_um` comes from a conservative estimate for the smallest expected size of a
+    C. reinhardtii cell in focus.
 
     Parameters
     ----------
@@ -36,6 +50,10 @@ class PoolFinder(Timelapse):
         applying the Hough transform.
     use_dask : bool (optional)
         Whether to load and process nd2 file with dask.
+
+    References
+    ----------
+    [1] https://doi.org/10.57844/arcadia-v1bg-6b60
     """
 
     def __init__(

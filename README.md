@@ -83,7 +83,7 @@ There are four scripts located in [`src/chlamytracker/scripts`](src/chlamytracke
 * `make_movies_of_wells.py`: (After cell tracking) render an animation of tracked cells in a microtiter plate.
 * `generate_bioimage_archive_file_lists.py`: Generates the lists of files needed to support the upload to the BioImage Archive.
 
-All scripts are configured with [click](https://click.palletsprojects.com/en/8.1.x/) such that
+All scripts are configured with [`click`](https://click.palletsprojects.com/en/8.1.x/) such that
 ```bash
 python src/chlamytracker/scripts/{script}.py --help
 ```

@@ -23,7 +23,7 @@ pip install -e .
 ```
 
 If the installation was successful, the below command will return without error.
-```{bash}
+```bash
 python -c "import chlamytracker"
 ```
 

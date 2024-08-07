@@ -27,7 +27,7 @@ FILE_CONTENT_BLURBS = {
 
 
 def generate_AMID04_dataframe(filepath):
-    """"""
+    """Generate the file list for AMID-04"""
     sample_prep_parameters = json.loads(SAMPLE_PREP_PARAMETERS_JSON.read_text())
     sample_prep_parameters = sample_prep_parameters["AMID-04"]
 
@@ -59,7 +59,7 @@ def generate_AMID04_dataframe(filepath):
 
 
 def generate_AMID05_dataframe(filepath):
-    """"""
+    """Generate the file list for AMID-05."""
     sample_prep_parameters = json.loads(SAMPLE_PREP_PARAMETERS_JSON.read_text())
     sample_prep_parameters = sample_prep_parameters["AMID-05"]
 

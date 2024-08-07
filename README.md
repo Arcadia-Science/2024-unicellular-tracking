@@ -32,7 +32,7 @@ python -c "import chlamytracker"
 
 ### Description of the folder structure
 This repository is organized into the following top-level directories.
-* **btrack_config**: YAML file for [`btrack`](https://btrack.readthedocs.io/en/latest/index.html) configuration.
+* **btrack_config**: contains a YAML file for configuring [`btrack`](https://btrack.readthedocs.io/en/latest/index.html) configuration.
 * **data**: CSV files containing summary motility metrics from measured cell trajectories.
 * **envs**: YAML file including the packages and dependencies used for creating the conda environment.
 * **notebooks**: Collection of Jupyter notebooks for analyzing motility data, including the code used to generate Figures 4–7 in the pub.

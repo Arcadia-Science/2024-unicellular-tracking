@@ -43,7 +43,7 @@ This repository is organized into the following top-level directories.
 ### Methods
 
 #### Cell tracking
-Cell tracking was performed by running the `track_cells.py` script (see section on scripts below for more context) on the full dataset of raw brightfield microscopy time lapses available at https://doi.org/10.6019/S-BIAD1298. As described in [data/](data/README.md), this dataset is comprised of _Chlamydomonas reinhardtii_ cells swimming in either agar microchamber pools (`AMID-04_CC-124_pools`) or microtiter plates (`AMID-05_CC-124_wells`). The following command was run to track cells in microchamber pools,
+Cell tracking was performed by running the `track_cells.py` script (see the "Scripts" section below for more context) on the full dataset of raw brightfield microscopy time lapses available at https://doi.org/10.6019/S-BIAD1298. As described in [data/README.md](data/README.md), this dataset is comprised of _Chlamydomonas reinhardtii_ cells swimming in either agar microchamber pools (`AMID-04_CC-124_pools`) or microtiter plates (`AMID-05_CC-124_wells`). The following command was run to track cells in microchamber pools:
 ```bash
 python src/chlamytracker/scripts/track_cells.py \
     AMID-04_CC-124_pools/S1-Cr3-T/ \

@@ -73,15 +73,15 @@ The notebooks for statistical analysis were run on an Apple MacBook Pro with an 
 
 
 ## Data
-The full dataset underlying the pub is 355 GB and thus has been uploaded to the BioImage Archive (DOI: [10.6019/S-BIAD1298](https://doi.org/10.6019/S-BIAD1298)). To enable users to perform the analysis related to motility metrics, this repository provides CSV files containing summary motility statistics. More information is provided in [data/](data/README.md).
+The full dataset underlying the pub is 355 GB and thus has been uploaded to the BioImage Archive (DOI: [10.6019/S-BIAD1298](https://doi.org/10.6019/S-BIAD1298)). To enable users to perform the analysis related to motility metrics, this repository provides CSV files containing summary motility statistics. More information is provided in [data/README.md](data/README.md).
 
 
 ## Scripts
-There are four scripts located in [`src/chlamytracker/scripts`](src/chlamytracker/scripts), the first three of which are for processing biological image data.
+There are four scripts located in [`src/chlamytracker/scripts`](src/chlamytracker/scripts), the first three of which are for processing biological image data, while the fourth was only run once to prepare the dataset for uploading to the BioImage Archive.
 * `track_cells.py`: Track cells in raw brightfield time-lapse microscopy data.
-* `make_movies_of_pools.py`: (After cell tracking) render an animation of tracked cells in agar microchamber pools.
-* `make_movies_of_wells.py`: (After cell tracking) render an animation of tracked cells in a microtiter plate.
-* `generate_bioimage_archive_file_lists.py`: Generates the lists of files needed to support the upload to the BioImage Archive.
+* `make_movies_of_pools.py`: Render an animation of tracked cells in agar microchamber pools (after cell tracking).
+* `make_movies_of_wells.py`: Render an animation of tracked cells in a microtiter plate (after cell tracking).
+* `generate_bioimage_archive_file_lists.py`: Generate the lists of files needed for the BioImage Archive upload. (_No longer intended to be used._)
 
 All scripts are configured with [`click`](https://click.palletsprojects.com/en/8.1.x/) such that
 ```bash
@@ -102,7 +102,7 @@ For more information on glob patterns, check out the official Python [documentat
 
 Microscopy data for the pub is comprised of cells swimming inside one of two different types of "vessels": either agar microchamber pools or microtiter plates. By default, the script expects cells to be swimming in a microtiter plate, but the `--vessel` argument can be used to change the expected vessel type as shown in the examples below. Regardless of the vessel type, the expected input is more or less the same: a ~20 sec timelapse of brightfield microscopy data stored as a ND2 file in which there are clearly unicellular organisms swimming around. There are no constraints on the duration, dimensions, frame rate, or pixel size of the timelapse, but the code has thus far predominantly been tested on 20 sec timelapses with dimensions around (400, 1200, 1200) T, Y, X acquired at 20–30 frames per second. Most cell tracking has been performed on different species and strains of _Chlamydomonas_, hence the default of 6 µm for the `min_cell_diameter_um` parameter. This parameter should be increased or decreased based on the size of the organism recorded.
 
-To track cells in time-lapse videos of 384- or 1536-well plates, parallelized by [`dask`](https://image.dask.org/en/latest/).
+To track cells in time-lapse videos of 384- or 1536-well plates, parallelized by [`dask`](https://image.dask.org/en/latest/):
 ```bash
 python src/chlamytracker/scripts/track_cells.py \
     /path/to/directory/of/nd2/files/ \
@@ -110,7 +110,7 @@ python src/chlamytracker/scripts/track_cells.py \
     --use-dask
 ```
 
-To track cells in time-lapse data of 100 µm diameter agar microchamber pools, using 6 cores in parallel.
+To track cells in time-lapse data of 100 µm diameter agar microchamber pools, using 6 cores in parallel:
 ```bash
 python src/chlamytracker/scripts/track_cells.py \
     /path/to/directory/of/nd2/files/ \
@@ -140,7 +140,7 @@ python src/chlamytracker/scripts/make_movies_of_pools.py \
     --output-directory /path/to/writeable/storage/location/
 ```
 
-The output for each ND2 file is a MP4 file that is basically a compressed, contrast-enhanced version of the timelapse with cell trajectories animated in a variety of colors corresponding to the trajectory ID. Note that in the above examples, `--framerate` and `--output-directory` are both optional arguments. The default frame rate is 30 fps, while the default output directory is a directory named `processed` within the input directory (first argument). If `{input-directory}/processed/` already exists, files may be overwritten.
+The output for each ND2 file is a MP4 file that is a compressed, contrast-enhanced version of the timelapse with cell trajectories animated in a variety of colors corresponding to the trajectory ID. Note that in the above examples, `--framerate` and `--output-directory` are both optional arguments. The default frame rate is 30 fps, while the default output directory is a directory named `processed` within the input directory (first argument). If `{input-directory}/processed/` already exists, files may be overwritten.
 
 
 ## Contributing

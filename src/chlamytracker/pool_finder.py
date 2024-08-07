@@ -24,9 +24,8 @@ class PoolFinder(Timelapse):
 
     When imaging cells loaded into pools at low magnification, there will be 10-20 pools per field
     of view. To facilitate cell segmentation, which is needed for cell tracking, it is convenient
-    to first detect the outline of each pool in the field of view. Each pool is then tightly
-    cropped to for cell segmentation, which is expedited due to the reduced dimensions of image
-    data for segmentation.
+    to first detect the outline of each pool in the field of view. By tightly cropping the time
+    lapse to each individual pool, cell segmentation is both faster and more accurate.
 
     The default parameters for `hough_threshold` and `min_object_size` were derived empirically
     by doing parameter sweeps through small batches of time lapse data. The default value for

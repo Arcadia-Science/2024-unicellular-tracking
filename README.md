@@ -73,7 +73,7 @@ The notebooks for statistical analysis were run on an Apple MacBook Pro with an 
 
 
 ## Data
-The full dataset underlying the pub is in excess of 300 GB and thus has been uploaded to the BioImage Archive (DOI: [10.6019/S-BIAD1298](https://doi.org/10.6019/S-BIAD1298)). To enable users to perform the analysis related to motility metrics, this repository provides CSV files containing summary motility statistics. More information is provided in [data/](data/README.md).
+The full dataset underlying the pub is 355 GB and thus has been uploaded to the BioImage Archive (DOI: [10.6019/S-BIAD1298](https://doi.org/10.6019/S-BIAD1298)). To enable users to perform the analysis related to motility metrics, this repository provides CSV files containing summary motility statistics. More information is provided in [data/](data/README.md).
 
 
 ## Scripts

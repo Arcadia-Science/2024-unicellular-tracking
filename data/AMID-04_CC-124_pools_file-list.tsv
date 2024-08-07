@@ -1,0 +1,938 @@
+Files	file_content	vessel_type	position_in_tube	time_in_water	slide_id
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_001.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_002.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_003.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_004.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_005.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_006.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_007.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_008.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_009.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0010.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0011.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0012.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0013.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0014.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0015.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0016.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0017.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0018.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0019.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0020.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0021.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0022.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0023.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0024.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0025.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0026.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0027.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/s1-cr3-t-timelapse_0028.nd2	raw brightfield time-lapse microscopy data	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_001.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_002.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_003.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_004.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_005.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_006.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_007.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_008.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_009.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0010.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0011.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0012.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0013.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0014.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0015.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0016.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0017.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0018.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0019.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0020.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0021.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0022.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0023.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0024.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0025.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0026.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0027.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/s2-cr3-m-timelapse_0028.nd2	raw brightfield time-lapse microscopy data	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_001.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_002.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_003.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_004.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_005.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_006.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_007.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_008.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_009.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0010.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0011.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0012.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0013.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0014.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0015.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0016.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0017.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0018.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0019.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0020.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0021.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0022.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0023.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0024.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0025.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0026.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0027.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/s3-cr4-t-timelapse_0028.nd2	raw brightfield time-lapse microscopy data	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0000.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0001.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0002.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0003.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0004.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0005.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0006.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0007.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0008.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0009.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0010.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0011.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0012.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0013.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0014.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0015.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0016.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0017.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0018.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0019.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0020.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0021.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0022.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0023.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0024.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0025.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0026.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/S4-Cr4-M-timelapse_0027.nd2	raw brightfield time-lapse microscopy data	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_001_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_002_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_003_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_005_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_007_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_008_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_009_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0010_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0013_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0015_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0016_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0017_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0018_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0021_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0023_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0024_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0025_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0026_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0027_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0028_animation.mp4	movie of tracked cells with animated trajectories	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_003_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_006_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_007_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_008_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_009_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0010_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0011_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0012_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0013_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0014_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0016_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0017_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0018_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0019_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0020_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0021_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0022_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0023_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0024_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0025_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0026_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0027_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0028_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_001_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_003_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_004_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_005_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_006_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_007_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_008_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_009_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0011_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0013_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0014_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0017_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0018_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0019_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0020_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0021_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0022_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0023_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0024_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0025_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0026_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0027_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0028_animation.mp4	movie of tracked cells with animated trajectories	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0002_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0003_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0008_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0011_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0022_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0023_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0024_animation.mp4	movie of tracked cells with animated trajectories	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_001/pool_2_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_001/pool_2_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_001/pool_2_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_001/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_001/pool_3_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_001/pool_3_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_001/pool_3_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_001/pool_3_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_001/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_001/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_002/pool_0_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_002/pool_0_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_002/pool_0_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_002/pool_0_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_002/pool_1_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_002/pool_1_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_002/pool_3_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_002/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_002/pool_3_4_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_002/pool_3_4_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_002/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_002/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_003/pool_1_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_003/pool_1_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_003/pool_2_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_003/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_003/pool_3_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_003/pool_3_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_003/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_003/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_0_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_0_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_1_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_1_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_1_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_2_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_2_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_2_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_2_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_2_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_2_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_2_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_3_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_3_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_3_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_3_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pool_3_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_004/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_005/pool_1_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_005/pool_1_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_005/pool_2_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_005/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_005/pool_2_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_005/pool_2_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_005/pool_3_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_005/pool_3_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_005/pool_4_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_005/pool_4_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_005/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_005/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006/pool_0_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006/pool_0_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006/pool_0_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006/pool_0_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006/pool_2_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006/pool_2_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006/pool_2_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006/pool_2_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006/pool_3_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006/pool_3_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006/pool_3_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_006/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_007/pool_0_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_007/pool_0_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_007/pool_0_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_007/pool_0_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_007/pool_0_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_007/pool_0_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_007/pool_1_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_007/pool_1_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_007/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_007/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_008/pool_0_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_008/pool_0_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_008/pool_1_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_008/pool_1_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_008/pool_2_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_008/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_008/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_008/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_009/pool_1_4_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_009/pool_1_4_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_009/pool_2_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_009/pool_2_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_009/pool_2_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_009/pool_2_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_009/pool_2_4_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_009/pool_2_4_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_009/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_009/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0010/pool_1_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0010/pool_1_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0010/pool_2_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0010/pool_2_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0010/pool_2_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0010/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0010/pool_3_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0010/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0010/pool_4_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0010/pool_4_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0010/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0010/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_0_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_0_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_0_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_0_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_0_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_0_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_1_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_1_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_2_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_2_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_2_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_3_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_3_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_3_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0011/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_0_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_0_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_0_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_0_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_0_4_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_0_4_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_1_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_1_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_1_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_1_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_1_4_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_1_4_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_2_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_2_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_3_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_3_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_3_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_3_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_3_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_3_4_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pool_3_4_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0012/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0013/pool_0_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0013/pool_0_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0013/pool_0_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0013/pool_0_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0013/pool_1_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0013/pool_1_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0013/pool_1_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0013/pool_1_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0013/pool_2_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0013/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0013/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0013/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_1_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_1_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_1_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_1_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_1_4_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_1_4_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_2_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_2_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_2_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_2_4_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_2_4_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_3_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_3_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_3_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_4_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_4_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_4_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pool_4_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0014/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0015/pool_0_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0015/pool_0_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0015/pool_0_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0015/pool_0_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0015/pool_1_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0015/pool_1_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0015/pool_1_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0015/pool_1_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0015/pool_2_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0015/pool_2_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0015/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0015/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0016/pool_0_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0016/pool_0_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0016/pool_2_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0016/pool_2_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0016/pool_3_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0016/pool_3_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0016/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0016/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0017/pool_2_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0017/pool_2_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0017/pool_2_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0017/pool_2_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0017/pool_2_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0017/pool_2_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0017/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0017/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0018/pool_0_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0018/pool_0_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0018/pool_2_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0018/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0018/pool_2_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0018/pool_2_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0018/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0018/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019/pool_0_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019/pool_0_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019/pool_0_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019/pool_0_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019/pool_1_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019/pool_1_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019/pool_2_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019/pool_2_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019/pool_2_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019/pool_3_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019/pool_3_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0019/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pool_1_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pool_1_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pool_1_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pool_1_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pool_2_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pool_3_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pool_3_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pool_3_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pool_3_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pool_3_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pool_3_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pool_4_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pool_4_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0020/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0021/pool_0_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0021/pool_0_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0021/pool_1_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0021/pool_3_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0021/pool_3_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0021/pool_3_4_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0021/pool_3_4_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0021/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0021/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022/pool_0_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022/pool_0_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022/pool_0_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022/pool_0_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022/pool_1_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022/pool_1_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022/pool_2_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022/pool_2_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022/pool_2_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022/pool_2_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022/pool_3_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022/pool_3_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0022/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0023/pool_1_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0023/pool_1_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0023/pool_2_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0023/pool_2_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0023/pool_4_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0023/pool_4_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0023/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0023/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0024/pool_1_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0024/pool_1_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0024/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0024/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0025/pool_2_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0025/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0025/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0025/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0026/pool_0_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0026/pool_0_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0026/pool_0_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0026/pool_0_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0026/pool_1_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0026/pool_1_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0026/pool_3_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0026/pool_3_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0026/pool_3_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0026/pool_3_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0026/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0026/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0027/pool_1_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0027/pool_1_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0027/pool_1_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0027/pool_1_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0027/pool_2_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0027/pool_2_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0027/pool_3_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0027/pool_3_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0027/pool_3_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0027/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0027/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0027/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0028/pool_1_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0028/pool_1_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0028/pool_2_2_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0028/pool_2_2_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0028/pool_2_3_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0028/pool_2_3_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0028/pool_3_0_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0028/pool_3_0_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0028/pool_3_1_segmented.tiff	segmented time lapse	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0028/pool_3_1_tracks.csv	coordinates from cell tracking	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0028/poolmap.txt	detected pool positions	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S1-Cr3-T/processed/s1-cr3-t-timelapse_0028/pools_detected.jpg	image of detected pools	pools	top	21	S1-Cr3-T
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_001/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_001/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_002/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_002/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_003/pool_2_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_003/pool_2_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_003/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_003/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004/pool_0_0_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004/pool_0_0_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004/pool_1_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004/pool_1_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004/pool_1_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004/pool_1_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004/pool_2_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004/pool_2_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004/pool_3_1_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004/pool_3_1_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004/pool_3_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004/pool_3_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_004/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_0_1_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_0_1_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_0_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_0_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_0_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_0_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_1_0_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_1_0_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_1_1_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_1_1_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_1_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_1_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_2_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_2_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_3_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pool_3_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_005/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_006/pool_1_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_006/pool_1_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_006/pool_1_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_006/pool_1_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_006/pool_3_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_006/pool_3_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_006/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_006/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_007/pool_0_0_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_007/pool_0_0_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_007/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_007/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_008/pool_3_4_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_008/pool_3_4_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_008/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_008/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_009/pool_0_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_009/pool_0_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_009/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_009/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0010/pool_1_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0010/pool_1_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0010/pool_2_1_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0010/pool_2_1_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0010/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0010/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0011/pool_2_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0011/pool_2_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0011/pool_3_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0011/pool_3_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0011/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0011/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0012/pool_1_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0012/pool_1_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0012/pool_2_4_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0012/pool_2_4_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0012/pool_3_1_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0012/pool_3_1_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0012/pool_3_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0012/pool_3_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0012/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0012/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0013/pool_1_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0013/pool_1_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0013/pool_2_1_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0013/pool_2_1_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0013/pool_3_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0013/pool_3_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0013/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0013/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0014/pool_1_1_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0014/pool_1_1_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0014/pool_2_1_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0014/pool_2_1_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0014/pool_2_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0014/pool_2_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0014/pool_3_1_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0014/pool_3_1_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0014/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0014/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0015/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0015/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0016/pool_1_0_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0016/pool_1_0_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0016/pool_2_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0016/pool_2_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0016/pool_3_0_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0016/pool_3_0_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0016/pool_4_0_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0016/pool_4_0_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0016/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0016/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0017/pool_0_1_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0017/pool_0_1_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0017/pool_2_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0017/pool_2_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0017/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0017/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0018/pool_2_4_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0018/pool_2_4_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0018/pool_3_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0018/pool_3_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0018/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0018/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0019/pool_1_1_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0019/pool_1_1_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0019/pool_1_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0019/pool_1_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0019/pool_2_0_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0019/pool_2_0_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0019/pool_2_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0019/pool_2_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0019/pool_3_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0019/pool_3_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0019/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0019/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0020/pool_0_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0020/pool_0_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0020/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0020/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0021/pool_0_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0021/pool_0_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0021/pool_2_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0021/pool_2_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0021/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0021/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0022/pool_1_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0022/pool_1_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0022/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0022/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0023/pool_1_0_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0023/pool_1_0_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0023/pool_3_0_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0023/pool_3_0_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0023/pool_3_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0023/pool_3_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0023/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0023/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0024/pool_3_4_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0024/pool_3_4_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0024/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0024/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0025/pool_0_0_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0025/pool_0_0_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0025/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0025/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0026/pool_0_1_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0026/pool_0_1_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0026/pool_1_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0026/pool_1_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0026/pool_2_0_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0026/pool_2_0_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0026/pool_2_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0026/pool_2_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0026/pool_3_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0026/pool_3_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0026/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0026/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0027/pool_2_1_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0027/pool_2_1_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0027/pool_2_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0027/pool_2_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0027/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0027/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0028/pool_1_3_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0028/pool_1_3_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0028/pool_2_2_segmented.tiff	segmented time lapse	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0028/pool_2_2_tracks.csv	coordinates from cell tracking	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0028/poolmap.txt	detected pool positions	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S2-Cr3-M/processed/s2-cr3-m-timelapse_0028/pools_detected.jpg	image of detected pools	pools	middle	21	S2-Cr3-M
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_001/pool_3_0_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_001/pool_3_0_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_001/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_001/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_002/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_002/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_003/pool_1_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_003/pool_1_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_003/pool_2_1_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_003/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_003/pool_4_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_003/pool_4_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_003/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_003/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_004/pool_2_1_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_004/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_004/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_004/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_005/pool_3_0_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_005/pool_3_0_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_005/pool_3_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_005/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_005/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_005/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_006/pool_1_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_006/pool_1_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_006/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_006/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_007/pool_2_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_007/pool_2_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_007/pool_3_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_007/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_007/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_007/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_008/pool_3_0_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_008/pool_3_0_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_008/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_008/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_009/pool_2_0_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_009/pool_2_0_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_009/pool_2_1_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_009/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_009/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_009/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0010/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0010/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0011/pool_1_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0011/pool_1_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0011/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0011/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0012/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0012/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0013/pool_1_0_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0013/pool_1_0_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0013/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0013/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0014/pool_2_0_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0014/pool_2_0_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0014/pool_3_0_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0014/pool_3_0_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0014/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0014/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0015/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0015/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0016/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0016/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0017/pool_1_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0017/pool_1_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0017/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0017/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0018/pool_0_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0018/pool_0_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0018/pool_1_0_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0018/pool_1_0_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0018/pool_2_1_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0018/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0018/pool_3_0_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0018/pool_3_0_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0018/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0018/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0019/pool_3_1_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0019/pool_3_1_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0019/pool_3_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0019/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0019/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0019/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0020/pool_0_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0020/pool_0_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0020/pool_3_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0020/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0020/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0020/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0021/pool_0_1_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0021/pool_0_1_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0021/pool_0_3_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0021/pool_0_3_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0021/pool_1_1_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0021/pool_1_1_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0021/pool_1_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0021/pool_1_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0021/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0021/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0022/pool_2_1_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0022/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0022/pool_2_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0022/pool_2_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0022/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0022/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0023/pool_2_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0023/pool_2_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0023/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0023/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0024/pool_2_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0024/pool_2_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0024/pool_3_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0024/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0024/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0024/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0025/pool_1_1_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0025/pool_1_1_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0025/pool_3_0_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0025/pool_3_0_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0025/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0025/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0026/pool_2_1_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0026/pool_2_1_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0026/pool_3_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0026/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0026/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0026/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0027/pool_1_0_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0027/pool_1_0_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0027/pool_1_3_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0027/pool_1_3_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0027/pool_3_3_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0027/pool_3_3_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0027/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0027/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0028/pool_0_0_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0028/pool_0_0_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0028/pool_1_1_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0028/pool_1_1_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0028/pool_2_3_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0028/pool_2_3_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0028/pool_3_2_segmented.tiff	segmented time lapse	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0028/pool_3_2_tracks.csv	coordinates from cell tracking	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0028/poolmap.txt	detected pool positions	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S3-Cr4-T/processed/s3-cr4-t-timelapse_0028/pools_detected.jpg	image of detected pools	pools	top	4	S3-Cr4-T
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0000/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0000/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0001/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0001/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0002/pool_2_1_segmented.tiff	segmented time lapse	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0002/pool_2_1_tracks.csv	coordinates from cell tracking	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0002/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0002/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0003/pool_3_1_segmented.tiff	segmented time lapse	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0003/pool_3_1_tracks.csv	coordinates from cell tracking	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0003/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0003/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0004/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0004/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0005/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0005/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0006/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0006/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0007/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0007/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0008/pool_4_2_segmented.tiff	segmented time lapse	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0008/pool_4_2_tracks.csv	coordinates from cell tracking	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0008/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0008/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0009/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0009/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0010/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0010/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0011/pool_2_3_segmented.tiff	segmented time lapse	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0011/pool_2_3_tracks.csv	coordinates from cell tracking	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0011/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0011/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0012/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0012/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0013/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0013/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0014/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0014/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0015/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0015/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0016/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0016/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0017/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0017/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0018/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0018/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0019/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0019/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0020/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0020/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0021/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0021/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0022/pool_0_1_segmented.tiff	segmented time lapse	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0022/pool_0_1_tracks.csv	coordinates from cell tracking	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0022/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0022/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0023/pool_2_1_segmented.tiff	segmented time lapse	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0023/pool_2_1_tracks.csv	coordinates from cell tracking	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0023/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0023/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0024/pool_3_3_segmented.tiff	segmented time lapse	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0024/pool_3_3_tracks.csv	coordinates from cell tracking	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0024/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0024/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0025/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0025/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0026/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0026/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0027/poolmap.txt	detected pool positions	pools	middle	4	S4-Cr4-M
+AMID-04_CC-124_pools/S4-Cr4-M/processed/S4-Cr4-M-timelapse_0027/pools_detected.jpg	image of detected pools	pools	middle	4	S4-Cr4-M

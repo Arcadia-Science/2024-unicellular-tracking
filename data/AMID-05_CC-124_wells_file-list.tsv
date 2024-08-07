@@ -1,0 +1,106 @@
+Files	file_content	vessel_type	position_in_tube	time_in_water	well_id
+AMID-05_CC-124_wells/WellI01_PointI01_0000_ChannelJOBS 10X red lida_Seq0000.nd2	raw brightfield time-lapse microscopy data	wells	top	21	I01
+AMID-05_CC-124_wells/WellI01_PointI01_0001_ChannelJOBS 10X red lida_Seq0001.nd2	raw brightfield time-lapse microscopy data	wells	top	21	I01
+AMID-05_CC-124_wells/WellI01_PointI01_0002_ChannelJOBS 10X red lida_Seq0002.nd2	raw brightfield time-lapse microscopy data	wells	top	21	I01
+AMID-05_CC-124_wells/WellI01_PointI01_0003_ChannelJOBS 10X red lida_Seq0003.nd2	raw brightfield time-lapse microscopy data	wells	top	21	I01
+AMID-05_CC-124_wells/WellI03_PointI03_0000_ChannelJOBS 10X red lida_Seq0008.nd2	raw brightfield time-lapse microscopy data	wells	middle	21	I03
+AMID-05_CC-124_wells/WellI03_PointI03_0001_ChannelJOBS 10X red lida_Seq0009.nd2	raw brightfield time-lapse microscopy data	wells	middle	21	I03
+AMID-05_CC-124_wells/WellI03_PointI03_0002_ChannelJOBS 10X red lida_Seq0010.nd2	raw brightfield time-lapse microscopy data	wells	middle	21	I03
+AMID-05_CC-124_wells/WellI03_PointI03_0003_ChannelJOBS 10X red lida_Seq0011.nd2	raw brightfield time-lapse microscopy data	wells	middle	21	I03
+AMID-05_CC-124_wells/WellJ01_PointJ01_0000_ChannelJOBS 10X red lida_Seq0028.nd2	raw brightfield time-lapse microscopy data	wells	top	21	J01
+AMID-05_CC-124_wells/WellJ01_PointJ01_0001_ChannelJOBS 10X red lida_Seq0029.nd2	raw brightfield time-lapse microscopy data	wells	top	21	J01
+AMID-05_CC-124_wells/WellJ01_PointJ01_0002_ChannelJOBS 10X red lida_Seq0030.nd2	raw brightfield time-lapse microscopy data	wells	top	21	J01
+AMID-05_CC-124_wells/WellJ01_PointJ01_0003_ChannelJOBS 10X red lida_Seq0031.nd2	raw brightfield time-lapse microscopy data	wells	top	21	J01
+AMID-05_CC-124_wells/WellJ03_PointJ03_0000_ChannelJOBS 10X red lida_Seq0020.nd2	raw brightfield time-lapse microscopy data	wells	middle	21	J03
+AMID-05_CC-124_wells/WellJ03_PointJ03_0001_ChannelJOBS 10X red lida_Seq0021.nd2	raw brightfield time-lapse microscopy data	wells	middle	21	J03
+AMID-05_CC-124_wells/WellJ03_PointJ03_0002_ChannelJOBS 10X red lida_Seq0022.nd2	raw brightfield time-lapse microscopy data	wells	middle	21	J03
+AMID-05_CC-124_wells/WellJ03_PointJ03_0003_ChannelJOBS 10X red lida_Seq0023.nd2	raw brightfield time-lapse microscopy data	wells	middle	21	J03
+AMID-05_CC-124_wells/WellK01_PointK01_0000_ChannelJOBS 10X red lida_Seq0032.nd2	raw brightfield time-lapse microscopy data	wells	top	4	K01
+AMID-05_CC-124_wells/WellK01_PointK01_0001_ChannelJOBS 10X red lida_Seq0033.nd2	raw brightfield time-lapse microscopy data	wells	top	4	K01
+AMID-05_CC-124_wells/WellK01_PointK01_0002_ChannelJOBS 10X red lida_Seq0034.nd2	raw brightfield time-lapse microscopy data	wells	top	4	K01
+AMID-05_CC-124_wells/WellK01_PointK01_0003_ChannelJOBS 10X red lida_Seq0035.nd2	raw brightfield time-lapse microscopy data	wells	top	4	K01
+AMID-05_CC-124_wells/WellK03_PointK03_0000_ChannelJOBS 10X red lida_Seq0040.nd2	raw brightfield time-lapse microscopy data	wells	middle	4	K03
+AMID-05_CC-124_wells/WellK03_PointK03_0001_ChannelJOBS 10X red lida_Seq0041.nd2	raw brightfield time-lapse microscopy data	wells	middle	4	K03
+AMID-05_CC-124_wells/WellK03_PointK03_0002_ChannelJOBS 10X red lida_Seq0042.nd2	raw brightfield time-lapse microscopy data	wells	middle	4	K03
+AMID-05_CC-124_wells/WellK03_PointK03_0003_ChannelJOBS 10X red lida_Seq0043.nd2	raw brightfield time-lapse microscopy data	wells	middle	4	K03
+AMID-05_CC-124_wells/WellL01_PointL01_0000_ChannelJOBS 10X red lida_Seq0060.nd2	raw brightfield time-lapse microscopy data	wells	top	4	L01
+AMID-05_CC-124_wells/WellL01_PointL01_0001_ChannelJOBS 10X red lida_Seq0061.nd2	raw brightfield time-lapse microscopy data	wells	top	4	L01
+AMID-05_CC-124_wells/WellL01_PointL01_0002_ChannelJOBS 10X red lida_Seq0062.nd2	raw brightfield time-lapse microscopy data	wells	top	4	L01
+AMID-05_CC-124_wells/WellL01_PointL01_0003_ChannelJOBS 10X red lida_Seq0063.nd2	raw brightfield time-lapse microscopy data	wells	top	4	L01
+AMID-05_CC-124_wells/WellL03_PointL03_0000_ChannelJOBS 10X red lida_Seq0052.nd2	raw brightfield time-lapse microscopy data	wells	middle	4	L03
+AMID-05_CC-124_wells/WellL03_PointL03_0001_ChannelJOBS 10X red lida_Seq0053.nd2	raw brightfield time-lapse microscopy data	wells	middle	4	L03
+AMID-05_CC-124_wells/WellL03_PointL03_0002_ChannelJOBS 10X red lida_Seq0054.nd2	raw brightfield time-lapse microscopy data	wells	middle	4	L03
+AMID-05_CC-124_wells/WellL03_PointL03_0003_ChannelJOBS 10X red lida_Seq0055.nd2	raw brightfield time-lapse microscopy data	wells	middle	4	L03
+AMID-05_CC-124_wells/processed/WellI03_PointI03_0000_ChannelJOBS 10X red lida_Seq0008_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	21	I03
+AMID-05_CC-124_wells/processed/WellI03_PointI03_0000_ChannelJOBS 10X red lida_Seq0008_segmented.tiff	segmented time lapse	wells	middle	21	I03
+AMID-05_CC-124_wells/processed/WellI03_PointI03_0000_ChannelJOBS 10X red lida_Seq0008_tracks.csv	coordinates from cell tracking	wells	middle	21	I03
+AMID-05_CC-124_wells/processed/WellI03_PointI03_0001_ChannelJOBS 10X red lida_Seq0009_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	21	I03
+AMID-05_CC-124_wells/processed/WellI03_PointI03_0001_ChannelJOBS 10X red lida_Seq0009_segmented.tiff	segmented time lapse	wells	middle	21	I03
+AMID-05_CC-124_wells/processed/WellI03_PointI03_0001_ChannelJOBS 10X red lida_Seq0009_tracks.csv	coordinates from cell tracking	wells	middle	21	I03
+AMID-05_CC-124_wells/processed/WellI03_PointI03_0002_ChannelJOBS 10X red lida_Seq0010_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	21	I03
+AMID-05_CC-124_wells/processed/WellI03_PointI03_0002_ChannelJOBS 10X red lida_Seq0010_segmented.tiff	segmented time lapse	wells	middle	21	I03
+AMID-05_CC-124_wells/processed/WellI03_PointI03_0002_ChannelJOBS 10X red lida_Seq0010_tracks.csv	coordinates from cell tracking	wells	middle	21	I03
+AMID-05_CC-124_wells/processed/WellI03_PointI03_0003_ChannelJOBS 10X red lida_Seq0011_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	21	I03
+AMID-05_CC-124_wells/processed/WellI03_PointI03_0003_ChannelJOBS 10X red lida_Seq0011_segmented.tiff	segmented time lapse	wells	middle	21	I03
+AMID-05_CC-124_wells/processed/WellI03_PointI03_0003_ChannelJOBS 10X red lida_Seq0011_tracks.csv	coordinates from cell tracking	wells	middle	21	I03
+AMID-05_CC-124_wells/processed/WellJ01_PointJ01_0000_ChannelJOBS 10X red lida_Seq0028_segmented.tiff	segmented time lapse	wells	top	21	J01
+AMID-05_CC-124_wells/processed/WellJ01_PointJ01_0003_ChannelJOBS 10X red lida_Seq0031_animation.mp4	movie of tracked cells with animated trajectories	wells	top	21	J01
+AMID-05_CC-124_wells/processed/WellJ01_PointJ01_0003_ChannelJOBS 10X red lida_Seq0031_segmented.tiff	segmented time lapse	wells	top	21	J01
+AMID-05_CC-124_wells/processed/WellJ01_PointJ01_0003_ChannelJOBS 10X red lida_Seq0031_tracks.csv	coordinates from cell tracking	wells	top	21	J01
+AMID-05_CC-124_wells/processed/WellJ03_PointJ03_0000_ChannelJOBS 10X red lida_Seq0020_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	21	J03
+AMID-05_CC-124_wells/processed/WellJ03_PointJ03_0000_ChannelJOBS 10X red lida_Seq0020_segmented.tiff	segmented time lapse	wells	middle	21	J03
+AMID-05_CC-124_wells/processed/WellJ03_PointJ03_0000_ChannelJOBS 10X red lida_Seq0020_tracks.csv	coordinates from cell tracking	wells	middle	21	J03
+AMID-05_CC-124_wells/processed/WellJ03_PointJ03_0001_ChannelJOBS 10X red lida_Seq0021_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	21	J03
+AMID-05_CC-124_wells/processed/WellJ03_PointJ03_0001_ChannelJOBS 10X red lida_Seq0021_segmented.tiff	segmented time lapse	wells	middle	21	J03
+AMID-05_CC-124_wells/processed/WellJ03_PointJ03_0001_ChannelJOBS 10X red lida_Seq0021_tracks.csv	coordinates from cell tracking	wells	middle	21	J03
+AMID-05_CC-124_wells/processed/WellJ03_PointJ03_0003_ChannelJOBS 10X red lida_Seq0023_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	21	J03
+AMID-05_CC-124_wells/processed/WellJ03_PointJ03_0003_ChannelJOBS 10X red lida_Seq0023_segmented.tiff	segmented time lapse	wells	middle	21	J03
+AMID-05_CC-124_wells/processed/WellJ03_PointJ03_0003_ChannelJOBS 10X red lida_Seq0023_tracks.csv	coordinates from cell tracking	wells	middle	21	J03
+AMID-05_CC-124_wells/processed/WellK01_PointK01_0000_ChannelJOBS 10X red lida_Seq0032_animation.mp4	movie of tracked cells with animated trajectories	wells	top	4	K01
+AMID-05_CC-124_wells/processed/WellK01_PointK01_0000_ChannelJOBS 10X red lida_Seq0032_segmented.tiff	segmented time lapse	wells	top	4	K01
+AMID-05_CC-124_wells/processed/WellK01_PointK01_0000_ChannelJOBS 10X red lida_Seq0032_tracks.csv	coordinates from cell tracking	wells	top	4	K01
+AMID-05_CC-124_wells/processed/WellK01_PointK01_0001_ChannelJOBS 10X red lida_Seq0033_animation.mp4	movie of tracked cells with animated trajectories	wells	top	4	K01
+AMID-05_CC-124_wells/processed/WellK01_PointK01_0001_ChannelJOBS 10X red lida_Seq0033_segmented.tiff	segmented time lapse	wells	top	4	K01
+AMID-05_CC-124_wells/processed/WellK01_PointK01_0001_ChannelJOBS 10X red lida_Seq0033_tracks.csv	coordinates from cell tracking	wells	top	4	K01
+AMID-05_CC-124_wells/processed/WellK01_PointK01_0002_ChannelJOBS 10X red lida_Seq0034_animation.mp4	movie of tracked cells with animated trajectories	wells	top	4	K01
+AMID-05_CC-124_wells/processed/WellK01_PointK01_0002_ChannelJOBS 10X red lida_Seq0034_segmented.tiff	segmented time lapse	wells	top	4	K01
+AMID-05_CC-124_wells/processed/WellK01_PointK01_0002_ChannelJOBS 10X red lida_Seq0034_tracks.csv	coordinates from cell tracking	wells	top	4	K01
+AMID-05_CC-124_wells/processed/WellK01_PointK01_0003_ChannelJOBS 10X red lida_Seq0035_animation.mp4	movie of tracked cells with animated trajectories	wells	top	4	K01
+AMID-05_CC-124_wells/processed/WellK01_PointK01_0003_ChannelJOBS 10X red lida_Seq0035_segmented.tiff	segmented time lapse	wells	top	4	K01
+AMID-05_CC-124_wells/processed/WellK01_PointK01_0003_ChannelJOBS 10X red lida_Seq0035_tracks.csv	coordinates from cell tracking	wells	top	4	K01
+AMID-05_CC-124_wells/processed/WellK03_PointK03_0000_ChannelJOBS 10X red lida_Seq0040_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	4	K03
+AMID-05_CC-124_wells/processed/WellK03_PointK03_0000_ChannelJOBS 10X red lida_Seq0040_segmented.tiff	segmented time lapse	wells	middle	4	K03
+AMID-05_CC-124_wells/processed/WellK03_PointK03_0000_ChannelJOBS 10X red lida_Seq0040_tracks.csv	coordinates from cell tracking	wells	middle	4	K03
+AMID-05_CC-124_wells/processed/WellK03_PointK03_0001_ChannelJOBS 10X red lida_Seq0041_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	4	K03
+AMID-05_CC-124_wells/processed/WellK03_PointK03_0001_ChannelJOBS 10X red lida_Seq0041_segmented.tiff	segmented time lapse	wells	middle	4	K03
+AMID-05_CC-124_wells/processed/WellK03_PointK03_0001_ChannelJOBS 10X red lida_Seq0041_tracks.csv	coordinates from cell tracking	wells	middle	4	K03
+AMID-05_CC-124_wells/processed/WellK03_PointK03_0002_ChannelJOBS 10X red lida_Seq0042_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	4	K03
+AMID-05_CC-124_wells/processed/WellK03_PointK03_0002_ChannelJOBS 10X red lida_Seq0042_segmented.tiff	segmented time lapse	wells	middle	4	K03
+AMID-05_CC-124_wells/processed/WellK03_PointK03_0002_ChannelJOBS 10X red lida_Seq0042_tracks.csv	coordinates from cell tracking	wells	middle	4	K03
+AMID-05_CC-124_wells/processed/WellK03_PointK03_0003_ChannelJOBS 10X red lida_Seq0043_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	4	K03
+AMID-05_CC-124_wells/processed/WellK03_PointK03_0003_ChannelJOBS 10X red lida_Seq0043_segmented.tiff	segmented time lapse	wells	middle	4	K03
+AMID-05_CC-124_wells/processed/WellK03_PointK03_0003_ChannelJOBS 10X red lida_Seq0043_tracks.csv	coordinates from cell tracking	wells	middle	4	K03
+AMID-05_CC-124_wells/processed/WellL01_PointL01_0000_ChannelJOBS 10X red lida_Seq0060_animation.mp4	movie of tracked cells with animated trajectories	wells	top	4	L01
+AMID-05_CC-124_wells/processed/WellL01_PointL01_0000_ChannelJOBS 10X red lida_Seq0060_segmented.tiff	segmented time lapse	wells	top	4	L01
+AMID-05_CC-124_wells/processed/WellL01_PointL01_0000_ChannelJOBS 10X red lida_Seq0060_tracks.csv	coordinates from cell tracking	wells	top	4	L01
+AMID-05_CC-124_wells/processed/WellL01_PointL01_0001_ChannelJOBS 10X red lida_Seq0061_animation.mp4	movie of tracked cells with animated trajectories	wells	top	4	L01
+AMID-05_CC-124_wells/processed/WellL01_PointL01_0001_ChannelJOBS 10X red lida_Seq0061_segmented.tiff	segmented time lapse	wells	top	4	L01
+AMID-05_CC-124_wells/processed/WellL01_PointL01_0001_ChannelJOBS 10X red lida_Seq0061_tracks.csv	coordinates from cell tracking	wells	top	4	L01
+AMID-05_CC-124_wells/processed/WellL01_PointL01_0002_ChannelJOBS 10X red lida_Seq0062_animation.mp4	movie of tracked cells with animated trajectories	wells	top	4	L01
+AMID-05_CC-124_wells/processed/WellL01_PointL01_0002_ChannelJOBS 10X red lida_Seq0062_segmented.tiff	segmented time lapse	wells	top	4	L01
+AMID-05_CC-124_wells/processed/WellL01_PointL01_0002_ChannelJOBS 10X red lida_Seq0062_tracks.csv	coordinates from cell tracking	wells	top	4	L01
+AMID-05_CC-124_wells/processed/WellL01_PointL01_0003_ChannelJOBS 10X red lida_Seq0063_animation.mp4	movie of tracked cells with animated trajectories	wells	top	4	L01
+AMID-05_CC-124_wells/processed/WellL01_PointL01_0003_ChannelJOBS 10X red lida_Seq0063_segmented.tiff	segmented time lapse	wells	top	4	L01
+AMID-05_CC-124_wells/processed/WellL01_PointL01_0003_ChannelJOBS 10X red lida_Seq0063_tracks.csv	coordinates from cell tracking	wells	top	4	L01
+AMID-05_CC-124_wells/processed/WellL03_PointL03_0000_ChannelJOBS 10X red lida_Seq0052_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	4	L03
+AMID-05_CC-124_wells/processed/WellL03_PointL03_0000_ChannelJOBS 10X red lida_Seq0052_segmented.tiff	segmented time lapse	wells	middle	4	L03
+AMID-05_CC-124_wells/processed/WellL03_PointL03_0000_ChannelJOBS 10X red lida_Seq0052_tracks.csv	coordinates from cell tracking	wells	middle	4	L03
+AMID-05_CC-124_wells/processed/WellL03_PointL03_0001_ChannelJOBS 10X red lida_Seq0053_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	4	L03
+AMID-05_CC-124_wells/processed/WellL03_PointL03_0001_ChannelJOBS 10X red lida_Seq0053_segmented.tiff	segmented time lapse	wells	middle	4	L03
+AMID-05_CC-124_wells/processed/WellL03_PointL03_0001_ChannelJOBS 10X red lida_Seq0053_tracks.csv	coordinates from cell tracking	wells	middle	4	L03
+AMID-05_CC-124_wells/processed/WellL03_PointL03_0002_ChannelJOBS 10X red lida_Seq0054_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	4	L03
+AMID-05_CC-124_wells/processed/WellL03_PointL03_0002_ChannelJOBS 10X red lida_Seq0054_segmented.tiff	segmented time lapse	wells	middle	4	L03
+AMID-05_CC-124_wells/processed/WellL03_PointL03_0002_ChannelJOBS 10X red lida_Seq0054_tracks.csv	coordinates from cell tracking	wells	middle	4	L03
+AMID-05_CC-124_wells/processed/WellL03_PointL03_0003_ChannelJOBS 10X red lida_Seq0055_animation.mp4	movie of tracked cells with animated trajectories	wells	middle	4	L03
+AMID-05_CC-124_wells/processed/WellL03_PointL03_0003_ChannelJOBS 10X red lida_Seq0055_segmented.tiff	segmented time lapse	wells	middle	4	L03
+AMID-05_CC-124_wells/processed/WellL03_PointL03_0003_ChannelJOBS 10X red lida_Seq0055_tracks.csv	coordinates from cell tracking	wells	middle	4	L03

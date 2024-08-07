@@ -124,7 +124,7 @@ Note that in the above examples, `--output-directory` is an optional argument. I
 ### Making movies of tracked cells
 To provide some sort of visual confirmation that the segmentation and cell tracking was done successfully, there are also scripts for adding animations of cell trajectories to the tracked cells using the napari plugin [napari-animation](https://github.com/napari/napari-animation). Here the choice for which script to run depends on the type of vessel used in the experiment.
 
-To create animations of tracked cells in 384- or 1536-well plates at 20 fps.
+To create animations of tracked cells in 384- or 1536-well plates at 20 fps:
 ```bash
 python src/chlamytracker/scripts/make_movies_of_wells.py \
     /path/to/directory/of/nd2/files/ \
@@ -132,7 +132,7 @@ python src/chlamytracker/scripts/make_movies_of_wells.py \
     --output-directory /path/to/writeable/storage/location/
 ```
 
-To create animations of tracked cells in agar microchamber pools at 30 fps.
+To create animations of tracked cells in agar microchamber pools at 30 fps:
 ```bash
 python src/chlamytracker/scripts/make_movies_of_pools.py \
     /path/to/directory/of/nd2/files/ \

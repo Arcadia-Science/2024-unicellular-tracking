@@ -23,7 +23,7 @@ def ensure_two_groups(data, groupby_variable):
     if num_groups != 2:
         msg = (
             "This function only supports statistical tests for two distinct groupings, but "
-            f"{len(num_groups)} were provided."
+            f"{num_groups} were provided."
         )
         raise ValueError(msg)
 

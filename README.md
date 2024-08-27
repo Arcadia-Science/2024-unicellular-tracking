@@ -17,6 +17,7 @@ This repository uses conda to manage software environments and installations. If
 
 ```{bash}
 git clone https://github.com/Arcadia-Science/2024-unicellular-tracking.git
+cd 2024-unicellular-tracking
 conda env create -n unicellular-tracking --file envs/dev.yml
 conda activate unicellular-tracking
 pip install -e .

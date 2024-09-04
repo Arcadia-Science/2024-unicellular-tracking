@@ -8,6 +8,7 @@ dependencies:
   - click=8.1.7
   - napari-animation=0.0.8
   - scikit-image=0.22.0
+  - scikit-learn=1.4.2
   - python=3.12
   - nd2=0.10.1
   - jupyterlab=4.1.8

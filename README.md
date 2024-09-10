@@ -91,7 +91,7 @@ python src/chlamytracker/scripts/{script}.py --help
 will display a help message that gives a description of what the script does as well as the arguments it accepts and their default values. The three scripts for processing biological image data also accept a `--glob` argument that can be used to filter the set of files to process. For example, to track cells from only one row of wells from a plate, one could run the command.
 
 ```bash
-python src/chlamytracker/scripts/track_cells_in_wells.py \
+python src/chlamytracker/scripts/track_cells.py \
     /path/to/directory/of/nd2/files/ \
     --glob "WellB*.nd2"
 ```
@@ -117,7 +117,7 @@ python src/chlamytracker/scripts/track_cells.py \
     /path/to/directory/of/nd2/files/ \
     --output-directory /path/to/writeable/storage/location/ \
     --pool-radius 50 \
-    --num-cores 6
+    --num-workers 6
 ```
 
 Note that in the above examples, `--output-directory` is an optional argument. If not provided, output will be written to a directory named `processed` within the input directory (first argument). If `{input-directory}/processed/` already exists, files may be overwritten.

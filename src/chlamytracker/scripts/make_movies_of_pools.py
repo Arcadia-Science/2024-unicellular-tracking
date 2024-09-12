@@ -46,7 +46,6 @@ def make_napari_animation_for_timelapse(
         Frame rate for the animation.
     """
     # load timelapse and metadata
-    timelapse = nd2.imread(nd2_file)
     with nd2.ND2File(nd2_file) as nd2f:
         timelapse = nd2f.asarray()
         num_frames = nd2f.sizes["T"]

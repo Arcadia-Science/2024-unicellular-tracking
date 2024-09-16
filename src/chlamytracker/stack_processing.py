@@ -1,3 +1,4 @@
+import warnings
 from multiprocessing import Pool
 
 import dask.array as da
@@ -27,10 +28,13 @@ def get_central_frames(stack, num_central_frames=100):
 
     if num_central_frames > num_total_frames:
         msg = (
-            f"Requested number of central frames ({num_central_frames}) greater "
-            f"than number of frames available ({num_total_frames})."
+            "Unable to crop central frames: Requested number of central "
+            f"frames ({num_central_frames}) greater than number of "
+            f"frames available ({num_total_frames})."
         )
-        raise ValueError(msg)
+        # raise ValueError(msg)
+        warnings.warn(msg, RuntimeWarning, stacklevel=1)
+        return stack.copy()
 
     # indices of central slices
     z1, z2 = (

@@ -37,7 +37,7 @@ This repository is organized into the following top-level directories.
 * **data**: CSV files containing summary motility metrics from measured cell trajectories.
 * **envs**: contains a conda environment file that lists the packages and dependencies used for creating the conda environment.
 * **notebooks**: Collection of Jupyter notebooks for analyzing motility data, including the code used to generate Figures 4–7 in the pub.
-* **resources**: Static files such as PNGs and GIFs used for documentation within the repository.
+* **resources**: Documentation and files related to the automated microscopy acquisitions. Also includes static files such as PNGs and GIFs used for documentation within the repository.
 * **results**: A collection of SVG files output by the Jupyter notebooks for generating Figures 4–7 in the pub.
 * **src/chlamytracker**: Source code, scripts, and tests comprising the key functionality of the repository including parallelized image processing, cell tracking, and statistical analysis.
 

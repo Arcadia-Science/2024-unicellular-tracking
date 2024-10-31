@@ -143,7 +143,7 @@ class TrajectoryCSVParser:
 
         Examples
         --------
-        >>> from chlamytracker.tracking_metrics import TrajectoryCSVParser
+        >>> from swimtracker.tracking_metrics import TrajectoryCSVParser
         >>> csv_file = "WellJ07_tracks.csv"
         >>> motility_data = TrajectoryCSVParser(csv_file, framerate=30, pixelsize=0.5)
         >>> motility_data.compute_summary_statistics()

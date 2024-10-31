@@ -3,10 +3,10 @@ import logging
 import click
 import numpy as np
 import skimage as ski
-from chlamytracker import cli_options
-from chlamytracker.pool_finder import PoolFinder
-from chlamytracker.tracking import Tracker
-from chlamytracker.well_processor import WellSegmenter
+from swimtracker import cli_options
+from swimtracker.pool_finder import PoolFinder
+from swimtracker.tracking import Tracker
+from swimtracker.well_processor import WellSegmenter
 from natsort import natsorted
 from tqdm import tqdm
 

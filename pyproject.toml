@@ -3,7 +3,7 @@ requires = ["setuptools", "setuptools-scm[toml]"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "chlamytracker"
+name = "swimtracker"
 version = "1.0"
 description = "Image analysis workflows for tracking unicellular organisms"
 readme = "README.md"
@@ -14,7 +14,7 @@ authors = [
 ]
 
 [project.scripts]
-extract-pools = "chlamytracker.scripts.extract_pools:main"
+extract-pools = "swimtracker.scripts.extract_pools:main"
 
 [tool.ruff]
 # The directories to consider when resolving first- vs. third-party imports

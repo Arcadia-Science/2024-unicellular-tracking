@@ -25,7 +25,7 @@ pip install -e .
 
 If the installation was successful, the below command will return without error.
 ```bash
-python -c "import chlamytracker"
+python -c "import swimtracker"
 ```
 
 
@@ -39,14 +39,14 @@ This repository is organized into the following top-level directories.
 * **notebooks**: Collection of Jupyter notebooks for analyzing motility data, including the code used to generate Figures 4–7 in the pub.
 * **resources**: Documentation and files related to the automated microscopy acquisitions. Also includes static files such as PNGs and GIFs used for documentation within the repository.
 * **results**: A collection of SVG files output by the Jupyter notebooks for generating Figures 4–7 in the pub.
-* **src/chlamytracker**: Source code, scripts, and tests comprising the key functionality of the repository including parallelized image processing, cell tracking, and statistical analysis.
+* **src/swimtracker**: Source code, scripts, and tests comprising the key functionality of the repository including parallelized image processing, cell tracking, and statistical analysis.
 
 ### Methods
 
 #### Cell tracking
 Cell tracking was performed by running the `track_cells.py` script (see the "Scripts" section below for more context) on the full dataset of raw brightfield microscopy time lapses available at https://doi.org/10.6019/S-BIAD1298. As described in [data/README.md](data/README.md), this dataset is comprised of _Chlamydomonas reinhardtii_ cells swimming in either agar microchamber pools (`AMID-04_CC-124_pools`) or microtiter plates (`AMID-05_CC-124_wells`). The following command was run to track cells in microchamber pools:
 ```bash
-python src/chlamytracker/scripts/track_cells.py \
+python src/swimtracker/scripts/track_cells.py \
     AMID-04_CC-124_pools/S1-Cr3-T/ \
     --vessel "pools" \
     --pool-radius 50 \
@@ -54,7 +54,7 @@ python src/chlamytracker/scripts/track_cells.py \
 ```
 The same command was repeated for the next three subdirectories (`S2-Cr3-M`, `S3-Cr4-T`, and `S4-Cr4-M`) by substituting in the name of the subdirectory to the first argument. For tracking cells in microtiter plates, the same script was run with the following optional arguments,
 ```bash
-python src/chlamytracker/scripts/track_cells.py \
+python src/swimtracker/scripts/track_cells.py \
     AMID-05_CC-124_wells/ \
     --vessel "384-well plate"
     --use-dask
@@ -78,7 +78,7 @@ The full dataset underlying the pub is 355 GB and thus has been uploaded to the 
 
 
 ## Scripts
-There are four scripts located in [`src/chlamytracker/scripts`](src/chlamytracker/scripts), the first three of which are for processing biological image data, while the fourth was only run once to prepare the dataset for uploading to the BioImage Archive.
+There are four scripts located in [`src/swimtracker/scripts`](src/swimtracker/scripts), the first three of which are for processing biological image data, while the fourth was only run once to prepare the dataset for uploading to the BioImage Archive.
 * `track_cells.py`: Track cells in raw brightfield time-lapse microscopy data.
 * `make_movies_of_pools.py`: Render an animation of tracked cells in agar microchamber pools (after cell tracking).
 * `make_movies_of_wells.py`: Render an animation of tracked cells in a microtiter plate (after cell tracking).
@@ -86,12 +86,12 @@ There are four scripts located in [`src/chlamytracker/scripts`](src/chlamytracke
 
 All scripts are configured with [`click`](https://click.palletsprojects.com/en/8.1.x/) such that
 ```bash
-python src/chlamytracker/scripts/{script}.py --help
+python src/swimtracker/scripts/{script}.py --help
 ```
 will display a help message that gives a description of what the script does as well as the arguments it accepts and their default values. The three scripts for processing biological image data also accept a `--glob` argument that can be used to filter the set of files to process. For example, to track cells from only one row of wells from a plate, one could run the command.
 
 ```bash
-python src/chlamytracker/scripts/track_cells.py \
+python src/swimtracker/scripts/track_cells.py \
     /path/to/directory/of/nd2/files/ \
     --glob "WellB*.nd2"
 ```
@@ -105,7 +105,7 @@ Microscopy data for the pub is comprised of cells swimming inside one of two dif
 
 To track cells in time-lapse videos of 384- or 1536-well plates, parallelized by [`dask`](https://image.dask.org/en/latest/):
 ```bash
-python src/chlamytracker/scripts/track_cells.py \
+python src/swimtracker/scripts/track_cells.py \
     /path/to/directory/of/nd2/files/ \
     --output-directory /path/to/writeable/storage/location/ \
     --use-dask
@@ -113,7 +113,7 @@ python src/chlamytracker/scripts/track_cells.py \
 
 To track cells in time-lapse data of 100 µm diameter agar microchamber pools, using 6 cores in parallel:
 ```bash
-python src/chlamytracker/scripts/track_cells.py \
+python src/swimtracker/scripts/track_cells.py \
     /path/to/directory/of/nd2/files/ \
     --output-directory /path/to/writeable/storage/location/ \
     --pool-radius 50 \
@@ -127,7 +127,7 @@ To provide some sort of visual confirmation that the segmentation and cell track
 
 To create animations of tracked cells in 384- or 1536-well plates at 20 fps:
 ```bash
-python src/chlamytracker/scripts/make_movies_of_wells.py \
+python src/swimtracker/scripts/make_movies_of_wells.py \
     /path/to/directory/of/nd2/files/ \
     --framerate 20
     --output-directory /path/to/writeable/storage/location/
@@ -135,7 +135,7 @@ python src/chlamytracker/scripts/make_movies_of_wells.py \
 
 To create animations of tracked cells in agar microchamber pools at 30 fps:
 ```bash
-python src/chlamytracker/scripts/make_movies_of_pools.py \
+python src/swimtracker/scripts/make_movies_of_pools.py \
     /path/to/directory/of/nd2/files/ \
     --framerate 30
     --output-directory /path/to/writeable/storage/location/

@@ -3,7 +3,7 @@ from pathlib import Path
 
 import click
 import pandas as pd
-from chlamytracker import cli_options
+from swimtracker import cli_options
 from natsort import natsorted
 
 DATA_DIRECTORY = Path(__file__).parents[3] / "data"

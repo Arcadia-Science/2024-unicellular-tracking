@@ -4,9 +4,9 @@ import click
 import napari
 import nd2
 import numpy as np
-from chlamytracker import cli_options
-from chlamytracker.tracking_metrics import TrajectoryCSVParser
-from chlamytracker.utils import configure_logger, crop_movie_to_content
+from swimtracker import cli_options
+from swimtracker.tracking_metrics import TrajectoryCSVParser
+from swimtracker.utils import configure_logger, crop_movie_to_content
 from napari_animation import Animation
 from natsort import natsorted
 from tqdm import tqdm

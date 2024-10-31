@@ -4,7 +4,6 @@ from multiprocessing import Pool
 import dask.array as da
 import numpy as np
 import skimage as ski
-
 from swimtracker.utils import timeit
 
 

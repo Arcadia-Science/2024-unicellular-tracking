@@ -7,11 +7,11 @@ import nd2
 import numpy as np
 import pandas as pd
 import skimage as ski
+from napari_animation import Animation
+from natsort import natsorted
 from swimtracker import cli_options
 from swimtracker.tracking_metrics import TrajectoryCSVParser
 from swimtracker.utils import configure_logger, crop_movie_to_content
-from napari_animation import Animation
-from natsort import natsorted
 from tqdm import tqdm
 
 logger = logging.getLogger(__name__)

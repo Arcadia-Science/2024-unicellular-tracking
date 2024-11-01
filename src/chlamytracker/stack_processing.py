@@ -4,8 +4,7 @@ from multiprocessing import Pool
 import dask.array as da
 import numpy as np
 import skimage as ski
-
-from chlamytracker.utils import timeit
+from swimtracker.utils import timeit
 
 
 @timeit

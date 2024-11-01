@@ -3,8 +3,8 @@ from pathlib import Path
 
 import click
 import pandas as pd
-from chlamytracker import cli_options
 from natsort import natsorted
+from swimtracker import cli_options
 
 DATA_DIRECTORY = Path(__file__).parents[3] / "data"
 SAMPLE_PREP_PARAMETERS_JSON = DATA_DIRECTORY / "experimental_parameters.json"

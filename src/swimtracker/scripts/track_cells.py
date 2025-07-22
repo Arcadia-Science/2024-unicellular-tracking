@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 def process_timelapse_of_well(
-    nd2_file,
+    input_path,
     output_directory,
     min_cell_diameter_um,
     num_workers,
@@ -26,11 +26,11 @@ def process_timelapse_of_well(
     data of unicellular organisms in a 384-well or 1536-well plate."""
 
     # segmentation
-    well = WellSegmenter(nd2_file, use_dask=use_dask)
+    well = WellSegmenter(input_path, use_dask=use_dask)
     segmentation = well.segment(min_cell_diameter_um)
 
     # export segmentation
-    tiff_filename = output_directory / f"{well.nd2_file.stem}_segmented.tiff"
+    tiff_filename = output_directory / f"{well.input_path.stem}_segmented.tiff"
     segmentation_8bit = (255 * segmentation).astype(np.uint8)
     ski.io.imsave(tiff_filename, segmentation_8bit)
 
@@ -39,13 +39,13 @@ def process_timelapse_of_well(
     well_tracker.track_cells()
 
     # export tracking data
-    csv_filename = output_directory / f"{well.nd2_file.stem}_tracks.csv"
+    csv_filename = output_directory / f"{well.input_path.stem}_tracks.csv"
     dataframe = well_tracker.to_dataframe()
     dataframe.to_csv(csv_filename, index=False)
 
 
 def process_timelapse_of_pools(
-    nd2_file,
+    input_path,
     output_directory,
     min_cell_diameter_um,
     pool_radius_um,
@@ -58,7 +58,7 @@ def process_timelapse_of_pools(
     data of unicellular organisms in agar microchamber pools."""
     # find pools within the timelapse
     pool_finder = PoolFinder(
-        nd2_file=nd2_file,
+        path=input_path,
         pool_radius_um=pool_radius_um,
         pool_spacing_um=pool_spacing_um,
         min_cell_diameter_um=min_cell_diameter_um,
@@ -67,7 +67,7 @@ def process_timelapse_of_pools(
     # configure export directory
     #   output segmentation and tracking data to subdirectories as there are
     #   multiple pools per nd2 file
-    output_directory /= pool_finder.nd2_file.stem
+    output_directory /= pool_finder.input_path.stem
     output_directory.mkdir(exist_ok=True)
 
     # segment cells within each pool
@@ -141,17 +141,15 @@ def main(
     properties (e.g. area, eccentricity, etc.) of each tracked cell for each
     frame in the timelapse.
 
-    Notes
-    -----
-    * Results are output to `{input_directory}/processed` by default if
-    `output_directory` is not specified.
-    * `num_workers` option is ignored when the `use_dask` is provided since dask
-    pretty much uses all available computing power at its disposal.
+    Notes:
+        * Results are output to `{input_directory}/processed` by default if
+          `output_directory` is not specified.
+        * `num_workers` option is ignored when the `use_dask` is provided since dask
+          pretty much uses all available computing power at its disposal.
 
-    References
-    ----------
-    [1] https://doi.org/10.57844/arcadia-v1bg-6b60
-    [2] https://btrack.readthedocs.io/en/latest/index.html
+    References:
+        [1] https://doi.org/10.57844/arcadia-v1bg-6b60
+        [2] https://btrack.readthedocs.io/en/latest/index.html
     """
 
     # set log level
@@ -159,8 +157,8 @@ def main(
         logger.setLevel(logging.DEBUG)
 
     # glob all .nd2 files in directory
-    nd2_files = natsorted(input_directory.glob(glob_str))
-    if not nd2_files:
+    input_paths = natsorted(input_directory.glob(glob_str))
+    if not input_paths:
         logger.error(f"No nd2 files found in {input_directory}.")
 
     # ensure output directory exists and is writeable
@@ -170,10 +168,10 @@ def main(
 
     if "well" in vessel_type.lower():
         # loop through nd2 files
-        for nd2_file in tqdm(nd2_files):
+        for input_path in tqdm(input_paths):
             try:
                 process_timelapse_of_well(
-                    nd2_file,
+                    input_path,
                     output_directory,
                     min_cell_diameter_um,
                     num_workers,
@@ -184,15 +182,15 @@ def main(
 
             # skip over segmentation failures and corrupt nd2 files
             except ValueError as err:
-                msg = f"Processing for {nd2_file} failed:"
+                msg = f"Processing for {input_path} failed:"
                 logger.warning(msg + str(err))
 
     elif "pool" in vessel_type.lower():
         # loop through nd2 files
-        for nd2_file in tqdm(nd2_files):
+        for input_path in tqdm(input_paths):
             try:
                 process_timelapse_of_pools(
-                    nd2_file,
+                    input_path,
                     output_directory,
                     min_cell_diameter_um,
                     pool_radius_um,
@@ -204,7 +202,7 @@ def main(
 
             # skip over segmentation failures and corrupt nd2 files
             except ValueError as err:
-                msg = f"Processing for {nd2_file} failed:"
+                msg = f"Processing for {input_path} failed:"
                 logger.warning(msg + str(err))
 
 

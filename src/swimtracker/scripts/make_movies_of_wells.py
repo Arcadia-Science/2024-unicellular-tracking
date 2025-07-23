@@ -8,11 +8,10 @@ import numpy as np
 from napari_animation import Animation
 from natsort import natsorted
 from swimtracker import cli_options
+from swimtracker.timelapse import create_timelapse_from_filepath
 from swimtracker.tracking_metrics import TrajectoryCSVParser
 from swimtracker.utils import configure_logger, crop_movie_to_content
 from tqdm import tqdm
-
-from .track_cells import create_timelapse
 
 logger = logging.getLogger(__name__)
 
@@ -48,7 +47,11 @@ def make_napari_animation_for_timelapse(
     """
     # load timelapse and metadata
     logger.info(f"Loading timelapse file {input_file}...")
-    timelapse_obj = create_timelapse(input_file, pixelsize_um, frametime_s)
+    timelapse_obj = create_timelapse_from_filepath(
+        input_file,
+        pixelsize_um,
+        frametime_s,
+    )
     timelapse = timelapse_obj.raw_data
     num_frames = timelapse_obj.num_frames
 

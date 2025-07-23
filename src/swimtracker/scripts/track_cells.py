@@ -7,49 +7,12 @@ import numpy as np
 import skimage as ski
 from natsort import natsorted
 from swimtracker import cli_options
-from swimtracker.timelapse import Timelapse
+from swimtracker.timelapse import create_timelapse_from_filepath
 from swimtracker.tracking import Tracker
 from swimtracker.well_processor import WellSegmenter
 from tqdm import tqdm
 
 logger = logging.getLogger(__name__)
-
-
-def create_timelapse(
-    input_path: Path | str,
-    pixelsize_um: float | None = None,
-    frametime_s: float | None = None,
-    use_dask: bool = False,
-) -> Timelapse:
-    """Create a Timelapse object from input file.
-
-    Args:
-        input_path: Path to the input file (TIFF or ND2).
-        pixelsize_um: Pixel size in micrometers (required for TIFF files).
-        frametime_s: Frame time in seconds (required for TIFF files).
-        use_dask: Whether to use dask for lazy loading.
-
-    Returns:
-        Timelapse object loaded from the input file.
-
-    Raises:
-        ValueError: If file type is not supported or required parameters are missing.
-    """
-    input_path = Path(input_path)
-
-    if not input_path.exists():
-        raise FileNotFoundError(f"Input file not found: {input_path}")
-
-    if input_path.suffix.lower() in [".tif", ".tiff"]:
-        if pixelsize_um is None or frametime_s is None:
-            raise ValueError("TIFF files require pixelsize_um and frametime_s parameters.")
-        timelapse = Timelapse.from_tiff_path(input_path, pixelsize_um, frametime_s, use_dask)
-    elif input_path.suffix.lower() == ".nd2":
-        timelapse = Timelapse.from_nd2_path(input_path, use_dask)
-    else:
-        raise ValueError(f"Unsupported file type: {input_path.suffix}. Must be TIFF or ND2.")
-
-    return timelapse
 
 
 def process_timelapse_of_well(
@@ -84,7 +47,12 @@ def process_timelapse_of_well(
     """
 
     # segmentation
-    timelapse = create_timelapse(input_path, pixelsize_um, frametime_s, use_dask)
+    timelapse = create_timelapse_from_filepath(
+        input_path,
+        pixelsize_um,
+        frametime_s,
+        use_dask,
+    )
     segmenter = WellSegmenter(timelapse)
     segmentation = segmenter.segment(
         min_cell_diameter_um=min_cell_diameter_um, num_workers=num_workers

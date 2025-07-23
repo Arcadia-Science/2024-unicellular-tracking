@@ -72,6 +72,8 @@ def process_timelapse_of_well(
         input_path: Path to the input timelapse file.
         output_directory: Directory to save output files.
         min_cell_diameter_um: Minimum cell diameter in micrometers for filtering.
+        pixelsize_um: Pixel size in micrometers (required for TIFF files).
+        frametime_s: Frame time in seconds (required for TIFF files).
         num_workers: Number of parallel workers to use.
         use_dask: Whether to use dask for processing.
         btrack_config_file: Path to btrack configuration file.
@@ -127,16 +129,16 @@ def main(
     verbose: bool,
 ) -> None:
     """Script for batch processing raw timelapse microscopy data of unicellular
-    organisms in 384 or 1536 well plates or agar microchamber pools [1].
+    organisms in multi-well plates [1].
 
-    This script performs segmentation and cell tracking on each nd2 file
-    returned by the glob search pattern. Cell tracking will only proceed if
-    the segmentation was successful. If the segmentation fails (most likely
-    due to poor thresholding as a result of poor image quality or the absence
-    of cells), the nd2 file is skipped and nothing is output. If the
-    segmentation succeeds, a tiff file of the segmented timelapse is output and
+    This script performs segmentation and cell tracking on each timelapse file
+    (ND2 or TIFF) returned by the glob search pattern. Cell tracking will only
+    proceed if the segmentation was successful. If the segmentation fails (most
+    likely due to poor thresholding as a result of poor image quality or the
+    absence of cells), the file is skipped and nothing is output. If the
+    segmentation succeeds, a TIFF file of the segmented timelapse is output and
     cell tracking of the segmented timelapse will start. Cell tracking is done
-    using `btrack` [2]. Assuming cell tracking completes successfully, a csv
+    using `btrack` [2]. Assuming cell tracking completes successfully, a CSV
     file of motility data is output that contains the (x, y) position and object
     properties (e.g. area, eccentricity, etc.) of each tracked cell for each
     frame in the timelapse.
@@ -170,7 +172,7 @@ def main(
         logger.error(f"Failed to create output directory {output_directory}: {e}")
         return
 
-    # Loop through ND2 files
+    # Loop through timelapse files
     for input_path in tqdm(input_paths):
         try:
             process_timelapse_of_well(

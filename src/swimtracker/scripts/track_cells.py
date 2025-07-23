@@ -1,11 +1,13 @@
+from __future__ import annotations
 import logging
+from pathlib import Path
 
 import click
 import numpy as np
 import skimage as ski
 from natsort import natsorted
 from swimtracker import cli_options
-from swimtracker.pool_finder import PoolFinder
+from swimtracker.timelapse import Timelapse
 from swimtracker.tracking import Tracker
 from swimtracker.well_processor import WellSegmenter
 from tqdm import tqdm
@@ -13,24 +15,81 @@ from tqdm import tqdm
 logger = logging.getLogger(__name__)
 
 
+def create_timelapse(
+    input_path: Path | str,
+    pixelsize_um: float | None = None,
+    frametime_s: float | None = None,
+    use_dask: bool = False,
+) -> Timelapse:
+    """Create a Timelapse object from input file.
+
+    Args:
+        input_path: Path to the input file (TIFF or ND2).
+        pixelsize_um: Pixel size in micrometers (required for TIFF files).
+        frametime_s: Frame time in seconds (required for TIFF files).
+        use_dask: Whether to use dask for lazy loading.
+
+    Returns:
+        Timelapse object loaded from the input file.
+
+    Raises:
+        ValueError: If file type is not supported or required parameters are missing.
+    """
+    input_path = Path(input_path)
+
+    if not input_path.exists():
+        raise FileNotFoundError(f"Input file not found: {input_path}")
+
+    if input_path.suffix.lower() in [".tif", ".tiff"]:
+        if pixelsize_um is None or frametime_s is None:
+            raise ValueError("TIFF files require pixelsize_um and frametime_s parameters.")
+        timelapse = Timelapse.from_tiff_path(input_path, pixelsize_um, frametime_s, use_dask)
+    elif input_path.suffix.lower() == ".nd2":
+        timelapse = Timelapse.from_nd2_path(input_path, use_dask)
+    else:
+        raise ValueError(f"Unsupported file type: {input_path.suffix}. Must be TIFF or ND2.")
+
+    return timelapse
+
+
 def process_timelapse_of_well(
-    input_path,
-    output_directory,
-    min_cell_diameter_um,
-    num_workers,
-    use_dask,
-    btrack_config_file,
-    verbose,
-):
-    """Function for processing an individual file of raw timelapse microscopy
-    data of unicellular organisms in a 384-well or 1536-well plate."""
+    input_path: Path,
+    output_directory: Path,
+    min_cell_diameter_um: float,
+    pixelsize_um: float,
+    frametime_s: float,
+    num_workers: int,
+    use_dask: bool,
+    btrack_config_file: Path | None,
+    verbose: bool,
+) -> None:
+    """Process timelapse data from a single well.
+
+    Performs segmentation and cell tracking on microscopy data from individual
+    wells of multi-well plates.
+
+    Args:
+        input_path: Path to the input timelapse file.
+        output_directory: Directory to save output files.
+        min_cell_diameter_um: Minimum cell diameter in micrometers for filtering.
+        num_workers: Number of parallel workers to use.
+        use_dask: Whether to use dask for processing.
+        btrack_config_file: Path to btrack configuration file.
+        verbose: Whether to enable verbose logging.
+
+    Raises:
+        ValueError: If segmentation fails or file processing encounters errors.
+    """
 
     # segmentation
-    well = WellSegmenter(input_path, use_dask=use_dask)
-    segmentation = well.segment(min_cell_diameter_um)
+    timelapse = create_timelapse(input_path, pixelsize_um, frametime_s, use_dask)
+    segmenter = WellSegmenter(timelapse)
+    segmentation = segmenter.segment(
+        min_cell_diameter_um=min_cell_diameter_um, num_workers=num_workers
+    )
 
     # export segmentation
-    tiff_filename = output_directory / f"{well.input_path.stem}_segmented.tiff"
+    tiff_filename = output_directory / f"{input_path.stem}_segmented.tiff"
     segmentation_8bit = (255 * segmentation).astype(np.uint8)
     ski.io.imsave(tiff_filename, segmentation_8bit)
 
@@ -39,93 +98,34 @@ def process_timelapse_of_well(
     well_tracker.track_cells()
 
     # export tracking data
-    csv_filename = output_directory / f"{well.input_path.stem}_tracks.csv"
+    csv_filename = output_directory / f"{input_path.stem}_tracks.csv"
     dataframe = well_tracker.to_dataframe()
     dataframe.to_csv(csv_filename, index=False)
-
-
-def process_timelapse_of_pools(
-    input_path,
-    output_directory,
-    min_cell_diameter_um,
-    pool_radius_um,
-    pool_spacing_um,
-    num_workers,
-    btrack_config_file,
-    verbose,
-):
-    """Function for processing an individual nd2 file of raw timelapse microscopy
-    data of unicellular organisms in agar microchamber pools."""
-    # find pools within the timelapse
-    pool_finder = PoolFinder(
-        path=input_path,
-        pool_radius_um=pool_radius_um,
-        pool_spacing_um=pool_spacing_um,
-        min_cell_diameter_um=min_cell_diameter_um,
-    )
-
-    # configure export directory
-    #   output segmentation and tracking data to subdirectories as there are
-    #   multiple pools per nd2 file
-    output_directory /= pool_finder.input_path.stem
-    output_directory.mkdir(exist_ok=True)
-
-    # segment cells within each pool
-    pools_segmented = pool_finder.segment_pools()
-
-    # export poolmap
-    txt_file = output_directory / "poolmap.txt"
-    with open(txt_file, "w") as txt:
-        for (ix, iy), ((cx, cy), status) in pool_finder.poolmap.items():
-            line = f"{ix}\t{iy}\t{cx}\t{cy}\t{status}\n"
-            txt.write(line)
-
-    # render and save debug sketch of detected pools
-    pools_debug_sketch = pool_finder.make_debug_sketch()
-    jpg_file = output_directory / "pools_detected.jpg"
-    ski.io.imsave(jpg_file, pools_debug_sketch)
-
-    # track segmented cells in each pool and output to csv
-    for (ix, iy), segmentation in pools_segmented.items():
-        # export segmentation
-        tiff_file = output_directory / f"pool_{ix}_{iy}_segmented.tiff"
-        segmentation_8bit = (255 * segmentation).astype(np.uint8)
-        ski.io.imsave(tiff_file, segmentation_8bit)
-
-        # cell tracking
-        pool_tracker = Tracker(segmentation_8bit, btrack_config_file, num_workers, verbose)
-        pool_tracker.track_cells()
-
-        # export tracking data
-        csv_file = output_directory / f"pool_{ix}_{iy}_tracks.csv"
-        pool_tracker.tracker.export(csv_file)
 
 
 @click.command()
 @cli_options.input_directory_argument
 @cli_options.output_directory_option
 @cli_options.glob_option
-@cli_options.vessel_type_option
 @cli_options.min_cell_diameter_um_option
-@cli_options.pool_radius_um_option
-@cli_options.pool_spacing_um_option
+@cli_options.pixelsize_um_option
+@cli_options.frametime_s_option
 @cli_options.num_workers_option
 @cli_options.use_dask_option
 @cli_options.btrack_config_file_option
 @cli_options.verbose_option
 def main(
-    input_directory,
-    output_directory,
-    glob_str,
-    vessel_type,
-    min_cell_diameter_um,
-    pool_radius_um,
-    pool_spacing_um,
-    num_workers,
-    use_dask,
-    btrack_config_file,
-    verbose,
-):
+    input_directory: Path,
+    output_directory: Path | None,
+    glob_str: str,
+    min_cell_diameter_um: float,
+    pixelsize_um: float,
+    frametime_s: float,
+    num_workers: int,
+    use_dask: bool,
+    btrack_config_file: Path | None,
+    verbose: bool,
+) -> None:
     """Script for batch processing raw timelapse microscopy data of unicellular
     organisms in 384 or 1536 well plates or agar microchamber pools [1].
 
@@ -152,58 +152,42 @@ def main(
         [2] https://btrack.readthedocs.io/en/latest/index.html
     """
 
-    # set log level
     if verbose:
         logger.setLevel(logging.DEBUG)
 
-    # glob all .nd2 files in directory
+    # Glob all files in directory
     input_paths = natsorted(input_directory.glob(glob_str))
     if not input_paths:
-        logger.error(f"No nd2 files found in {input_directory}.")
+        logger.error(f"No files found matching '{glob_str}' in {input_directory}.")
+        return
 
-    # ensure output directory exists and is writeable
+    # Ensure output directory exists and is writeable
     if output_directory is None:
         output_directory = input_directory / "processed"
-    output_directory.mkdir(parents=True, exist_ok=True)
+    try:
+        output_directory.mkdir(parents=True, exist_ok=True)
+    except OSError as e:
+        logger.error(f"Failed to create output directory {output_directory}: {e}")
+        return
 
-    if "well" in vessel_type.lower():
-        # loop through nd2 files
-        for input_path in tqdm(input_paths):
-            try:
-                process_timelapse_of_well(
-                    input_path,
-                    output_directory,
-                    min_cell_diameter_um,
-                    num_workers,
-                    use_dask,
-                    btrack_config_file,
-                    verbose,
-                )
+    # Loop through ND2 files
+    for input_path in tqdm(input_paths):
+        try:
+            process_timelapse_of_well(
+                input_path,
+                output_directory,
+                min_cell_diameter_um,
+                pixelsize_um,
+                frametime_s,
+                num_workers,
+                use_dask,
+                btrack_config_file,
+                verbose,
+            )
 
-            # skip over segmentation failures and corrupt nd2 files
-            except ValueError as err:
-                msg = f"Processing for {input_path} failed:"
-                logger.warning(msg + str(err))
-
-    elif "pool" in vessel_type.lower():
-        # loop through nd2 files
-        for input_path in tqdm(input_paths):
-            try:
-                process_timelapse_of_pools(
-                    input_path,
-                    output_directory,
-                    min_cell_diameter_um,
-                    pool_radius_um,
-                    pool_spacing_um,
-                    num_workers,
-                    btrack_config_file,
-                    verbose,
-                )
-
-            # skip over segmentation failures and corrupt nd2 files
-            except ValueError as err:
-                msg = f"Processing for {input_path} failed:"
-                logger.warning(msg + str(err))
+        # Skip over segmentation failures and corrupt files
+        except (ValueError, FileNotFoundError, OSError) as err:
+            logger.warning(f"Processing for {input_path} failed: {err}")
 
 
 if __name__ == "__main__":

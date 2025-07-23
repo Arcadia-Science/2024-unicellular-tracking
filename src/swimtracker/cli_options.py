@@ -67,43 +67,27 @@ framerate_option = click.option(
     help="Framerate of output Napari animation.",
 )
 
-possible_vessels = [
-    "384-well plate",
-    "1536-well plate",
-    "pools",
-]
-vessel_type_option = click.option(
-    "--vessel",
-    "vessel_type",
-    type=click.Choice(possible_vessels),
-    default="384-well plate",
-    show_default=True,
-    help="The type of vessel in which the cells are swimming.",
-)
-
 min_cell_diameter_um_option = click.option(
     "--min-cell-diameter",
     "min_cell_diameter_um",
     type=float,
     default=6,
     show_default=True,
-    help="Diameter [um] of smallest desired organism to be segmented.",
+    help="Diameter [µm] of smallest desired organism to be segmented.",
 )
 
-pool_radius_um_option = click.option(
-    "--pool-radius",
-    "pool_radius_um",
+pixelsize_um_option = click.option(
+    "--pixelsize_um",
+    "pixelsize_um",
     type=float,
-    default=50,
-    show_default=True,
-    help="Radius [um] of agar microchamber pool.",
+    default=None,
+    help="Pixelsize [µm] of timelapse. Required for processing TIFF files.",
 )
 
-pool_spacing_um_option = click.option(
-    "--pool-spacing",
-    "pool_spacing_um",
+frametime_s_option = click.option(
+    "--frametime_s",
+    "frametime_s",
     type=float,
-    default=200,
-    show_default=True,
-    help="Distance [um] between adjacent microchamber pools (measured from center to center).",
+    default=None,
+    help="The time [s] between frames of the timelapse. Required for processing TIFF files.",
 )
